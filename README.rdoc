@@ -5,23 +5,20 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.2.3
 
-* System dependencies
+* Rails version 4.2.4
 
-* Configuration
+* Configuration pendiente
 
-* Database creation
+* Database creation OK
 
-* Database initialization
+* Database  table pendiente
 
-* How to run the test suite
+* How to run the test suite pendiente 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*...
+ Crear una red social enfocada a empresas
 
 
 Please feel free to use a different markup language if you do not plan to run
