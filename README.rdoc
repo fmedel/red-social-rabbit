@@ -1,25 +1,24 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+=README
+especificaciones:
 
 * Ruby version 2.2.3
 
 * Rails version 4.2.4
 
-* Configuration pendiente
+* Configuration => pendiente
 
-* Database creation OK
+* Database creation => OK
 
-* Database  table pendiente
+* Database  table  => pendiente
 
-* How to run the test suite pendiente 
+* Run test => pendiente
 
-*...
- Crear una red social enfocada a empresas
+* Interfaz grafica => pendiente
 
+* Modelo entidad relacion => ok
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Modelo fisico relacional => ok
+ 
+-----------------------------DESCR-------------------
+* Crear una red social enfocada a empresas
+-----------------------------------------------------
