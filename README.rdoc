@@ -4,8 +4,8 @@ especificaciones:
 * Ruby version 2.2.3
 
 * Rails version 4.2.4
-
-* Configuration => pendiente
+---------------------------PROYECTO-------------------
+* Configuración => pendiente
 
 * Database creation => OK
 
@@ -15,10 +15,44 @@ especificaciones:
 
 * Interfaz grafica => pendiente
 
+-------------------------------INFOR-----------------
+
+* Requerimiento funcionales => pendiente
+
+* Requerimiento no funcionales => pendiente
+ 
 * Modelo entidad relacion => ok
 
 * Modelo fisico relacional => ok
+
+* Casos de  usos  => pedindiente
+
+* Tipo de arquitectura => pendiente 
+
+* Alcance =>pendiente 
+
+* Propocito  del proyecto => pendiente
+
+* Problema a solucionar => pendiente
+
+* solución propuesta => pendiente 
+
+* Plataforma de Operación => pendiente 
+
+* Plataforma de Desarollo => pendiente 
+
+* Diagramas de Actividades => pendiente 
+
+* Manual del uso => pendiente 
+
+* Tipo de metodologia => pendiente
+
+* Estudio de factibilidad =>  tecnica   =>  pendiente 
+			  =>  operativa =>  pendiente
+			  =>  economica =>  pendiente
  
+* Validacion de los requerimento => pendiente
+
 -----------------------------DESCR-------------------
 * Crear una red social enfocada a empresas
 -----------------------------------------------------
