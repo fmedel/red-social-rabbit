@@ -15,44 +15,51 @@ especificaciones:
 
 * Interfaz grafica => pendiente
 
--------------------------------INFOR-----------------
-
-* Requerimiento funcionales => pendiente
-
-* Requerimiento no funcionales => pendiente
- 
-* Modelo entidad relacion => ok
-
-* Modelo fisico relacional => ok
-
-* Casos de  usos  => pedindiente
-
-* Tipo de arquitectura => pendiente 
-
-* Alcance =>pendiente 
-
-* Propocito  del proyecto => pendiente
-
-* Problema a solucionar => pendiente
-
-* solución propuesta => pendiente 
-
-* Plataforma de Operación => pendiente 
-
-* Plataforma de Desarollo => pendiente 
-
-* Diagramas de Actividades => pendiente 
-
-* Manual del uso => pendiente 
-
-* Tipo de metodologia => pendiente
-
-* Estudio de factibilidad =>  tecnica   =>  pendiente 
-			  =>  operativa =>  pendiente
-			  =>  economica =>  pendiente
- 
-* Validacion de los requerimento => pendiente
-
 -----------------------------DESCR-------------------
 * Crear una red social enfocada a empresas
 -----------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Índice(informe)
+
+1.- ENTORNO Y FUNDAMENTOS. => OK
+    1.1.- Introducción. => OK
+    1.2.- Historia y fundamentos del proyecto. => OK
+    1.3.- Problema a resolver. => OK
+    1.4.- Acercamientos actual al problema. => OK
+    1.5.- Justificación del proyecto. => OK
+
+2.-OBJETIVO DEL  PROYECTO. => OK
+    2.1.- Objetivo general. => OK
+    2.2.- Objetivos específicos. => OK
+    2.3.- Características y beneficios de producto. => OK
+        2.3.1.- Datos del proyectos. => OK
+        2.3.2.- Patrocinador. => OK
+        2.3.3.- Asignación de  cargos.=> OK
+3.- ALCANCE DEL PROYECTO. => OK
+
+4.-LEVANTAMIENTO DE LOS REQUERIMIENTOS. =>OK
+    5.1.- Requerimientos funcionales => OK
+    5.2.- Requerimientos no funcionales => OK
+
+5.- ENTREGABLES. => OK
+
+6.- MODELOS DE BASE DE DATO.
+    6.1.- Entidad relacion  => OK
+    6.2.- Fisico relacional => OK
+
+7.- CASOS DE USOS. => pedindiente
+
+8.- TIPO DE ARQUITECTURA => pedindiente
+
+9.- TIPO DE PLATAFORMA. => pedindiente
+    9.1.- Operación. => pedindiente
+    9.2.- Desarollo => pedindiente
+
+10.- Diagraas de actividades. => pedindiente
+
+11.- Manual de uso. => pedindiente
+
+12.- EStudios de factibilidad. => pedindiente
+     12.1.- Tecnica.
+     12.2.- Operativa.
+     12.3.- Economica.
