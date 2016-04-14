@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  devise_for :usuarios
-  devise_for :super_usuarios
   get 'welcome/index'
 
   root to:'welcome#index'

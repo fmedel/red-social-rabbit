@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160413024043) do
   create_table "denuncia", force: :cascade do |t|
     t.integer  "perfil_ID"
     t.integer  "publicacion_ID"
-    t.string   "razon"
+    t.string   "razon_de_denuncia"
     t.integer  "estado_ID"
     t.integer  "super_ususario_ID"
     t.datetime "created_at",        null: false
