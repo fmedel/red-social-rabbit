@@ -1,0 +1,63 @@
+=README
+especificaciones:
+
+* Ruby version 2.2.3
+
+* Rails version 4.2.4
+---------------------------PROYECTO-------------------
+* Configuración => pendiente
+
+* Database creation => OK
+
+* Database  table  => OK
+
+* Run test => pendiente
+
+* Interfaz grafica => pendiente
+
+-----------------------------DESCR-------------------
+* Crear una red social enfocada a empresas
+-----------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Índice(informe)
+
+1.- ENTORNO Y FUNDAMENTOS. 
+    1.1.- Historia y fundamentos del proyecto.=> pedindiente
+    1.2.- Problema a resolver. => pedindiente
+    1.3.- Acercamientos actual al problema.=> pedindiente
+    1.4.- Justificación del proyecto.=> pedindiente
+
+2.-OBJETIVO DEL  PROYECTO. => pedindiente
+    2.1.- Objetivo general. => pedindiente
+    2.2.- Objetivos específicos. => pedindiente
+    2.3.- Características y beneficios de producto.=> pedindiente
+        2.3.1.- Datos del proyectos. => pedindiente
+        2.3.2.- Asignación de  cargos.=> pedindiente
+3.- ALCANCE DEL PROYECTO.=> pedindiente
+
+4.-LEVANTAMIENTO DE LOS REQUERIMIENTOS.=> pedindiente
+    5.1.- Requerimientos funcionales.=> pedindiente
+    5.2.- Requerimientos no funcionales.=> pedindiente
+
+5.- ENTREGABLES. =>OK
+
+6.- MODELOS DE BASE DE DATO. => OK
+    6.1.- Entidad relacion  => OK
+    6.2.- Fisico relacional => OK
+
+7.- CASOS DE USOS. => pedindiente
+
+8.- TIPO DE ARQUITECTURA => pedindiente
+
+9.- TIPO DE PLATAFORMA. => pedindiente
+    9.1.- Operación. => pedindiente
+    9.2.- Desarollo => pedindiente
+
+10.- Diagraas de actividades. => pedindiente
+
+11.- Manual de uso. => pedindiente
+
+12.- EStudios de factibilidad. => pedindiente
+     12.1.- Tecnica. => pedindiente
+     12.2.- Operativa.=> pedindiente
+     12.3.- Economica.=> pedindiente

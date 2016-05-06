@@ -1,0 +1,126 @@
+\d
+\dt
+\d+ estados;
+\d+ grados
+\d+ grados;
+\d+ grados;
+clear
+;
+\d+ grados;
+\d+ personas;
+\d+ rubros
+\d+ videos
+\d+ fotos
+\d+ ideas
+\d+ estados
+\d+ tipo_super_usuarios
+;
+\q
+\d
+\q
+\d
+\dt
+\d+ mensajes
+\q
+\d
+\dt
+\d+ personas
+\d+ rubros
+\d+ videos
+\d+ archivos
+\d+ fotos
+\d+ perfil_publicaciones
+\d+ perfil_publicaciones
+\q
+\d
+\dt
+\d+ perfil_publicaciones
+drop table perfil_publicaciones;
+\dt
+\q
+\q
+\q
+\dt
+\d+ perfil_publicaciones
+\d+ estados
+\d+ ideas
+\d+ perfil
+\d+ perfiles
+\d+ perfiles
+drop table  perfiles;
+\d+ perfiles
+\d+ postulaciones
+\d+ denuncia
+\d+ adquiridos
+\d+ mensajes
+\d+ conversaciones
+\d+ grados
+\d+ ideas
+\d+ perfil_publicaciones
+drop table  perfil_publicaciones;
+\d+ perfil_publicaciones
+\dt perfil_publicaciones
+\dt 
+\d+ perfil_publicaciones
+\d+ perfiles_publicaciones
+\q
+\dt
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d
+\dt
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+q
+\q
+\d+ mensajes
+\d+ fotos
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ conversaciones
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ mensajes
+\d+ conversaciones
+ drop dabase
+;
+ drop database;
+\dt
+\q
+\dt
+\d+ adquiridos
+\q
+\dt
+drop table;
+drop ALL table;
+deleter ALL table;
+\dt
+\dt
+\d+ super_usuario
+\d+ usuario
+\d+ usuario
+\du usuario
+\du 
+\h
+show usuario
+\s usuario 

@@ -1,30 +1,72 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @title %></title>
+    <%= favicon_link_tag "mini_logo.ico" %>
+    <title>
+      <%= @title %>
+    </title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class ="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div id="menu">    
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container show-top-margin separate-rows tall-rows">
+          <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <br>
+                <%=link_to "Red Rabbit Network",controller: "welcome",action: "identify" %>
+            </div>
+            <div class="formulario">
+               <%= form_for :post do |f| %>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                      <%=f.label :user %>
+                      <%= f.text_field :user %>
+                  </div>
+                   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <%= f.label :password %>
+                        <%= f.password_field :password %>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <%= f.submit 'Ingresar' ,:class=>"btn btn-success"%>
+                  </div>
+               <% end  %>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h6>&nbsp;</h6>
+          </div>
+             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <%= link_to "¿Haz olvidado tu Contraseña?", controller: "welcome",action: "identify" %>
+             </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class ="container" id="contenido">
       <%= yield %>
     </div>
   </body>
-  <footer class="panel-footer">
-    <div class="container show-top-margin separate-rows tall-rows">
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="footer">
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <h6>Copyrigth Red Rabbit Network</h6>
+          <h6>Copyrigth© Red Rabbit Network</h6>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <h6>Email:RedRabbitNetwork@gmail.com</h6>
+          <h6>Email:
+          <%= link_to "RedRabbitNetwork@gmail.com",controller: 'welcome',action: 'index'%>
+          </h6>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
           <h4>Tu idea es el futúro </h4>
         </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <%= link_to " Terminos de uso",controller: 'legal',action: 'terms'%>
+          <br>
+          <%= link_to "Política de privacidad", controller: "legal",action: "privacy" %>
+        </div>
     </div>
-  </footer>
 </html>

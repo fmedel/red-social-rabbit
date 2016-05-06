@@ -22,22 +22,22 @@ especificaciones:
 Índice(informe)
 
 1.- ENTORNO Y FUNDAMENTOS. 
-    1.1.- Historia y fundamentos del proyecto.=> pedindiente
-    1.2.- Problema a resolver. => pedindiente
-    1.3.- Acercamientos actual al problema.=> pedindiente
-    1.4.- Justificación del proyecto.=> pedindiente
+    1.1.- Historia y fundamentos del proyecto.=> pendiente
+    1.2.- Problema a resolver. => pendiente
+    1.3.- Acercamientos actual al problema.=> pendiente
+    1.4.- Justificación del proyecto.=> pendiente
 
-2.-OBJETIVO DEL  PROYECTO. => pedindiente
-    2.1.- Objetivo general. => pedindiente
-    2.2.- Objetivos específicos. => pedindiente
-    2.3.- Características y beneficios de producto.=> pedindiente
-        2.3.1.- Datos del proyectos. => pedindiente
-        2.3.2.- Asignación de  cargos.=> pedindiente
-3.- ALCANCE DEL PROYECTO.=> pedindiente
+2.-OBJETIVO DEL  PROYECTO. => pendiente
+    2.1.- Objetivo general. => pendiente
+    2.2.- Objetivos específicos. => pendiente
+    2.3.- Características y beneficios de producto.=> pendiente
+        2.3.1.- Datos del proyectos. => pendiente
+        2.3.2.- Asignación de  cargos.=> pendiente
+3.- ALCANCE DEL PROYECTO.=> pendiente
 
-4.-LEVANTAMIENTO DE LOS REQUERIMIENTOS.=> pedindiente
-    5.1.- Requerimientos funcionales.=> pedindiente
-    5.2.- Requerimientos no funcionales.=> pedindiente
+4.-LEVANTAMIENTO DE LOS REQUERIMIENTOS.=> pendiente
+    5.1.- Requerimientos funcionales.=> pendiente
+    5.2.- Requerimientos no funcionales.=> pendiente
 
 5.- ENTREGABLES. =>OK
 
@@ -45,19 +45,19 @@ especificaciones:
     6.1.- Entidad relacion  => OK
     6.2.- Fisico relacional => OK
 
-7.- CASOS DE USOS. => pedindiente
+7.- CASOS DE USOS. => (opcional)
 
-8.- TIPO DE ARQUITECTURA => pedindiente
+8.- TIPO DE ARQUITECTURA => pendiente
 
-9.- TIPO DE PLATAFORMA. => pedindiente
-    9.1.- Operación. => pedindiente
-    9.2.- Desarollo => pedindiente
+9.- TIPO DE PLATAFORMA. => pendiente
+    9.1.- Operación. => pendiente
+    9.2.- Desarollo => pendiente
 
-10.- Diagraas de actividades. => pedindiente
+10.- DFD. => ok
 
-11.- Manual de uso. => pedindiente
+11.- Manual de uso. => pendiente
 
-12.- EStudios de factibilidad. => pedindiente
-     12.1.- Tecnica. => pedindiente
-     12.2.- Operativa.=> pedindiente
-     12.3.- Economica.=> pedindiente
+12.- EStudios de factibilidad. => pendiente
+     12.1.- Tecnica. => pendiente
+     12.2.- Operativa.=> pendiente
+     12.3.- Economica.=> pendiente

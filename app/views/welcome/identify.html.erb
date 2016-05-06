@@ -1,0 +1,104 @@
+<br><br><br><br> <br><br>
+<% if @nombre %>
+	<div id="identify">
+		<div class="container" >
+			<div class="row">
+			             <div class="col-xs-6  col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3">
+			                 <div class="alert alert-success">
+			                 	<h1>Email enviado  <h1>
+			                 </h1>	
+			                 </div>
+
+			            </div>
+			    </div>
+			<div class ="row">
+				 <div class="col-xs-6 col-xs-offset-3  col-sm-6 col-sm-offset-3  col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3 ">
+					<h4>
+						<b>Token de la cuenta.</b>
+					</h4>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+		          <%= form_tag({:controller => "welcome", :action => "identify"}, :method => "post") do %>
+		          <table class="col-xs-6 col-xs-offset-3  col-sm-6 col-sm-offset-3  col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3 ">
+		          <tr>
+		            <td >
+		                 <h4>Token del email empresa
+		                 <br>
+		                 	<%= text_field "token_company", "", :required => "required" ,:autofocus => true %>
+		                 </h4>
+		            </td>
+		           </tr>
+		            <td >
+		                 <h4>Token del  email del encargado
+		                 <br>
+		                 	<%= text_field "token_", "", :required => "required"%>
+		                 </h4>
+		            </td>
+		          </table>
+		    </div>
+		    <hr>
+		    <div class="row">
+		             <div class="col-xs-6  col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3">
+		                 <%= submit_tag "Enviar token.",:class=>"btn btn-success"%>	         
+		            </div>
+		        <% end  %>
+		    </div>
+		    <br>
+		    <%if @error %>
+			    <hr>
+			    <div class="row">
+			             <div class="col-xs-6  col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3">
+			                 <div class="alert alert-danger">
+			                 	<h1>Los token no son los correctos. <h1>
+			                 </h1>	        
+			            </di>
+			    </div>
+			    <br>
+		    <% end %>
+	    </div>
+	</div>
+<% else %> 
+	<div id="identify">
+		<div class="container" >
+			<div class ="row">
+				 <div class="col-xs-6 col-xs-offset-3  col-sm-6 col-sm-offset-3  col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3 ">
+					<h4>
+						<b>Recupera tu cuenta</b>
+					</h4>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+		          <%= form_tag({:controller => "welcome", :action => "identify"}, :method => "post") do %>
+		            <div class="col-xs-6 col-xs-offset-3  col-sm-6 col-sm-offset-3  col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3 ">
+		                 <h4>Nombre del Perfil
+		                 	<%= text_field "user", "", :required => "required" ,:autofocus => true%>
+		                 <h4>
+		            </div>
+		    </div>
+		    <hr>
+		    <div class="row">
+		             <div class="col-xs-6  col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3">
+		                 <%= submit_tag "Buscar.",:class=>"btn btn-success"%>	         
+		            </div>
+		        <% end  %>
+		    </div>
+		    <br>
+		    <%if @error %>
+			    <hr>
+			    <div class="row">
+			             <div class="col-xs-6  col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3">
+			                 <div class="alert alert-danger">
+			                 	<h1>La cuenta no existe. <h1>
+			                 </h1>	
+			                 </div>
+
+			            </div>
+			    </div>
+			    <br>
+		    <% end %>
+	    </div>
+	</div> 
+<% end; %>

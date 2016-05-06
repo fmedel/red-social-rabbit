@@ -1,35 +1,66 @@
-
-<div class="menu">
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container show-top-margin separate-rows tall-rows">
-      <div class="row">
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <%= image_tag "conejo_rojo.jpg" ,:alt => "Red Rabbit Network" , :title => "Red Rabbit Network",:size => "30" %>
-        </div>
-        <div class="formulario">
-           <%= form_for :post do |f| %>
-              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                  <%=f.label :user %>
-                  <%= f.text_field :user %>
-              </div>
-               <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <%= f.label :password %>
-                    <%= f.password_field :password %>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <%= f.submit :Ingresar %>
-              </div>
-           <% end  %>
-        </div>
-      </div>
-      <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <h6>&nbsp;</h6>
-      </div>
-         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <%= link_to "¿Haz olvidado tu Contraseña?", :controller =>"welcome" , :action => "index"%>
-         </div>
-      </div>
+<br><br><br><br> <br><br>
+<div id="index">
+	<div class="container" >
+		<div class ="row">
+			 <div class="col-xs-6 col-xs-offset-5  col-sm-6 col-sm-offset-5  col-md-6 col-md-offset-5  col-lg-6 col-lg-offset-5 ">
+				<h4>
+					Registrate <br><b>¡ES GRATIS!</b>
+				</h4>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+	        <%= form_for :register do |f| %>
+	            <table class="col-xs-offset-5  col-sm-offset-5 col-md-offset-5 col-lg-offset-5">
+	            	<tr>
+	                 	<td><%=f.label 'Nombre de la Empresa' %></td>
+	                 	<td><%= f.text_field :name_company %></td>
+	            	</tr>
+	            	<tr>
+	                 	<td><%=f.label 'Email de la Empresa' %></td>
+	                 	<td><%= f.email_field :Email_company %></td>
+	                </tr>
+	                <tr>
+	                 	<td><%=f.label 'Nombre del encargado' %></td>
+	                	<td><%= f.text_field :name_charge %></td>
+	            	</tr>
+	            	<tr>
+	                 	<td><%=f.label 'Apllido del encargado' %></td>
+	                	<td><%= f.text_field :last_charge %></td>
+	            	</tr>
+	            	<tr>
+	                 	<td><%=f.label 'Rut del encargado' %></td>
+	                	<td><%= f.text_field :Rut_charge %></td>
+	            	</tr>
+	            	<tr>
+	                 	<td><%=f.label 'Email del encargado' %></td>
+	                	<td><%= f.email_field :Email_charge %></td>
+	            	</tr>
+	                <tr>
+	                	<td><%=f.label 'Password' %></td>
+	                	<td><%= f.password_field :password_company %></td>
+	            	</tr>
+	            	<tr>
+	                 	<td><%=f.label 'Repetir Password' %></td>
+	                	<td><%= f.password_field :password_company_2 %></td>
+	            	</tr>
+	            </table>
+	            <table class="col-xs-offset-5  col-sm-offset-5 col-md-offset-5 col-lg-offset-5">
+	            	<tr>
+	            		<td>
+	            		<h6>
+	            			<%=f.check_box :aceepto, {},"true","false"%>
+	            			Acepto los  <%= link_to " Terminos de uso",controller: 'legal',action: 'terms'%> y  <%= link_to "Política de privacidad", controller: "legal",action: "privacy" %>
+	            		</h6>
+	            		</td>
+	            	</tr>
+	            	<tr>
+	            		<td>		
+	                		<%= f.submit 'Únete ahora', :class=>"btn btn-success btn-block"%>	 
+	            		</td>
+	            	</tr>
+	    		</table>
+	    	 <% end  %>	
+	    </div>
     </div>
-  </nav>
 </div>
