@@ -1,8 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-  	@title = "Red Rabbit Network";
+    @title = "Red Rabbit Network";
   end
-
   def identify
   	@title ="¿Haz olvidado la contraseña?"
   	if request.post?

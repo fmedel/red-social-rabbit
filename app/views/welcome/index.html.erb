@@ -1,4 +1,4 @@
-<br><br><br><br> <br><br>
+<br><br><br><br> <br>
 <div id="index">
 	<div class="container" >
 		<div class ="row">
@@ -10,39 +10,41 @@
 		</div>
 		<hr>
 		<div class="row">
-	        <%= form_for :register do |f| %>
+	        <%= form_for :usuario do |f| %>
 	            <table class="col-xs-offset-5  col-sm-offset-5 col-md-offset-5 col-lg-offset-5">
 	            	<tr>
 	                 	<td><%=f.label 'Nombre de la Empresa' %></td>
-	                 	<td><%= f.text_field :name_company %></td>
+	                 	<td><%= f.text_field :name_company, :required => "required" ,:autofocus => true%></td>
 	            	</tr>
 	            	<tr>
 	                 	<td><%=f.label 'Email de la Empresa' %></td>
-	                 	<td><%= f.email_field :Email_company %></td>
+	                 	<td><%= f.email_field :Email_company , :required => "required"%></td>
 	                </tr>
 	                <tr>
 	                 	<td><%=f.label 'Nombre del encargado' %></td>
-	                	<td><%= f.text_field :name_charge %></td>
+	                	<td><%= f.text_field :name_charge , :required => "required"%></td>
+	                	<td><%= f.text_field :name_charge2 %></td>
 	            	</tr>
 	            	<tr>
 	                 	<td><%=f.label 'Apllido del encargado' %></td>
-	                	<td><%= f.text_field :last_charge %></td>
+	                	<td><%= f.text_field :last_charge , :required => "required"%></td>
+	                	<td><%= f.text_field :last_charge2 %></td>
 	            	</tr>
 	            	<tr>
 	                 	<td><%=f.label 'Rut del encargado' %></td>
-	                	<td><%= f.text_field :Rut_charge %></td>
+	                	<td><%= f.text_field :Rut_charge , :required => "required"%></td>
 	            	</tr>
 	            	<tr>
 	                 	<td><%=f.label 'Email del encargado' %></td>
-	                	<td><%= f.email_field :Email_charge %></td>
+	                	<td><%= f.email_field :Email_charge , :required => "required"%></td>
 	            	</tr>
 	                <tr>
 	                	<td><%=f.label 'Password' %></td>
-	                	<td><%= f.password_field :password_company %></td>
+	                	<td><%= f.password_field :password_company, :required => "required" %></td>
 	            	</tr>
 	            	<tr>
 	                 	<td><%=f.label 'Repetir Password' %></td>
-	                	<td><%= f.password_field :password_company_2 %></td>
+	                	<td><%= f.password_field :password_company_2  , :required => "required" %></td>
 	            	</tr>
 	            </table>
 	            <table class="col-xs-offset-5  col-sm-offset-5 col-md-offset-5 col-lg-offset-5">
@@ -58,9 +60,12 @@
 	            		<td>		
 	                		<%= f.submit 'Únete ahora', :class=>"btn btn-success btn-block"%>	 
 	            		</td>
-	            	</tr>
+	            	</tr> 
 	    		</table>
 	    	 <% end  %>	
 	    </div>
-    </div>
+    </div> 
 </div>
+<br><br><br>
+<br><br><br>
+<br><br><br>

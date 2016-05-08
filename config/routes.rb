@@ -2,12 +2,24 @@ Rails.application.routes.draw do
   get 'legal/privacy'
   get 'legal/terms'
   get 'welcome/index'
+  #post 'welcome/index'
   get 'welcome/identify'
   post 'welcome/identify'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
    root 'welcome#index'
+   resources :usuarios
+###########################################################
+    #get "/usuarios" index
+    #post "/usuarios" create
+    #delete "/usuarios" delete
+    #get "/usuarios/:id" show
+    #get "/usuarios/new" new
+    #get "/usuarios/:id/edit" edit
+    #patch "/usuarios/:id" update
+    #put "/usuarios/:id" update
+###########################################################
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
