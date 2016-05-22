@@ -1,5 +1,5 @@
  
-<%= simple_form_for(@idea, url: guardar_path, html: {class: "form-inline"}) do |f| %>
+<%= simple_form_for(@idea, url: ver_idea_path(@idea), html: {class: "form-inline"}) do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
@@ -13,7 +13,9 @@
   <% end %>
   <div class="form-group has-success has-feedback">
   <div class="field">
+  afghjklñ{
     <%= f.input_field :titulo ,placeholder: 'nombre'%>
+  }
   </div>
   <div class="field">
     <%= f.input_field :contenido ,placeholder: 'Descripcion '%>

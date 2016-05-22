@@ -48,13 +48,13 @@ Rails.application.routes.draw do
   #DELETE /users(.:format)               
       #get '',to:'devise/registrations#destroy', as: :
   end
-  resources :ideas
+  #resources :ideas
 
   #GET    /ideas(.:format)                   
-    #get '', to: 'ideas#index' , as: :  
+    get 'ver_idea(.:format)', to: 'ideas#index'
 
   #POST   /ideas(.:format)               
-    #get '', to: 'ideas#create' , as: :
+    post 'ver_idea(.:format)', to: 'ideas#create' , as: :guardar
 
   #GET    /ideas/new(.:format)           
     get 'nueva_idea', to: 'ideas#new' , as: :nueva_idea
@@ -66,10 +66,10 @@ Rails.application.routes.draw do
     get 'ver_idea/:id(.:format)', to: 'ideas#show' , as: :ver_idea
                 
   #PATCH  /ideas/:id(.:format)           
-    #patch 'ver_idea/:id(.:format)', to: 'ideas#update' , as: :
+    patch 'ver_idea/:id(.:format)', to: 'ideas#update' 
 
   #PUT    /ideas/:id(.:format)           ideas#update
-    #get '', to: 'ideas#update' , as: :  
+    put 'ver_idea/:id(.:format)', to: 'ideas#update'
 
   #DELETE /ideas/:id(.:format)           ideas#destroy
     delete 'ver_idea/:id(.:format)', to: 'ideas#destroy' , as: :eliminar
