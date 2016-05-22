@@ -1,25 +1,88 @@
 Rails.application.routes.draw do
-  get 'legal/privacy'
-  get 'legal/terms'
   get 'welcome/index'
-  #post 'welcome/index'
-  get 'welcome/identify'
-  post 'welcome/identify'
+
+  devise_for :users
+  devise_scope :user do 
+   #GET    /users/sign_in(.:format)       
+      get 'login',to:'devise/sessions#new',as: :login
+   
+   #POST   /users/sign_in(.:format)       
+      post 'login_error',to:'devise/sessions#create', as: :login_error
+  
+   #GET    /users/sign_out(.:format)      
+      get 'destruir',to:'devise/sessions#destroy', as: :destruiry
+   
+   #POST   /users/password(.:format)      
+      #get '',to:'devise/passwords#create', as: :
+   
+   #GET    /users/password/new(.:format)  
+      get 'comenzar',to:'devise/passwords#new', as: :comenzar
+   
+   #GET    /users/password/edit(.:format) 
+      #get '',to:'devise/passwords#edit', as: : 
+   
+   #PATCH  /users/password(.:format)      
+      #get '',to:'devise/passwords#update', as: :
+   
+   #PUT    /users/password(.:format)      
+      #get '',to:'devise/passwords#update', as: :
+  
+  #GET    /users/cancel(.:format)        
+      #get '',to:'devise/registrations#cancel', as: :
+  
+  #POST   /users(.:format)               
+      #get '',to:'devise/registrations#create', as: :
+      
+  #GET    /users/sign_up(.:format)      
+      get 'registrar',to:'devise/registrations#new', as: :registrar
+   
+   #GET    /users/edit(.:format)          
+      get 'editar',to:'devise/registrations#edit', as: :editar
+  
+  #PATCH  /users(.:format)               
+      #get '',to:'devise/registrations#update', as: :
+  
+  #PUT    /users(.:format)               
+      #get '',to:'devise/registrations#update', as: :
+  
+  #DELETE /users(.:format)               
+      #get '',to:'devise/registrations#destroy', as: :
+  end
+  resources :ideas
+
+  #GET    /ideas(.:format)                   
+    #get '', to: 'ideas#index' , as: :  
+
+  #POST   /ideas(.:format)               
+    #get '', to: 'ideas#create' , as: :
+
+  #GET    /ideas/new(.:format)           
+    get 'nueva_idea', to: 'ideas#new' , as: :nueva_idea
+
+  #GET    /ideas/:id/edit(.:format)      
+   get 'ver_idea/:id/editar(.:format)', to: 'ideas#edit' , as: :editar_idea
+
+  #GET    /ideas/:id(.:format)           
+    get 'ver_idea/:id(.:format)', to: 'ideas#show' , as: :ver_idea
+                
+  #PATCH  /ideas/:id(.:format)           
+    #patch 'ver_idea/:id(.:format)', to: 'ideas#update' , as: :
+
+  #PUT    /ideas/:id(.:format)           ideas#update
+    #get '', to: 'ideas#update' , as: :  
+
+  #DELETE /ideas/:id(.:format)           ideas#destroy
+    delete 'ver_idea/:id(.:format)', to: 'ideas#destroy' , as: :eliminar
+
+  get 'inicio', to: 'welcome#index' , as: :inicio
+
+  root to: "welcome#index"
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
   # You can have the root of your site routed with "root"
-   root 'welcome#index'
-   resources :usuarios
-###########################################################
-    #get "/usuarios" index
-    #post "/usuarios" create
-    #delete "/usuarios" delete
-    #get "/usuarios/:id" show
-    #get "/usuarios/new" new
-    #get "/usuarios/:id/edit" edit
-    #patch "/usuarios/:id" update
-    #put "/usuarios/:id" update
-###########################################################
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

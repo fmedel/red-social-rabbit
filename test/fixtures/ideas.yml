@@ -1,7 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  descripcion: MyText
+  titulo: MyString
+  contenido: MyText
+  visita: 1
+  estado: 1
+  user: 1
 
 two:
-  descripcion: MyText
+  titulo: MyString
+  contenido: MyText
+  visita: 1
+  estado: 1
+  user: 1

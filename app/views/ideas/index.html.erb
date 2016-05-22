@@ -1,0 +1,33 @@
+ 
+<div class="page-header">
+  <h1>Todas las ideas disponibles</h1>
+</div>
+<% @ideas.each do |idea| %>
+  <div class="ideas">
+     <h4>
+        <strong>
+          <%= idea.user.nombre_completo %>
+        </strong>
+      </h4>
+      <br>
+      <strong>
+        <%= idea.titulo %>
+      </strong>
+      <p>
+        <h6>
+        <%= idea.contenido %>
+        </h6>
+      </p>
+      <div class="navegacion">
+        <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
+        <span class="admin">
+          |
+          <%= link_to 'Editar', editar_idea_path(idea) %> 
+          |
+          <%= link_to 'eliminar', eliminar_path(idea), method: :delete, data: { confirm: '¿Estas seguro?' } %>
+        </span>
+      </div>
+  </div>
+<% end %>
+<br>
+

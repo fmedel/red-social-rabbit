@@ -2,71 +2,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= favicon_link_tag "mini_logo.ico" %>
-    <title>
-      <%= @title %>
-    </title>
+    <title>Redes</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="menu">    
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container show-top-margin separate-rows tall-rows">
-          <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <br>
-                <%=link_to "Red Rabbit Network",controller: "welcome",action: "identify" %>
-            </div>
-            <div class="formulario">
-               <%= form_for :post do |f| %>
-                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                      <%=f.label :user %>
-                      <%= f.text_field :user %>
-                  </div>
-                   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <%= f.label :password %>
-                        <%= f.password_field :password %>
-                  </div>
-                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <%= f.submit 'Ingresar' ,:class=>"btn btn-success"%>
-                  </div>
-               <% end  %>
-            </div>
-          </div>
-          <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <h6>&nbsp;</h6>
-          </div>
-             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <%= link_to "¿Haz olvidado tu Contraseña?", controller: "welcome",action: "identify" %>
-             </div>
-          </div>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <%=link_to "RedRabit", '/welcome/index', class:"navbar-brand"  %>
+      <%  if  user_signed_in? %>
+      <ul class="nav navbar-nav">
+          <li class="active">
+            <%= link_to 'Nueva Idea', nueva_idea_path , class:"btn btn-success" %>
+          </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right"> 
+          <li class="active">
+            <%= link_to current_user.nombre_completo, editar_path , class:"btn btn-info" %>
+          </li>
+            <li class="active">
+            <%= link_to "log out", destroy_user_session_path,  class:"btn btn-danger",  method: :get  %>
+
+          </li>
+      </ul>
+      <% else %>
+      <div class="row">
+        <div class="col-md-10">
+         <ul > 
+            <li>
+             <%= link_to "Iniciar Sesión", login_path , class: "btn btn-success   btn-block active"%>
+          </li>
+        </ul>
         </div>
-      </nav>
+      </div>
+      <% end %>
     </div>
-    <div class ="container" id="contenido">
-      <%= yield %>
-    </div>
+  </div>
+
+  <div class="container">
+  <% if flash[:notice]  %>
+  <div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" arial-hidden="true">
+        x
+    </button>
+    <%= flash[:notice] %>
+  </div>
+  <%end%>
+  <% if flash[:alert]  %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" arial-hidden="true">
+        x
+    </button>
+    <%= flash[:alert] %>
+  </div>
+  <%end%>
+  <%= yield %>
   </body>
-    <nav class="navbar navbar-default navbar-fixed-bottom" role="footer">
-    <div class="row">
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <h6>Copyrigth© Red Rabbit Network</h6>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <h6>Email:
-          <%= link_to "RedRabbitNetwork@gmail.com",controller: 'welcome',action: 'index'%>
-          </h6>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <h4>Tu idea es el futúro </h4>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <%= link_to " Terminos de uso",controller: 'legal',action: 'terms'%>
-          <br>
-          <%= link_to "Política de privacidad", controller: "legal",action: "privacy" %>
-        </div>
-    </div>
 </html>

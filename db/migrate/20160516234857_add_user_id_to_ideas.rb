@@ -1,0 +1,7 @@
+class AddUserIdToIdeas < ActiveRecord::Migration
+  def change
+  	add_column :ideas, :user_id, :integer
+  	add_index :ideas, :user_id
+  	remove_column :ideas, :user
+  end
+end

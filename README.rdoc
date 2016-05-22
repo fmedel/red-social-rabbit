@@ -11,9 +11,9 @@ especificaciones:
 
 * Database  table  => OK
 
-* Run test => pendiente
+* Run test => ok--> en proceso 
 
-* Interfaz grafica => pendiente
+* Interfaz grafica => pendiente ->chopan
 
 -----------------------------DESCR-------------------
 * Crear una red social enfocada a empresas
@@ -53,7 +53,7 @@ especificaciones:
     9.1.- Operación. => pendiente
     9.2.- Desarollo => pendiente
 
-10.- DFD. => ok
+10.- DFD. => ok-->felipe
 
 11.- Manual de uso. => pendiente
 
