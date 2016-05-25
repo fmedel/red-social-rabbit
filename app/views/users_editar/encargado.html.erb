@@ -1,4 +1,3 @@
-
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -9,11 +8,8 @@
               <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-inline"}) do |f| %>
                  <%= f.error_notification %>
                   <div class="form-group">
-                    <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabit@XXXX.xxx'%>
                     <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
-                    <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
-                    <%= f.input  :nombreEmpresa,label: 'Nombre de la empresa', required: true,placeholder: 'nombre de la Empresa' %>
-                    <%= f.input  :rutEmpresa,label: 'Rut de la empresa', required: true,placeholder: 'rut de la Empresa' %>
+                   <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
                     </div>
                     <div class="form-group">
                     <%= f.input  :emailPersona,label: 'Email de la perdona', required: true,placeholder: 'email de la Persona' %>
@@ -21,10 +17,6 @@
                     <%= f.input  :nombresPersona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la Persona' %>
                     <%= f.input  :rutPersona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la Persona' %>
                     </div>
-                    <div class="form-group">
-                    <% @grado=Grado.all %>
-                    <%= f.input :grado_id,:collection => @grado,:label_method => :descripcion,:value_method => :id,:label => "tipo de empresa" ,:include_blank => false %> 
-                    </div
                   <div class="form-actions">
                     <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
                   </div>

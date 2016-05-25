@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'editar_perfil_empresa' , to: 'users_editar#empresa' , as: :editar_perfil_empresa
 
-  devise_for :users
+  get 'users_editar/encargado', to: 'users_editar#encargado', as: :editar_perfil_encargado
+
+  get 'users_editar/rubros', to: 'users_editar#rubros', as: :editar_perfil_rubros
+
+  get 'users_editar/clave', to: 'users_editar#clave', as: :editar_perfil_clave
+
+  #get 'welcome/index'
+
+  devise_for :users 
+
   devise_scope :user do 
    #GET    /users/sign_in(.:format)       
       get 'login',to:'devise/sessions#new',as: :login
@@ -48,6 +57,7 @@ Rails.application.routes.draw do
   #DELETE /users(.:format)               
       #get '',to:'devise/registrations#destroy', as: :
   end
+
   #resources :ideas
 
   #GET    /ideas(.:format)                   
@@ -75,6 +85,8 @@ Rails.application.routes.draw do
     delete 'ver_idea/:id(.:format)', to: 'ideas#destroy' , as: :eliminar
 
   get 'inicio', to: 'welcome#index' , as: :inicio
+
+
 
   root to: "welcome#index"
     
