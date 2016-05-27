@@ -13,7 +13,8 @@ class UsersEditarController < ApplicationController
 
   def show
     if  user_signed_in?
-
+       @grados= Grado.all
+      @user = User.find(params['id'])
     else
     end 
   end

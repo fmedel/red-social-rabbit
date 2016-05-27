@@ -1,25 +1,33 @@
  
-<%= simple_form_for(@idea, url: ver_perfil_path(@idea), html: {class: "form-inline"}) do |f| %>
-  <% if @idea.errors.any? %>
+<%= simple_form_for(@user, url: ver_perfil_path(@user), html: {class: "form-inline"}) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @idea.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="form-group has-success has-feedback">
-  <div class="field">
-    <%= f.input_field :titulo ,placeholder: 'nombre'%>
-  </div>
-  <div class="field">
-    <%= f.input_field :contenido ,placeholder: 'Descripcion '%>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit  ,'Guardar '%>
-  </div>
-  </div>
+                    <div class="form-group">
+                    <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabit@XXXX.xxx'%>
+                    <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
+                    <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
+                    <%= f.input  :nombreEmpresa,label: 'Nombre de la empresa', required: true,placeholder: 'nombre de la Empresa' %>
+                    <%= f.input  :rutEmpresa,label: 'Rut de la empresa', required: true,placeholder: 'rut de la Empresa' %>
+                    </div>
+                    <div class="form-group">
+                    <%= f.input  :emailPersona,label: 'Email de la perdona', required: true,placeholder: 'email de la Persona' %>
+                    <%= f.input  :apellidosPersona,label: 'Apellido de la persona', required: true,placeholder: 'apellidos de la Persona' %>
+                    <%= f.input  :nombresPersona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la Persona' %>
+                    <%= f.input  :rutPersona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la Persona' %>
+                    </div>
+                    <div class="form-group">
+                    <% @grado=Grado.all %>
+                    <%= f.input :grado_id,:collection => @grado,:label_method => :descripcion,:value_method => :id,:label => "tipo de empresa" ,:include_blank => false %> 
+                    </div
+                  <div class="form-actions">
+                    <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
+            
+                  </div>
 <% end %>
+<%end%>

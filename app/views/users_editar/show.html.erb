@@ -1,0 +1,34 @@
+
+<div class="page-header">
+  <h1>todos los usuarios </h1>
+</div>
+  <div class="users">
+      <strong>
+        <%= @user.nombreEmpresa %>
+      </strong>
+      <p>
+       <%=@user.email%>
+       <br>
+       <%=@user.password%>
+       <br>
+       <%=@user.nombreEmpresa%>
+       <br>
+       <%=@user.rutEmpresa %>
+       <br>
+       <%=@user.emailPersona %>
+       <br>
+       <%=@user.apellidosPersona %>
+       <br>
+       <%=@user.nombresPersona%>
+       <br>
+       <%=@user.rutPersona %>
+       <br>
+       <% @grados.each do |grado| %>
+       		<%if @user.grado_id==grado.id %>
+       			<%=grado.descripcion%>
+       		<%end%> 
+       <%end%>
+      </p>
+      <hr>
+  </div>
+<br>

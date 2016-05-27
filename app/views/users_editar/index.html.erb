@@ -5,7 +5,7 @@
 <% @user.each do |user| %>
   <div class="users">
       <strong>
-        <%= user.nombreEmpresa %>
+          <%= link_to user.nombreEmpresa ,ver_perfil_path(user) %>
       </strong>
       <p>
        <%=user.email%>
