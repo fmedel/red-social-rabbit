@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
        					:rutPersona, :grado_id , :email, :password, :password_confirmation
 
   has_many :ideas #tiene muchos 
+  has_one :estado
+
    validates  :nombreEmpresa, presence: true , length: { minimum: 3 } , uniqueness: true
    validates  :email, presence: true , length: { minimum: 3} 
    validates  :rutEmpresa, presence: true , length: { minimum:3} , uniqueness: true , numericality: true

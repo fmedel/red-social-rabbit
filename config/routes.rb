@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
-  get 'editar_perfil_empresa' , to: 'users_editar#empresa' , as: :editar_perfil_empresa
+    get 'users_editar(.:format)', to: 'users_editar#index',as: :perfil
+    get 'users_editar/:id/editar(.:format)', to: 'users_editar#edit' , as: :editar_perfil  
+    get 'users_editar/:id(.:format)', to: 'users_editar#show' , as: :ver_perfil                       
+    patch 'users_editar/:id(.:format)', to: 'users_editar#update' 
+    put 'users_editar/:id(.:format)', to: 'users_editar#update'
+    delete 'users_editar/:id(.:format)', to: 'users_editar#destroy' , as: :eliminar_perfil
 
-  get 'users_editar/encargado', to: 'users_editar#encargado', as: :editar_perfil_encargado
-
-  get 'users_editar/rubros', to: 'users_editar#rubros', as: :editar_perfil_rubros
-
-  get 'users_editar/clave', to: 'users_editar#clave', as: :editar_perfil_clave
-
-  #get 'welcome/index'
-
+##############################################################################################################
   devise_for :users 
-
   devise_scope :user do 
    #GET    /users/sign_in(.:format)       
       get 'login',to:'devise/sessions#new',as: :login
@@ -57,37 +54,19 @@ Rails.application.routes.draw do
   #DELETE /users(.:format)               
       #get '',to:'devise/registrations#destroy', as: :
   end
-
-  #resources :ideas
-
-  #GET    /ideas(.:format)                   
-    get 'ver_idea(.:format)', to: 'ideas#index'
-
-  #POST   /ideas(.:format)               
+###########################################################################################################################
+  #resources :ideas       
+    get 'ver_idea(.:format)', to: 'ideas#index'    
     post 'ver_idea(.:format)', to: 'ideas#create' , as: :guardar
-
-  #GET    /ideas/new(.:format)           
     get 'nueva_idea', to: 'ideas#new' , as: :nueva_idea
-
-  #GET    /ideas/:id/edit(.:format)      
-   get 'ver_idea/:id/editar(.:format)', to: 'ideas#edit' , as: :editar_idea
-
-  #GET    /ideas/:id(.:format)           
-    get 'ver_idea/:id(.:format)', to: 'ideas#show' , as: :ver_idea
-                
-  #PATCH  /ideas/:id(.:format)           
+    get 'ver_idea/:id/editar(.:format)', to: 'ideas#edit' , as: :editar_idea  
+    get 'ver_idea/:id(.:format)', to: 'ideas#show' , as: :ver_idea                       
     patch 'ver_idea/:id(.:format)', to: 'ideas#update' 
-
-  #PUT    /ideas/:id(.:format)           ideas#update
     put 'ver_idea/:id(.:format)', to: 'ideas#update'
-
-  #DELETE /ideas/:id(.:format)           ideas#destroy
     delete 'ver_idea/:id(.:format)', to: 'ideas#destroy' , as: :eliminar
 
+#############################################################################################################################
   get 'inicio', to: 'welcome#index' , as: :inicio
-
-
-
   root to: "welcome#index"
     
   # The priority is based upon order of creation: first created -> highest priority.

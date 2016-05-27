@@ -1,4 +1,5 @@
-<%= simple_form_for(@idea, url: guardar_path(), html: {class: "form-inline"}) do |f| %>
+ 
+<%= simple_form_for(@idea, url: ver_perfil_path(@idea), html: {class: "form-inline"}) do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
@@ -18,8 +19,7 @@
     <%= f.input_field :contenido ,placeholder: 'Descripcion '%>
   </div>
   <div class="form-actions">
-    <%= f.button :submit  ,'Guardar ', url: '?hola'%>
-   
+    <%= f.button :submit  ,'Guardar '%>
   </div>
   </div>
 <% end %>
