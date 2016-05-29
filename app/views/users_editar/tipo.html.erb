@@ -1,0 +1,64 @@
+
+<% case params['tipo']%>
+	<% when "empresa" %>
+		<div class="page-header">
+		  <h1>Datos  de la empresa</h1>
+		</div>
+		  <div class="users">
+		  	  <p>
+		       <%= @user.nombreEmpresa %>
+		       <br>
+		       <%=@user.email%>
+		       <br>
+		       <%=@user.rutEmpresa %>
+		       <% @grados.each do |grado| %>
+		          <%if @user.grado_id==grado.id %>
+		            <%=grado.descripcion%>
+		          <%end%> 
+		       <%end%>
+		      </p>
+		  </div>
+		<br>
+		<%= link_to "Editar",editar_perfil_path(tipo: "empresa"), class:"btn btn-info  btn-block active"  %>
+	<% when"encargado" %>
+		<div class="page-header">
+		  <h1>Datos  del encargado</h1>
+		</div>
+		 	<div class="users">
+		 	   <p>
+		       <%=@user.emailPersona %>
+		       <br>
+		       <%=@user.apellidosPersona %>
+		       <br>
+		       <%=@user.nombresPersona%>
+		       <br>
+		       <%=@user.rutPersona %>
+		       <br>
+		      </p>
+		  </div>
+		<br>
+		<%= link_to "Editar",editar_perfil_path(tipo: "encargado" ), class:"btn btn-info  btn-block active"  %>
+		
+	<% when "rubros" %>
+
+	<div class="page-header">
+	  <h1>Rubros</h1>
+	</div>
+	  <div class="users">
+	  </div>
+	  <%= link_to "Editar",editar_perfil_path(tipo: "rubros" ), class:"btn btn-info  btn-block active"  %>
+	<% when "clave" %>
+
+		<div class="page-header">
+		  <h1>Cambio de clave</h1>
+			</div>
+			  <div class="users">
+			      <p>
+			       <%=@user.password%>
+			      </p>
+			  </div>
+			<br>
+			<%= link_to "Editar",editar_perfil_path(tipo: "clave"), class:"btn btn-info  btn-block active"  %>
+	<% else %>
+	<h1>Error</h1>
+<% end %>

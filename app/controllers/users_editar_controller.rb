@@ -1,26 +1,36 @@
  
 class UsersEditarController < ApplicationController
   before_filter :authenticate_user! 
-
-  def index
+  def tipo
     if  user_signed_in?
-      @user = User.all
+      @user = User.find(current_user.id)
       @grados= Grado.all
     else 
       redirect_to registrar_path
     end 
   end
 
+  #def index
+    #if  user_signed_in?
+      #@user = User.find(current_user.id)
+      #@grados= Grado.all
+   # else 
+      #redirect_to registrar_path
+    #end 
+  #end
+
   def show
     if  user_signed_in?
        @grados= Grado.all
-      @user = User.find(params['id'])
+      @user = User.find(current_user.id)
     else
     end 
   end
 
   def edit
     if  user_signed_in?
+       @grados= Grado.all
+       @user = User.find(current_user.id)
     else
       redirect_to registrar_path
     end 
@@ -28,13 +38,12 @@ class UsersEditarController < ApplicationController
 
    def update
      if  user_signed_in?
+       @user = User.find(current_user.id)
       respond_to do |format|
-      if @idea.update(idea_params)
-        format.html { redirect_to inicio_path }
-        format.json { render :show, status: :ok, location: @idea }
+      if @user.update(user_params)
+        format.html { redirect_to inicio_path } 
       else
         format.html { render :edit }
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
       end
     end
     else
@@ -43,8 +52,11 @@ class UsersEditarController < ApplicationController
   end
 
   private
+      def set_user
+      @idea = User.find(current_user.id)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
-    def idea_params
+    def user_params
       params.require(:user).permit(:nombreEmpresa, :rutEmpresa, :emailPersona, :apellidosPersona, :nombresPersona, :rutPersona, :grado_id , :email, :password, :password_confirmation)
     end	
 end

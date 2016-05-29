@@ -1,17 +1,16 @@
+
 <div class="container">
     <div class="row">
-		<h2>Editar perfil : <%=current_user.nombreEmpresa %></h2>
-	</div>
+    <h2>Editar perfil : <%=@user.nombreEmpresa %> </h2>
+  </div>
 </div>
 <%= render 'formulario' %>
 <br>
 <div class="container">
     <div class="row">
-    	<div class="col-md-12">
-			<br>
-			<%= link_to "Volver", inicio_path, class:"btn btn-info  btn-block active"  %>
-		</div>
-	</div>
+      <div class="col-md-12">
+      <br>
+      <%= link_to "Volver", inicio_path, class:"btn btn-info  btn-block active"  %>
+    </div>
+  </div>
 </div>
-
-

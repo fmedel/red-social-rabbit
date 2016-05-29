@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-    get 'users_editar(.:format)', to: 'users_editar#index',as: :perfil
-    get 'users_editar/:id/editar(.:format)', to: 'users_editar#edit' , as: :editar_perfil  
-    get 'users_editar/:id(.:format)', to: 'users_editar#show' , as: :ver_perfil                       
-    patch 'users_editar/:id(.:format)', to: 'users_editar#update' 
-    put 'users_editar/:id(.:format)', to: 'users_editar#update'
-    delete 'users_editar/:id(.:format)', to: 'users_editar#destroy' , as: :eliminar_perfil
+    get 'users/:tipo/editar(.:format)', to: 'users_editar#edit' , as: :editar_perfil  
+    get 'users/:tipo/editar(.:format)', to: 'users_editar#show' , as: :ver_perfil                       
+    patch 'users/:tipo/editar(.:format)', to: 'users_editar#update' 
+    put 'users/:tipo/editar(.:format)', to: 'users_editar#update'
+    delete 'users/:id(.:format)', to: 'users_editar#destroy' , as: :eliminar_perfil
+    get 'users/:tipo(.:format)',to: 'users_editar#tipo' , as: :tipo_perfil
 
 ##############################################################################################################
   devise_for :users 

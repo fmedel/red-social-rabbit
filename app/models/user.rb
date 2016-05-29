@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
    validates  :apellidosPersona, presence: true, length: { minimum: 3}
    validates  :rutPersona, presence: true , length: { minimum: 3 } , uniqueness: true , numericality: true
    validates  :emailPersona, presence: true , length: { minimum: 3}
-   validates  :password, length: { minimum: 8} , confirmation: true
-   validates  :password_confirmation , length: { minimum: 8}, presence: true
+   #validates  :password, length: { minimum: 8} , confirmation: true
+   #validates  :password_confirmation , length: { minimum: 8}, presence: true
    validates  :grado_id, presence: true, numericality: true 
 
    #validates  :termino_de_uso, acceptance: { accept: 'yes'}
