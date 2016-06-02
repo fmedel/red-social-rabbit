@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'search/create'
+###############################################################################################################
   get 'postular(.:format)/:idea', to: 'postular#new', as: :postular
   post 'postular(.:format)/:idea', to: 'postular#create' , as: :guardar_postulacion
 ###############################################################################################################
