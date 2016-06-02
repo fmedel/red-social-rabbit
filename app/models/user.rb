@@ -4,26 +4,26 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible 	:nombreEmpresa, :rutEmpresa, :emailPersona, :apellidosPersona, :nombresPersona, 
-       					:rutPersona, :grado_id , :email, :password, :password_confirmation
+  attr_accessible 	:nombre_empresa, :rut_empresa, :email_persona, :apellidos_persona, :nombres_persona, 
+       					:rut_persona, :grado_id , :email, :password, :password_confirmation
 
   has_many :ideas #tiene muchos 
   has_one :estado
 
-   validates  :nombreEmpresa, presence: true , length: { minimum: 3 } , uniqueness: true
+   validates  :nombre_empresa, presence: true , length: { minimum: 3 } , uniqueness: true
    validates  :email, presence: true , length: { minimum: 3} 
-   validates  :rutEmpresa, presence: true , length: { minimum:3} , uniqueness: true , numericality: true
-   validates  :nombresPersona, presence: true , length: { minimum: 3}
-   validates  :apellidosPersona, presence: true, length: { minimum: 3}
-   validates  :rutPersona, presence: true , length: { minimum: 3 } , uniqueness: true , numericality: true
-   validates  :emailPersona, presence: true , length: { minimum: 3}
+   validates  :rut_empresa, presence: true , length: { minimum:3} , uniqueness: true , numericality: true
+   validates  :nombres_persona, presence: true , length: { minimum: 3}
+   validates  :apellidos_persona, presence: true, length: { minimum: 3}
+   validates  :rut_persona, presence: true , length: { minimum: 3 } , uniqueness: true , numericality: true
+   validates  :email_persona, presence: true , length: { minimum: 3}
    #validates  :password, length: { minimum: 8} , confirmation: true
    #validates  :password_confirmation , length: { minimum: 8}, presence: true
    validates  :grado_id, presence: true, numericality: true 
 
    #validates  :termino_de_uso, acceptance: { accept: 'yes'}
      def  nombre_completo 
-          nombresPersona+ " "+ apellidosPersona
+          nombres_persona+ " "+ apellidos_persona
       end
 end
  

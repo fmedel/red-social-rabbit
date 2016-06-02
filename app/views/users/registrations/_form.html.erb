@@ -12,14 +12,14 @@
                     <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabit@XXXX.xxx'%>
                     <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
                     <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
-                    <%= f.input  :nombreEmpresa,label: 'Nombre de la empresa', required: true,placeholder: 'nombre de la Empresa' %>
-                    <%= f.input  :rutEmpresa,label: 'Rut de la empresa', required: true,placeholder: 'rut de la Empresa' %>
+                    <%= f.input  :nombre_empresa,label: 'Nombre de la empresa', required: true,placeholder: 'nombre de la Empresa' %>
+                    <%= f.input  :rut_empresa,label: 'Rut de la empresa', required: true,placeholder: 'rut de la Empresa' %>
                     </div>
                     <div class="form-group">
-                    <%= f.input  :emailPersona,label: 'Email de la perdona', required: true,placeholder: 'email de la Persona' %>
-                    <%= f.input  :apellidosPersona,label: 'Apellido de la persona', required: true,placeholder: 'apellidos de la Persona' %>
-                    <%= f.input  :nombresPersona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la Persona' %>
-                    <%= f.input  :rutPersona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la Persona' %>
+                    <%= f.input  :email_persona,label: 'Email de la perdona', required: true,placeholder: 'email de la _persona' %>
+                    <%= f.input  :apellidos_persona,label: 'Apellido de la persona', required: true,placeholder: 'apellidos de la persona' %>
+                    <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la persona' %>
+                    <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la persona' %>
                     </div>
                     <div class="form-group">
                     <% @grado=Grado.all %>

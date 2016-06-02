@@ -4,24 +4,24 @@
 </div>
   <div class="users">
       <strong>
-        <%= @user.nombreEmpresa %>
+        <%= @user.nombre_empresa %>
       </strong>
       <p>
        <%=@user.email%>
        <br>
        <%=@user.password%>
        <br>
-       <%=@user.nombreEmpresa%>
+       <%=@user.nombre_Empresa%>
        <br>
-       <%=@user.rutEmpresa %>
+       <%=@user.rut_empresa %>
        <br>
-       <%=@user.emailPersona %>
+       <%=@user.email_persona %>
        <br>
-       <%=@user.apellidosPersona %>
+       <%=@user.apellidos_persona %>
        <br>
-       <%=@user.nombresPersona%>
+       <%=@user.nombres_persona%>
        <br>
-       <%=@user.rutPersona %>
+       <%=@user.rut_persona %>
        <br>
        <% @grados.each do |grado| %>
           <%if @user.grado_id==grado.id %>

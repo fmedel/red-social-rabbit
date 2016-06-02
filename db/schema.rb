@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526174520) do
+ActiveRecord::Schema.define(version: 20160601233343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,6 @@ ActiveRecord::Schema.define(version: 20160526174520) do
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "nombreEmpresa",          default: "", null: false
-    t.integer  "rutEmpresa",             default: 0,  null: false
-    t.string   "emailPersona",           default: "", null: false
-    t.string   "apellidosPersona",       default: "", null: false
-    t.string   "nombresPersona",         default: "", null: false
-    t.integer  "rutPersona",             default: 0,  null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -61,15 +55,21 @@ ActiveRecord::Schema.define(version: 20160526174520) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "grado_id"
+    t.string   "nombre_empresa",         default: "", null: false
+    t.integer  "rut_empresa",            default: 0,  null: false
+    t.string   "email_persona",          default: "", null: false
+    t.string   "apellidos_persona",      default: "", null: false
+    t.string   "nombres_persona",        default: "", null: false
+    t.integer  "rut_persona",            default: 0,  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["emailPersona"], name: "index_users_on_emailPersona", unique: true, using: :btree
+  add_index "users", ["email_persona"], name: "index_users_on_email_persona", unique: true, using: :btree
   add_index "users", ["grado_id"], name: "index_users_on_grado_id", using: :btree
-  add_index "users", ["nombreEmpresa"], name: "index_users_on_nombreEmpresa", unique: true, using: :btree
+  add_index "users", ["nombre_empresa"], name: "index_users_on_nombre_empresa", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["rutEmpresa"], name: "index_users_on_rutEmpresa", unique: true, using: :btree
-  add_index "users", ["rutPersona"], name: "index_users_on_rutPersona", unique: true, using: :btree
+  add_index "users", ["rut_empresa"], name: "index_users_on_rut_empresa", unique: true, using: :btree
+  add_index "users", ["rut_persona"], name: "index_users_on_rut_persona", unique: true, using: :btree
 
   add_foreign_key "ideas", "estados"
   add_foreign_key "users", "grados"

@@ -6,11 +6,11 @@
 		</div>
 		  <div class="users">
 		  	  <p>
-		       <%= @user.nombreEmpresa %>
+		       <%= @user.nombre_empresa %>
 		       <br>
 		       <%=@user.email%>
 		       <br>
-		       <%=@user.rutEmpresa %>
+		       <%=@user.rut_empresa %>
 		       <% @grados.each do |grado| %>
 		          <%if @user.grado_id==grado.id %>
 		            <%=grado.descripcion%>
@@ -26,13 +26,13 @@
 		</div>
 		 	<div class="users">
 		 	   <p>
-		       <%=@user.emailPersona %>
+		       <%=@user.email_persona %>
 		       <br>
-		       <%=@user.apellidosPersona %>
+		       <%=@user.apellidos_persona %>
 		       <br>
-		       <%=@user.nombresPersona%>
+		       <%=@user.nombres_persona%>
 		       <br>
-		       <%=@user.rutPersona %>
+		       <%=@user.rut_persona %>
 		       <br>
 		      </p>
 		  </div>
