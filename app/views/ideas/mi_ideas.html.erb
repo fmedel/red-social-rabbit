@@ -1,6 +1,6 @@
 
 <div class="page-header">
-  <h1>Todas las ideas disponibles</h1>
+  <h1>Todas mis ideas</h1>
 </div>
 <% @ideas.each do |idea| %>
   <div class="ideas">
@@ -20,9 +20,11 @@
       </p>
       <div class="navegacion">
         <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
-          <span class="admin">
+        <span class="admin">
           |
-          <%= link_to 'postular', postular_path(idea.id) %> 
+          <%= link_to 'Editar', editar_idea_path(idea) %> 
+          |
+          <%= link_to 'eliminar', eliminar_path(idea), method: :delete, data: { confirm: '¿Estas seguro?' } %>
         </span>
       </div>
   </div>

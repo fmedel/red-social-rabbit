@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'postular(.:format)/:idea', to: 'postular#new', as: :postular
+  post 'postular(.:format)/:idea', to: 'postular#create' , as: :guardar_postulacion
+###############################################################################################################
     get 'users/:tipo/editar(.:format)', to: 'users_editar#edit' , as: :editar_perfil  
     get 'users/:tipo/editar(.:format)', to: 'users_editar#show' , as: :ver_perfil                       
     patch 'users/:tipo/editar(.:format)', to: 'users_editar#update' 
@@ -56,7 +59,8 @@ Rails.application.routes.draw do
   end
 ###########################################################################################################################
   #resources :ideas       
-    get 'ver_idea(.:format)', to: 'ideas#index'    
+    get 'ver_idea(.:format)', to: 'ideas#index' 
+    get 'mi_idea(.:format)', to: 'ideas#mi_ideas'  , as: :mi_idea     
     post 'ver_idea(.:format)', to: 'ideas#create' , as: :guardar
     get 'nueva_idea', to: 'ideas#new' , as: :nueva_idea
     get 'ver_idea/:id/editar(.:format)', to: 'ideas#edit' , as: :editar_idea  

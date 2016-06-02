@@ -1,0 +1,2 @@
+module PostularHelper
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601233343) do
+ActiveRecord::Schema.define(version: 20160602204214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 20160601233343) do
 
   add_index "ideas", ["estado_id"], name: "index_ideas_on_estado_id", using: :btree
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
+
+  create_table "postulars", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.string   "oferta",     default: "", null: false
+  end
+
+  add_index "postulars", ["idea_id"], name: "index_postulars_on_idea_id", using: :btree
+  add_index "postulars", ["user_id"], name: "index_postulars_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -72,5 +83,7 @@ ActiveRecord::Schema.define(version: 20160601233343) do
   add_index "users", ["rut_persona"], name: "index_users_on_rut_persona", unique: true, using: :btree
 
   add_foreign_key "ideas", "estados"
+  add_foreign_key "postulars", "ideas"
+  add_foreign_key "postulars", "users"
   add_foreign_key "users", "grados"
 end

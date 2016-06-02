@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
   # GET /ideas.json
   def index
     if  user_signed_in?
-      @ideas = Idea.all
+      @ideas = Idea.where("user_id != ? and estado_id = 1 ",@current_user)
       respond_to do | format |
         format.html #index.html.erb
         format.json {render json: @ideas}
@@ -14,12 +14,17 @@ class IdeasController < ApplicationController
       redirect_to registrar_path
     end 
   end
-
+  def mi_ideas
+    if  user_signed_in?
+      @ideas = Idea.where("user_id = ? ",@current_user)
+    else 
+      redirect_to registrar_path
+    end
+  end 
   # GET /ideas/1
   # GET /ideas/1.json
   def show
     if  user_signed_in?
-
       @estado= Estado.all
     else
     end 
