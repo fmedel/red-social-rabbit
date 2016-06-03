@@ -1,1 +1,1 @@
-$("#resultados").append("<%=  render @users %>")
+$("#resultados").append("<%= j render @users %>")
