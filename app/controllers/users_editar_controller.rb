@@ -10,14 +10,14 @@ class UsersEditarController < ApplicationController
     end 
   end
 
-  #def index
-    #if  user_signed_in?
-      #@user = User.find(current_user.id)
-      #@grados= Grado.all
-   # else 
-      #redirect_to registrar_path
-    #end 
-  #end
+  def index
+    if  user_signed_in?
+      @user = User.find(params["perfil"])
+      @grados= Grado.all
+    else 
+      redirect_to registrar_path
+    end 
+  end
 
   def show
     if  user_signed_in?

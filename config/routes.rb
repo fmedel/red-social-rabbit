@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     put 'users/:tipo/editar(.:format)', to: 'users_editar#update'
     delete 'users/:id(.:format)', to: 'users_editar#destroy' , as: :eliminar_perfil
     get 'users/:tipo(.:format)',to: 'users_editar#tipo' , as: :tipo_perfil
+    get 'perfil/:perfil(.:format)',to: 'users_editar#index' , as: :perfil
 
 ##############################################################################################################
   devise_for :users 
