@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602204214) do
+ActiveRecord::Schema.define(version: 20160604025709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "denuncia", force: :cascade do |t|
+    t.text     "razon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.integer  "estado_id"
+  end
+
+  add_index "denuncia", ["estado_id"], name: "index_denuncia_on_estado_id", using: :btree
+  add_index "denuncia", ["idea_id"], name: "index_denuncia_on_idea_id", using: :btree
+  add_index "denuncia", ["user_id"], name: "index_denuncia_on_user_id", using: :btree
 
   create_table "estados", force: :cascade do |t|
     t.string   "descripcion"
@@ -82,6 +95,9 @@ ActiveRecord::Schema.define(version: 20160602204214) do
   add_index "users", ["rut_empresa"], name: "index_users_on_rut_empresa", unique: true, using: :btree
   add_index "users", ["rut_persona"], name: "index_users_on_rut_persona", unique: true, using: :btree
 
+  add_foreign_key "denuncia", "estados"
+  add_foreign_key "denuncia", "ideas"
+  add_foreign_key "denuncia", "users"
   add_foreign_key "ideas", "estados"
   add_foreign_key "postulars", "ideas"
   add_foreign_key "postulars", "users"

@@ -25,7 +25,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1.json
   def show
     if  user_signed_in?
-      @estado= Estado.all
+     # @estado= Estado.all
     else
     end 
   end

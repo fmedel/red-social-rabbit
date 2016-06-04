@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@denuncia, url: guardar_denuncia_path(), html: {class: "form-inline"}) do |f| %>
+  <% if @denuncia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@denuncia.errors.count, "error") %> prohibited this postular from being saved:</h2>
+
+      <ul>
+      <% @denuncia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group has-success has-feedback">
+  <div class="field">
+    <%= f.input_field :razon ,placeholder: 'aqui va la por qu lo denuncias '%>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit  ,'Guardar ', url: '?hola'%>
+   
+  </div>
+  </div>
+<% end %>

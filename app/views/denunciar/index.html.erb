@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>Todas las denuncias  disponibles</h1>
+</div>
+<% @denuncia.each do |denuncia| %>
+  <div class="denuncias">
+  <hr>
+      <p>
+     	<h1>Razon de la denuncia </h1>
+        <strong>
+          <h6><%= denuncia.razon %></h6>
+        </strong>
+      </p>
+      <p>
+     	<h1>titulo de la idea  denunciada </h1>
+        <strong>
+          <h6><%= denuncia.idea.titulo %></h6>
+        </strong>
+      </p>
+      <div class="navegacion">
+        <%= link_to " denucia fue echa hace "+ time_ago_in_words(denuncia.created_at),  ver_denunciar_path(denuncia.id)   %>
+      </div>
+  </div>
+  <hr>
+<% end %>
+<hr>

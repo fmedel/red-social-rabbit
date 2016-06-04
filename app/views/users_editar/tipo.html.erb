@@ -11,12 +11,9 @@
 		       <%=@user.email%>
 		       <br>
 		       <%=@user.rut_empresa %>
-		       <% @grados.each do |grado| %>
-		          <%if @user.grado_id==grado.id %>
-		            <%=grado.descripcion%>
-		          <%end%> 
-		       <%end%>
-		      </p>
+		      <br>
+		        <%=@user.grado.descripcion%>
+		       </p>
 		  </div>
 		<br>
 		<%= link_to "Editar",editar_perfil_path(tipo: "empresa"), class:"btn btn-info  btn-block active"  %>

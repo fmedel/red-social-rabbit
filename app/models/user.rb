@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
        					:rut_persona, :grado_id , :email, :password, :password_confirmation
 
   has_many :ideas #tiene muchos 
-  has_one :estado
+  has_many :denuncia
+  #has_one :estado
+  belongs_to :grado
 
    validates  :nombre_empresa, presence: true , length: { minimum: 3 } , uniqueness: true
    validates  :email, presence: true , length: { minimum: 3} 

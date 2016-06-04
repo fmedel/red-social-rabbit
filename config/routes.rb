@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
 
-  get 'search/create'
+##############################################################################################################
+                #todo lo relacionado con denunciar idea   controler denunciar 
+    get 'denunciar(.:format)', to: 'denunciar#index', as: :denunciar_index
+    get 'denunciar/:idea(.:format)', to: 'denunciar#new', as: :denunciar
+    post 'denunciar/:idea(.:format)', to: 'denunciar#create' , as: :guardar_denuncia
+    get 'ver_denunciar/:idea(.:format)', to: 'denunciar#show' , as: :ver_denunciar 
+    get 'dar_de_baja/:idea(.:format)', to: 'denunciar#dar_de_baja', as: :dar_de_baja                    
 ###############################################################################################################
-  get 'postular(.:format)/:idea', to: 'postular#new', as: :postular
-  post 'postular(.:format)/:idea', to: 'postular#create' , as: :guardar_postulacion
+                #barra de busqueda 
+    get 'search/create'
 ###############################################################################################################
+                #todo lo relacionado con postular  controler postualar 
+    get 'postular(.:format)/:idea', to: 'postular#new', as: :postular
+    post 'postular(.:format)/:idea', to: 'postular#create' , as: :guardar_postulacion
+###############################################################################################################
+                #todo lo relacionado con user  controler user 
     get 'users/:tipo/editar(.:format)', to: 'users_editar#edit' , as: :editar_perfil  
     get 'users/:tipo/editar(.:format)', to: 'users_editar#show' , as: :ver_perfil                       
     patch 'users/:tipo/editar(.:format)', to: 'users_editar#update' 
@@ -74,9 +85,9 @@ Rails.application.routes.draw do
     delete 'ver_idea/:id(.:format)', to: 'ideas#destroy' , as: :eliminar
 
 #############################################################################################################################
-  get 'inicio', to: 'welcome#index' , as: :inicio
-  root to: "welcome#index"
-    
+    get 'inicio', to: 'welcome#index' , as: :inicio
+    root to: "welcome#index"
+#############################################################################################################################   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
