@@ -27,6 +27,10 @@
 
 <p>
 </p>
-
-<%= link_to 'Edit', editar_idea_path(@idea) %> |
-<%= link_to 'Back', inicio_path %>
+ <% if @idea.user_id != @current_user.id  %>
+    <%= link_to 'postular', postular_path(@idea.id) %>
+ <%else %>
+    <%= link_to 'Edit', editar_idea_path(@idea) %> 
+ <%end %>
+<br>
+<%= link_to 'Inicio', inicio_path %>

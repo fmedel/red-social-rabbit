@@ -25,12 +25,14 @@ Rails.application.routes.draw do
 ###############################################################################################################
                 #todo lo relacionado con user  controler user 
     get 'users/:tipo/editar(.:format)', to: 'users_editar#edit' , as: :editar_perfil  
+    get 'users(.:format)', to: 'welcome#index'
     get 'users/:tipo/editar(.:format)', to: 'users_editar#show' , as: :ver_perfil                       
     patch 'users/:tipo/editar(.:format)', to: 'users_editar#update' 
     put 'users/:tipo/editar(.:format)', to: 'users_editar#update'
     delete 'users/:id(.:format)', to: 'users_editar#destroy' , as: :eliminar_perfil
     get 'users/:tipo(.:format)',to: 'users_editar#tipo' , as: :tipo_perfil
     get 'perfil/:perfil(.:format)',to: 'users_editar#index' , as: :perfil
+    get 'perfil(.:format)', to: 'welcome#index'
 
 ##############################################################################################################
   devise_for :users 
@@ -84,6 +86,7 @@ Rails.application.routes.draw do
   #resources :ideas       
     get 'ver_idea(.:format)', to: 'ideas#index' 
     get 'mi_idea/:tipo(.:format)', to: 'ideas#mi_ideas'  , as: :mi_idea     
+    get  'mi_idea(.:format)', to: 'welcome#index' 
     post 'ver_idea(.:format)', to: 'ideas#create' , as: :guardar
     get 'nueva_idea', to: 'ideas#new' , as: :nueva_idea
     get 'ver_idea/:id/editar(.:format)', to: 'ideas#edit' , as: :editar_idea  

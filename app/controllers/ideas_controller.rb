@@ -1,8 +1,7 @@
 class IdeasController < ApplicationController
-  before_filter :authenticate_user! , only: [ :new ,:create ]
-  before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  # GET /ideas
-  # GET /ideas.json
+  ##before_filter :authenticate_user! , only: [ :new ,:create ]
+  before_action :set_idea, only: [:show_duenio, :edit, :update, :destroy]
+
   def index
     if  user_signed_in?
       @ideas = Idea.where("user_id != ? and estado_id = 1 ",@current_user)
@@ -11,9 +10,11 @@ class IdeasController < ApplicationController
         format.json {render json: @ideas}
       end
     else 
-      redirect_to registrar_path
-    end 
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+    end
   end
+
+
   def mi_ideas
     if  user_signed_in?
       case params['tipo']
@@ -31,15 +32,19 @@ class IdeasController < ApplicationController
           redirect_to registrar_path
       end
     else 
-      redirect_to registrar_path
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end
   end 
   # GET /ideas/1
   # GET /ideas/1.json
+  def show_duenio
+  end
+
   def show
     if  user_signed_in?
-     # @estado= Estado.all
+     @idea = Idea.find(params[:id])
     else
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -48,7 +53,7 @@ class IdeasController < ApplicationController
     if  user_signed_in?
       @idea = Idea.new
     else
-      redirect_to registrar_path
+     redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -56,7 +61,7 @@ class IdeasController < ApplicationController
   def edit
     if  user_signed_in?
     else
-      redirect_to registrar_path
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -70,16 +75,16 @@ class IdeasController < ApplicationController
       params[:idea][:visita] =0
       @idea = Idea.new(idea_params)
       respond_to do |format|
-      if @idea.save
-        format.html { redirect_to ver_idea_path(@idea)}
-        format.json { render :show, status: :created, location: @idea }
-      else
-        format.html { render :new }
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
+        if @idea.save
+          format.html { redirect_to ver_idea_path(@idea), notice: 'La idea fue creada correctamente'}
+          format.json { render :show, status: :created, location: @idea }
+        else
+          format.html { render :new , alert: 'Ocurio un errors en  crear la idea '}
+          format.json { render json: @idea.errors, status: :unprocessable_entity }
+        end
       end
-    end
     else
-      redirect_to registrar_path
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -88,16 +93,16 @@ class IdeasController < ApplicationController
    def update
      if  user_signed_in?
       respond_to do |format|
-      if @idea.update(idea_params)
-        format.html { redirect_to ver_idea_path(@idea), notice: 'Idea was successfully updated.' }
-        format.json { render :show, status: :ok, location: @idea }
-      else
-        format.html { render :edit }
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
+        if @idea.update(idea_params)
+          format.html { redirect_to ver_idea_path(@idea), notice: 'la idea fue actualizada .' }
+          format.json { render :show, status: :ok, location: @idea }
+        else
+          format.html { render :edit }
+          format.json { render json: @idea.errors, status: :unprocessable_entity }
+        end
       end
-    end
     else
-      redirect_to registrar_path
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -106,19 +111,30 @@ class IdeasController < ApplicationController
   def destroy
     if  user_signed_in?
       respond_to do |format|
-        format.html { redirect_to inicio_url, notice: 'Idea was successfully destroyed. X.X' }
-        format.json { head :no_content }
+        @idea.destroy
+        format.html { redirect_to inicio_url, notice: 'La idea fue eliminada' }
+        #format.json { head :no_content }
       end
     else
-      redirect_to registrar_path
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
-    @idea.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
+      if  user_signed_in?
       @idea = Idea.find(params[:id])
+      if !@idea.blank?
+        if @idea.user_id != @current_user.id
+          redirect_to inicio_path, alert: 'acceso denegado para este user'
+        end 
+        else 
+          redirect_to inicio_path, alert: 'pagina no encontrada'
+        end 
+      else
+       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      end 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
