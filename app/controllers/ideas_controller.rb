@@ -16,7 +16,20 @@ class IdeasController < ApplicationController
   end
   def mi_ideas
     if  user_signed_in?
-      @ideas = Idea.where("user_id = ? ",@current_user)
+      case params['tipo']
+        when 'activa'   
+            @ideas = Idea.where("user_id = ? and estado_id = 1 ",@current_user)
+        when 'revision'
+            @ideas = Idea.where("user_id = ? and estado_id = 5 ",@current_user)
+        when 'denunciada'
+            @ideas = Idea.select('"denuncia".*,"ideas".id as "id ideas","ideas".titulo , "ideas".contenido, "ideas".visita, "ideas".created_at as "created_at idea", "ideas".updated_at as "updated_at ideas", "ideas".user_id').joins("FULL OUTER JOIN denuncia  ON  ideas.id= denuncia.idea_id").where("ideas.user_id = ? and ideas.estado_id = 3 ",@current_user)
+        when 'eliminada'
+            @ideas = Idea.where("user_id = ? and estado_id = 4 ",@current_user)
+        when 'apelacion'
+            @ideas = Idea.where("user_id = ? and estado_id = 2 ",@current_user)
+        else
+          redirect_to registrar_path
+      end
     else 
       redirect_to registrar_path
     end

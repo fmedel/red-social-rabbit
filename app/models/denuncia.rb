@@ -3,4 +3,6 @@ class Denuncia < ActiveRecord::Base
 	belongs_to :idea
 	belongs_to :user
 	belongs_to :estado
+	has_many :apelar
+
 end

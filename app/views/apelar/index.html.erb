@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>Todas las apelars  disponibles</h1>
+</div>
+<% @apelar.each do |apelar| %>
+  <div class="apelars">
+  <hr>
+      <p>
+     	<h1>Razon de la apelar </h1>
+        <strong>
+          <h6><%= apelar.razon %></h6>
+        </strong>
+      </p>
+      <p>
+     	<h1>razon de la denuncia </h1>
+        <strong>
+          <h6><%= apelar.denuncia.razon%></h6>
+        </strong>
+      </p>
+      <div class="navegacion">
+        <%= link_to " apelacion  fue echa hace "+ time_ago_in_words(apelar.created_at),  apelar_idea_path(apelar.denuncia.idea_id, apelar.denuncia.id, apelar.id)   %>
+      </div>
+  </div>
+  <hr>
+<% end %>
+<hr>

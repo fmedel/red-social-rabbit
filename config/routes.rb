@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+
+##############################################################################################################
+                #todo lo relacionado con apelar idea   controler apelar 
+    get 'apelar(.:format)', to: 'apelar#index', as: :apelar_index
+    get 'apelar/:denunciar(.:format)', to: 'apelar#new', as: :apelar
+    post 'apelar/:denunciar(.:format)', to: 'apelar#create' , as: :guardar_apelacion
+    get 'ver_apelelacion/:denunciar(.:format)', to: 'apelar#show' , as: :ver_apelelacion 
+    get 'apelar_idea/:denunciar/:id_denuncia/:id_apelar(.:format)', to: 'apelar#apelar_idea', as: :apelar_idea     
 ##############################################################################################################
                 #todo lo relacionado con denunciar idea   controler denunciar 
     get 'denunciar(.:format)', to: 'denunciar#index', as: :denunciar_index
@@ -75,7 +83,7 @@ Rails.application.routes.draw do
 ###########################################################################################################################
   #resources :ideas       
     get 'ver_idea(.:format)', to: 'ideas#index' 
-    get 'mi_idea(.:format)', to: 'ideas#mi_ideas'  , as: :mi_idea     
+    get 'mi_idea/:tipo(.:format)', to: 'ideas#mi_ideas'  , as: :mi_idea     
     post 'ver_idea(.:format)', to: 'ideas#create' , as: :guardar
     get 'nueva_idea', to: 'ideas#new' , as: :nueva_idea
     get 'ver_idea/:id/editar(.:format)', to: 'ideas#edit' , as: :editar_idea  

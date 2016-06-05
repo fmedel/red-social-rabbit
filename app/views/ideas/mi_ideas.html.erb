@@ -1,6 +1,6 @@
 
 <div class="page-header">
-  <h1>Todas mis ideas</h1>
+  <h1>Todas mis ideas  <%= params['tipo'] %> </h1>
 </div>
 <% @ideas.each do |idea| %>
   <div class="ideas">
@@ -18,15 +18,23 @@
         <%= idea.contenido %>
         </h6>
       </p>
-      <div class="navegacion">
-        <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
-        <span class="admin">
-          |
-          <%= link_to 'Editar', editar_idea_path(idea) %> 
-          |
-          <%= link_to 'eliminar', eliminar_path(idea), method: :delete, data: { confirm: '¿Estas seguro?' } %>
-        </span>
-      </div>
+      <p>
+        <strong>Estado:</strong>
+        <%= idea.estado.descripcion%>
+      </p>
+       <% if  params['tipo']== 'denunciada'%> 
+            <%= link_to 'apelar',  apelar_path(idea.id)%> 
+       <%else%>
+          <div class="navegacion">
+            <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
+            <span class="admin">
+              |
+              <%= link_to 'Editar', editar_idea_path(idea) %> 
+              |
+              <%= link_to 'eliminar', eliminar_path(idea), method: :delete, data: { confirm: '¿Estas seguro?' } %>
+            </span>
+          </div>
+       <%end%>
   </div>
 <% end %>
 <br>

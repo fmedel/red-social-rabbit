@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@apelar, url: guardar_apelacion_path(), html: {class: "form-inline"}) do |f| %>
+  <% if @apelar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apelar.errors.count, "error") %> prohibited this postular from being saved:</h2>
+
+      <ul>
+      <% @apelar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group has-success has-feedback">
+  <div class="field">
+    <%= f.input_field :razon ,placeholder: 'aqui va la por qu lo apelar '%>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit  ,'Guardar ', url: '?hola'%>
+   
+  </div>
+  </div>
+<% end %>

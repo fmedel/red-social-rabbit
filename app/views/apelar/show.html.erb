@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1>detalle de la apelacion</h1>
+</div>
+  <div class="denuncias">
+  <hr>
+     <p>
+      <h1>datos del  apelacion  </h1>
+        <strong>
+          <h6> razon de la apelacion: <%= @apelar.razon%></h6>
+         
+        </strong>
+      </p>
+     <p>
+     	<h1>datos del  denunciado user </h1>
+        <strong>
+          <h6> nombre commpleto: <%= @apelar.denuncia.razon%></h6>
+          <h6>email: <%= @apelar.denuncia.idea.user.email %></h6>
+        </strong>
+      </p>
+      <p>
+     	<h1>datos del  denunciante user </h1>
+        <strong>
+          <h6> nombre commpleto: <%= @apelar.denuncia.user.nombre_completo %></h6>
+          <h6>email: <%= @apelar.denuncia.user.email %></h6>
+        </strong>
+      </p>
+      <p>
+     	<h1>Razon de la denuncia </h1>
+        <strong>
+          <h6><%= @apelar.denuncia.razon %></h6>
+        </strong>
+      </p>
+      <p>
+     	<h1>estado de la idea  denunciada </h1>
+        <strong>
+          <h6><%= @apelar.denuncia.idea.estado.descripcion %></h6>
+        </strong>
+      </p>
+      <p>
+      <h1>datos de la empresa  </h1>
+        <strong>
+          <h6><%= @apelar.denuncia.user.grado.descripcion %></h6>
+        </strong>
+      </p> 
+      <p>
+       <%= link_to " aceptar la apelacion", apelar_idea_path(@apelar.denuncia.idea_id)%>
+      </p>
+  </div>
+  <hr>
+<hr>
+
