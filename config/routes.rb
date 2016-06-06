@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
 
-
 ##############################################################################################################
                 #todo lo relacionado con apelar idea   controler apelar 
     get 'apelar(.:format)', to: 'apelar#index', as: :apelar_index
     get 'apelar/:denunciar(.:format)', to: 'apelar#new', as: :apelar
     post 'apelar/:denunciar(.:format)', to: 'apelar#create' , as: :guardar_apelacion
     get 'ver_apelelacion/:denunciar(.:format)', to: 'apelar#show' , as: :ver_apelelacion 
-    get 'apelar_idea/:denunciar/:id_denuncia/:id_apelar(.:format)', to: 'apelar#apelar_idea', as: :apelar_idea     
+    get 'apelar_idea/:denunciar/:id_denuncia/:id_apelar(.:format)', to: 'apelar#apelar_idea', as: :apelar_idea 
+    get 'rechasar_apelacion/:denunciar/:id_denuncia/:id_apelar(.:format)', to: 'apelar#rechasar_apelacion', as: :rechasar_apelacion         
 ##############################################################################################################
                 #todo lo relacionado con denunciar idea   controler denunciar 
     get 'denunciar(.:format)', to: 'denunciar#index', as: :denunciar_index
     get 'denunciar/:idea(.:format)', to: 'denunciar#new', as: :denunciar
     post 'denunciar/:idea(.:format)', to: 'denunciar#create' , as: :guardar_denuncia
     get 'ver_denunciar/:idea(.:format)', to: 'denunciar#show' , as: :ver_denunciar 
-    get 'dar_de_baja/:idea(.:format)', to: 'denunciar#dar_de_baja', as: :dar_de_baja                    
+    get 'dar_de_baja/:idea/:denuncia(.:format)', to: 'denunciar#dar_de_baja', as: :dar_de_baja
+    get 'rechasar/:idea/:denuncia(.:format)', to: 'denunciar#rechasar', as: :rechasar                    
 ###############################################################################################################
                 #barra de busqueda 
     get 'search/create'
@@ -82,9 +83,11 @@ Rails.application.routes.draw do
   #DELETE /users(.:format)               
       #get '',to:'devise/registrations#destroy', as: :
   end
+###########################################################################################################################  
+
 ###########################################################################################################################
   #resources :ideas       
-    get 'ver_idea(.:format)', to: 'ideas#index' 
+    get 'ver_idea(.:format)', to: 'ideas#index' , as: :index
     get 'mi_idea/:tipo(.:format)', to: 'ideas#mi_ideas'  , as: :mi_idea     
     get  'mi_idea(.:format)', to: 'welcome#index' 
     post 'ver_idea(.:format)', to: 'ideas#create' , as: :guardar

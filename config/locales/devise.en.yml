@@ -7,7 +7,7 @@ en:
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
       send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos recibirás un correo electrónico en unos minutos con instrucciones sobre cómo reiniciar tu contraseña."
     failure:
-      already_authenticated: "Ya estás identificado."
+      already_authenticated: "aceso denegado."
       inactive: "Tu cuenta aún no ha sido activada."
       invalid: "Correo o contraseña inválidos."
       invalid_token: "Cadena de autenticación invalida."

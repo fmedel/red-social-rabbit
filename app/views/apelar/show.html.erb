@@ -43,7 +43,10 @@
         </strong>
       </p> 
       <p>
-       <%= link_to " aceptar la apelacion", apelar_idea_path(@apelar.denuncia.idea_id)%>
+       <%= link_to " aceptar la apelacion", apelar_idea_path(@apelar.denuncia.idea_id, @apelar.denuncia.id, @apelar.id) %>
+       
+       |
+        <%= link_to " rechazar la apelacion y eliminar idea", rechasar_apelacion_path(@apelar.denuncia.idea_id, @apelar.denuncia.id, @apelar.id)%>
       </p>
   </div>
   <hr>

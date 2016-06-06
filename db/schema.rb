@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604221313) do
+ActiveRecord::Schema.define(version: 20160606044344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,12 @@ ActiveRecord::Schema.define(version: 20160604221313) do
   add_index "postulars", ["idea_id"], name: "index_postulars_on_idea_id", using: :btree
   add_index "postulars", ["user_id"], name: "index_postulars_on_user_id", using: :btree
 
+  create_table "tipos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -96,6 +102,7 @@ ActiveRecord::Schema.define(version: 20160604221313) do
     t.string   "apellidos_persona",      default: "", null: false
     t.string   "nombres_persona",        default: "", null: false
     t.integer  "rut_persona",            default: 0,  null: false
+    t.integer  "tipo_id",                default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -105,6 +112,7 @@ ActiveRecord::Schema.define(version: 20160604221313) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["rut_empresa"], name: "index_users_on_rut_empresa", unique: true, using: :btree
   add_index "users", ["rut_persona"], name: "index_users_on_rut_persona", unique: true, using: :btree
+  add_index "users", ["tipo_id"], name: "index_users_on_tipo_id", using: :btree
 
   add_foreign_key "apelars", "estados"
   add_foreign_key "denuncia", "estados"
@@ -114,4 +122,5 @@ ActiveRecord::Schema.define(version: 20160604221313) do
   add_foreign_key "postulars", "ideas"
   add_foreign_key "postulars", "users"
   add_foreign_key "users", "grados"
+  add_foreign_key "users", "tipos"
 end

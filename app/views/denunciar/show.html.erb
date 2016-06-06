@@ -36,7 +36,10 @@
         </strong>
       </p> 
       <p>
-        <%= link_to " dar de baja la denuncia", dar_de_baja_path(@denuncia.idea_id)%>
+        <%= link_to " dar de baja la denuncia", dar_de_baja_path(@denuncia.idea_id , @denuncia.id)%>
+        |
+        <%= link_to " rechasar la denuncia", rechasar_path(@denuncia.idea_id , @denuncia.id)%>
+          
       </p>
   </div>
   <hr>

@@ -17,7 +17,7 @@
         </strong>
       </p>
       <div class="navegacion">
-        <%= link_to " apelacion  fue echa hace "+ time_ago_in_words(apelar.created_at),  apelar_idea_path(apelar.denuncia.idea_id, apelar.denuncia.id, apelar.id)   %>
+        <%= link_to " apelacion  fue echa hace "+ time_ago_in_words(apelar.created_at), ver_apelelacion_path(apelar.id)  %>
       </div>
   </div>
   <hr>

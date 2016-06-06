@@ -1,12 +1,13 @@
 class DenunciarController < ApplicationController
+   before_action :denuncia_filtro, only: [:index, :show, :dar_de_baja, :rechasar]
   def index
    if  user_signed_in?
       @denuncia = Denuncia.where(estado_id: '3')
     else 
-      redirect_to registrar_path
+       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
-  
+   
   def show
     if  user_signed_in?
     @denuncia=Denuncia.find(params['idea'])
@@ -18,18 +19,33 @@ class DenunciarController < ApplicationController
     if  user_signed_in?
       @idea = Idea.find(params['idea'])
       if @idea.update(estado_id: '4')
-        redirect_to inicio_path 
+        @denuncia =Denuncia.find(params['denuncia'])
+        if @denuncia.update(estado_id: '4')
+          redirect_to inicio_path , notice: 'La eliminacion de la idea fue echa'
+        end      
       end
     end
  end
-  
+
+ def rechasar
+    if  user_signed_in?
+      @idea = Idea.find(params['idea'])
+      if @idea.update(estado_id: '1')
+        @denuncia =Denuncia.find(params['denuncia'])
+        if @denuncia.update(estado_id: '6')
+          redirect_to inicio_path , notice: 'La denuncia fue rechasada '
+        end      
+      end
+    end
+ end 
+
   def new
     if  user_signed_in?
       @persona= @current_user.id
       @id_idea = params['idea']
       @denuncia = Denuncia.new
     else
-      redirect_to registrar_path
+       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -44,7 +60,7 @@ class DenunciarController < ApplicationController
       if @denuncia.save
         @idea = Idea.find(@id_idea)
         if @idea.update(estado_id: '3')
-          format.html { redirect_to inicio_path}
+          format.html { redirect_to inicio_path , notice: 'La denuncia  fue echa '}
         #format.json { render :show, status: :created, location: @idea }
         end
       else
@@ -53,11 +69,21 @@ class DenunciarController < ApplicationController
       end
     end
     else
-      redirect_to registrar_path
+       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
   private
+    def denuncia_filtro
+      if  user_signed_in?
+        if @current_user.tipo_id == 2 
+        else
+          redirect_to inicio_path , alert: 'aceso denegado'
+        end 
+      else
+         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      end 
+    end 
     # Never trust parameters from the scary internet, only allow the white list through.
     def denuncia_params
       params.require(:denuncia).permit(:user_id, :idea_id, :estado_id,:razon)

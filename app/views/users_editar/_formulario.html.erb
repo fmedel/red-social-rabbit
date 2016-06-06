@@ -69,7 +69,7 @@
         </div>
     <%end%> 
   <% else %>
-    <h1>Error</h1>
+  <% redirect_to registrar_path, alert: 'aceso denegado'%>
 <% end %>
 
  

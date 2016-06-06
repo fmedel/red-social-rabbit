@@ -1,12 +1,16 @@
  
 class UsersEditarController < ApplicationController
   #before_filter :authenticate_user! 
-  def tipo
-    if  user_signed_in?
-      @user = User.find(current_user.id)
-      @grados= Grado.all
-    else 
-         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+  def  tipo
+    if (params["tipo"]=="empresa"|| params["tipo"]=="encargado" || params["tipo"]=="rubros"|| params["tipo"]=="clave") 
+      if  user_signed_in?
+        @user = User.find(current_user.id)
+        @grados= Grado.all
+      else 
+           redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      end 
+    else
+      redirect_to registrar_path, alert: 'aceso denegado'
     end 
   end
 
@@ -36,19 +40,23 @@ class UsersEditarController < ApplicationController
   end
 
    def update
-     if  user_signed_in?
-       @user = User.find(current_user.id)
-      respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to inicio_path } 
-      else
-        format.html { render :edit }
-      end
-    end
-    else
-        redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
-    end 
+       if  user_signed_in?
+         @user = User.find(current_user.id)
+        respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to inicio_path } 
+        else
+          format.html { render :edit }
+        end
+        end
+        else
+            redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+        end 
   end
+
+  def sing_up
+    redirect_to registrar_path, alert: 'aceso denegado'
+  end 
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
