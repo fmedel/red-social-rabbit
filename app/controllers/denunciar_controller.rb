@@ -76,7 +76,7 @@ class DenunciarController < ApplicationController
   private
     def denuncia_filtro
       if  user_signed_in?
-        if @current_user.tipo_id == 2 
+        if @current_user.tipo_id == 3
         else
           redirect_to inicio_path , alert: 'aceso denegado'
         end 

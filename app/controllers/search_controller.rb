@@ -3,7 +3,7 @@ class SearchController < ApplicationController
 
   	palabra = "%#{params[:keyword]}%"
 
-  	@users = User.where("nombre_empresa LIKE ? and tipo_id = 0 ", palabra )
+  	@users = User.where("nombre_empresa LIKE ? and tipo_id = 1 ", palabra )
   	
   	respond_to do |format|
 		  format.html { redirect_to root_path }

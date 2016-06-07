@@ -2,7 +2,7 @@
     <div class="container">
       <%  if  user_signed_in? %>
         <%case @current_user.tipo_id %>
-        <%when 0 %>
+        <%when 1 %>
           <%=link_to "RedRabit", inicio_path, class:"navbar-brand"  %>
           <ul class="nav navbar-nav">
               <li class="active">
@@ -62,7 +62,7 @@
                 </div>
               </li>
           </ul>
-        <%when 1%>
+        <%when 2%>
           <%=link_to "RedRabit", '#', class:"navbar-brand"  %>
            <ul class="nav navbar-nav">
               <li class="active">
@@ -73,7 +73,7 @@
                 <%= link_to "log out", destruiry_path,  class:"btn btn-danger"  %>
               </li>
           </ul>
-        <%when 2 %>
+        <%when 3%>
           <%=link_to "RedRabit", '#', class:"navbar-brand"  %>
           <ul class="nav navbar-nav">
               <li class="active">

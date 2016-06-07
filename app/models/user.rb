@@ -5,12 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible 	:nombre_empresa, :rut_empresa, :email_persona, :apellidos_persona, :nombres_persona, 
-       					:rut_persona, :grado_id , :email, :password, :password_confirmation
+       					:rut_persona, :grado_id , :email, :password, :password_confirmation ,:tipo_id
 
   has_many :ideas #tiene muchos 
   has_many :denuncia
   #has_one :estado
   belongs_to :grado
+  belongs_to :tipo
 
    validates  :nombre_empresa, presence: true , length: { minimum: 3 } , uniqueness: true
    validates  :email, presence: true , length: { minimum: 3} 

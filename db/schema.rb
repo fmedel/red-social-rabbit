@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20160606044344) do
     t.string   "apellidos_persona",      default: "", null: false
     t.string   "nombres_persona",        default: "", null: false
     t.integer  "rut_persona",            default: 0,  null: false
-    t.integer  "tipo_id",                default: 0
+    t.integer  "tipo_id",                default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
