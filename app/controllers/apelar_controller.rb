@@ -78,7 +78,6 @@ class ApelarController < ApplicationController
        redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
-
   private
    def apelar_filtro
       if  user_signed_in?

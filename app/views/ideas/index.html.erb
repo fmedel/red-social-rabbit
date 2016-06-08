@@ -32,13 +32,19 @@
         <%= idea.contenido %>
         </h6>
       </p>
-      <div class="navegacion">
+      <%if @current_user.tipo_id == 2 or @current_user.tipo_id == 3%>
+       <span class="admin">
+         (<%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
+          | <%= link_to 'dar de baja idea',dar_de_baja_idea_path(idea.id)%>)
+        </span> 
+      <%else%>
         <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
           <span class="admin">
           |
           <%= link_to 'postular', postular_path(idea.id) %> 
           |
           <%= link_to 'denunciar', denunciar_path(idea.id) %> 
+      <%end%>
         </span>
       </div>
   </div>

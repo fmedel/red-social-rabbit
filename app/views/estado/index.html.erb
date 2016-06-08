@@ -9,7 +9,9 @@
         <strong>
           <%=estado.id%>:<%= estado.descripcion %>
         </strong>
-        <%= link_to 'editar', editar_estado_path(estado.id) %>
+        (<%= link_to 'editar', editar_estado_path(estado.id) %>
+        | 
+         <%= link_to 'Destroy', eliminar_estado_path(estado.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>)
       </h4>
       <br>
   </div>

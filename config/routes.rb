@@ -1,31 +1,37 @@
 Rails.application.routes.draw do
 ################################################################################################################3
-              #todo lo relacionado con los tipo controler tipo
+              #todo lo relacionado con los tipo controler tipo 
+              #todo ok hasta el eliminar esta listo
     get 'tipo(.:format)', to: 'tipo#index', as: :tipo
     get 'tipo_guardar(.:format)', to: 'tipo#new' , as: :tipo_guardar
     post 'tipo_guardar(.:format)', to: 'tipo#create' , as: :tipo_guardar_ok
     get 'tipo/:id/editar(.:format)', to: 'tipo#edit' , as: :editar_tipo  
     patch 'ver_tipo/:id(.:format)', to: 'tipo#update' 
     put 'ver_tipo/:id(.:format)', to: 'tipo#update'
-    get 'ver_tipo/:id(.:format)', to: 'tipo#show' , as: :ver_tipo  
+    get 'ver_tipo/:id(.:format)', to: 'tipo#show' , as: :ver_tipo 
+    delete 'ver_tipo/:id(.:format)', to: 'tipo#destroy' , as: :eliminar_tipo
 ##############################################################################################################     
             #todo lo relacionado con los estado controler estado
+              #todo ok hasta el eliminar esta listo
     get 'estado(.:format)', to: 'estado#index', as: :estado
     get 'estado_guardar(.:format)', to: 'estado#new' , as: :estado_guardar
     post 'estado_guardar(.:format)', to: 'estado#create' , as: :estado_guardar_ok
     get 'estado/:id/editar(.:format)', to: 'estado#edit' , as: :editar_estado
     patch 'ver_estado/:id(.:format)', to: 'estado#update' 
     put 'ver_estado/:id(.:format)', to: 'estado#update'
-    get 'ver_estado/:id(.:format)', to: 'estado#show' , as: :ver_estado        
+    get 'ver_estado/:id(.:format)', to: 'estado#show' , as: :ver_estado
+    delete 'ver_estado/:id(.:format)', to: 'estado#destroy' , as: :eliminar_estado       
 #############################################################################################################
             #todo lo relacionado con los grado controler grado
+              #todo ok hasta el eliminar esta listo
     get 'grado(.:format)', to: 'grado#index', as: :grado
     get 'grados_guardar(.:format)', to: 'grado#new' , as: :grados_guardar
     post 'grados_guardar(.:format)', to: 'grado#create' , as: :grados_guardar_ok
     get 'grados/:id/editar(.:format)', to: 'grado#edit' , as: :editar_grados  
     patch 'ver_grado/:id(.:format)', to: 'grado#update' 
     put 'ver_grado/:id(.:format)', to: 'grado#update'
-    get 'ver_grado/:id(.:format)', to: 'grado#show' , as: :ver_grado                       
+    get 'ver_grado/:id(.:format)', to: 'grado#show' , as: :ver_grado
+    delete 'ver_grado/:id(.:format)', to: 'grado#destroy' , as: :eliminar_grado                      
 ##############################################################################################################
                 #todo lo relacionado con apelar idea   controler apelar 
     get 'apelar(.:format)', to: 'apelar#index', as: :apelar_index
@@ -123,7 +129,7 @@ Rails.application.routes.draw do
     patch 'ver_idea/:id(.:format)', to: 'ideas#update' 
     put 'ver_idea/:id(.:format)', to: 'ideas#update'
     delete 'ver_idea/:id(.:format)', to: 'ideas#destroy' , as: :eliminar
-
+    get 'dar_de_baja_idea/:idea(.:format)', to: 'ideas#dar_de_baja', as: :dar_de_baja_idea
 #############################################################################################################################
     get 'inicio', to: 'welcome#index' , as: :inicio
     get 'new/:tipo', to: 'welcome#new',as: :new_moderador
