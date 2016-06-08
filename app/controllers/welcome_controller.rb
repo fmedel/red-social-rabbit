@@ -14,8 +14,8 @@ class WelcomeController < ApplicationController
 				@apelacion = Apelar.where('estado_id= 2' ).count
 				@user = User.where('tipo_id =1').count
 				@ideas = Idea.where('estado_id= 1').count
-				@moderadores =User.where('tipo_id =3').count
-				@administradores=User.where('tipo_id =2').count
+				@moderador =User.where('tipo_id =3').count
+				@administrador=User.where('tipo_id =2').count
 				@tipo = Tipo.count
 				@grado =Grado.count
 				@estado=Estado.count
@@ -25,5 +25,53 @@ class WelcomeController < ApplicationController
 	else
 		redirect_to registrar_path
 	end
+  end
+
+   def new
+    if  user_signed_in?
+      @user = User.new
+     @tipo= params['tipo']
+    else
+      redirect_to registrar_path
+    end 
+  end
+
+  def create
+    if  user_signed_in?
+     if params['tipo'] == "moderadores"
+      	@user = User.new(tipo_id: 3 ,nombre_empresa: params['user']['rut_persona']  ,rut_empresa: params['user']['rut_persona'] ,email_persona:  params['user']['email'] ,apellidos_persona:  params['user']['apellidos_persona'],nombres_persona:params['user']['nombres_persona'] ,rut_persona: params['user']['rut_persona'],grado_id: 1,email: params['user']['email'] ,password:params['user']['password'])
+	    if @user.save
+	        redirect_to inicio_path, notice: 'user guardado ccorrectamente ' 
+	    else
+	        render :new 
+	    end
+     else
+     	@user = User.new(tipo_id: 2 ,nombre_empresa: params['user']['rut_persona'] ,rut_empresa: params['user']['rut_persona'] ,email_persona:  params['user']['email'] ,apellidos_persona:  params['user']['apellidos_persona'],nombres_persona:params['user']['nombres_persona'] ,rut_persona: params['user']['rut_persona'],grado_id: 1,email: params['user']['email'] ,password:params['user']['password'])
+      if @user.save
+        redirect_to inicio_path, notice: 'user guardado ccorrectamente ' 
+      else
+        render :new 
+      end
+     end 
+    else
+      redirect_to registrar_path
+    end 
+  end
+
+  def datos
+    if  user_signed_in?
+      case params['ver_tipos'] 
+        when  'usuarios'
+            @dato= User.where("tipo_id =1")
+        when  'moderadores'
+            @dato= User.where("tipo_id =3")
+        when  'administradores'
+            @dato= User.where("tipo_id =2")
+        else
+          redirect_to inicio_path, alert: 'aceso denegado'
+      end   
+    else
+      redirect_to registrar_path , alert: 'tiene que estar regitrado primero'
+    end 
   end
 end

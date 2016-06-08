@@ -82,7 +82,7 @@ class ApelarController < ApplicationController
   private
    def apelar_filtro
       if  user_signed_in?
-        if @current_user.tipo_id == 3
+        if @current_user.tipo_id == 2 or @current_user.tipo_id == 3
         else
           redirect_to inicio_path , alert: 'aceso denegado'
         end 

@@ -126,6 +126,9 @@ Rails.application.routes.draw do
 
 #############################################################################################################################
     get 'inicio', to: 'welcome#index' , as: :inicio
+    get 'new/:tipo', to: 'welcome#new',as: :new_moderador
+    post 'new/:tipo', to: 'welcome#create', as: :new_moderador_ok
+    get 'datos/:ver_tipos', to: 'welcome#datos', as: :datos
     root to: "welcome#index"
 #############################################################################################################################   
   # The priority is based upon order of creation: first created -> highest priority.

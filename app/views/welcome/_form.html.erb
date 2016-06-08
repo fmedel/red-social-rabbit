@@ -1,0 +1,28 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <%= image_tag('conejito.jpg' , height: '100%', width: '100%')%>
+      </div>
+      <div class="col-md-6">
+        <fieldset>
+              <%= simple_form_for(@user, url: new_moderador_ok_path(tipo: @tipo), html: {class: "form-inline"}) do |f| %>
+                 <%= f.error_notification %>
+                  <div class="form-group">
+                    <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabit@XXXX.xxx'%>
+                    <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
+                    <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
+                    </div>
+                    <div class="form-group">
+                    <%= f.input  :apellidos_persona,label: 'Apellido de la persona', required: true,placeholder: 'apellidos de la persona' %>
+                    <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la persona' %>
+                    <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la persona' %>
+                    </div>
+                  <div class="form-actions">
+                    <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
+                  </div>
+                <% end %>
+        </fieldset>
+       </div>
+    </div>
+</div>

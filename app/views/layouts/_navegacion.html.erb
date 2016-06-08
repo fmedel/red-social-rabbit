@@ -1,7 +1,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <%  if  user_signed_in? %>
-        <%case @current_user.tipo_id %>
+        <%case current_user.tipo_id %>
         <%when 1 %>
           <%=link_to "RedRabit", inicio_path, class:"navbar-brand"  %>
           <ul class="nav navbar-nav">
@@ -74,7 +74,7 @@
               </li>
           </ul>
         <%when 3%>
-          <%=link_to "RedRabit", '#', class:"navbar-brand"  %>
+          <%=link_to "RedRabit", inicio_path, class:"navbar-brand"  %>
           <ul class="nav navbar-nav">
               <li class="active">
                 <%= link_to "apelacion", apelar_index_path,  class:"btn btn-danger"  %>
