@@ -12,7 +12,7 @@ def index
     if  user_signed_in?
        @tipo= Tipo.find(params[:id])
     else
-      redirect_to registrar_path, alert: 'Primero debe estar registrado'
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -21,11 +21,11 @@ def index
      if  user_signed_in?
       respond_to do |format|
         if @tipo.update(tipo_params)
-          format.html { redirect_to tipo_path, notice: 'El tipo de user fue actualizado' }
+          format.html { redirect_to tipo_path, notice: 'la tipo fue actualizada .' }
         end
       end
     else
-      redirect_to registrar_path, alert: 'Primero debe estar registrado'
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -50,7 +50,7 @@ def index
       @tipo = Tipo.new(tipo_params)
       respond_to do |format|
       if @tipo.save
-        format.html { redirect_to tipo_path, notice: 'El tipo de user fue guardado correctamente' } 
+        format.html { redirect_to tipo_path, notice: 'tipo  guardado ccorrectamente ' } 
       else
         format.html { render :new }
       end
@@ -87,10 +87,10 @@ end
       if  user_signed_in?
         if @current_user.tipo_id == 3
         else
-          redirect_to inicio_path , alert: 'Acceso denegado'
+          redirect_to inicio_path , alert: 'aceso denegado'
         end 
       else
-         redirect_to registrar_path, alert: 'Primero debe estar registrado'
+         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
       end 
     end 
     # Never trust parameters from the scary internet, only allow the white list through.

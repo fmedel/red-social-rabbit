@@ -4,7 +4,7 @@ class ApelarController < ApplicationController
    if  user_signed_in?
       @apelar = Apelar.where(estado_id: '2')
     else 
-       redirect_to registrar_path, alert: 'Debe estar registrado primero'
+       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end 
   
@@ -22,7 +22,7 @@ class ApelarController < ApplicationController
         if @denuncia.update(estado_id: '4')
           @apelar=Apelar.find( params['id_apelar'])
           if @apelar.update(estado_id: '4')
-            redirect_to inicio_path , notice: 'La apelacion a la idea fue rechazada'
+            redirect_to inicio_path , notice: 'La apelacion de la idea fue rechasada'
           end
         end
       end
@@ -49,7 +49,7 @@ class ApelarController < ApplicationController
       @id_idea = params['denunciar']
       @apelar = Apelar.new
     else
-       redirect_to registrar_path, alert: 'Primero debe estar registrado'
+       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -65,7 +65,7 @@ class ApelarController < ApplicationController
         if @denuncia.update(estado_id: @estado)
            @idea = Idea.find(@denuncia.idea_id)
             if @idea.update(estado_id: @estado)
-            format.html { redirect_to inicio_path ,  notice: 'La apelacion fue hecha'}
+            format.html { redirect_to inicio_path ,  notice: 'La apelacion fue echa'}
           end
         end
         #format.json { render :show, status: :created, location: @idea }
@@ -75,22 +75,18 @@ class ApelarController < ApplicationController
       end
     end
     else
-       redirect_to registrar_path, alert: 'Primero debe estar registrado'
+       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
   private
    def apelar_filtro
       if  user_signed_in?
-<<<<<<< HEAD
-        if @current_user.tipo_id == 3 or @current_user.tipo_id == 2
-=======
         if @current_user.tipo_id == 2 or @current_user.tipo_id == 3
->>>>>>> 498d60839e3f3a2ea0e90e2717688dd30899c62b
         else
-          redirect_to inicio_path , alert: 'Acceso denegado'
+          redirect_to inicio_path , alert: 'aceso denegado'
         end 
       else
-         redirect_to registrar_path, alert: 'Primero debe estar registrado'
+         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
       end 
     end 
     # Never trust parameters from the scary internet, only allow the white list through.

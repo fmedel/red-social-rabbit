@@ -7,10 +7,10 @@ class UsersEditarController < ApplicationController
         @user = User.find(current_user.id)
         @grados= Grado.all
       else 
-           redirect_to registrar_path, alert: 'Primero debe estar registrado'
+           redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
       end 
     else
-      redirect_to registrar_path, alert: 'Acceso denegado'
+      redirect_to registrar_path, alert: 'aceso denegado'
     end 
   end
 
@@ -19,7 +19,7 @@ class UsersEditarController < ApplicationController
       @user = User.find(params["perfil"])
       @grados= Grado.all
     else 
-        redirect_to registrar_path, alert: 'Primero debe estar registrado'
+        redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -35,7 +35,7 @@ class UsersEditarController < ApplicationController
        @grados= Grado.all
        @user = User.find(current_user.id)
     else
-        redirect_to registrar_path, alert: 'Primero debe estar registrado'
+        redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
     end 
   end
 
@@ -50,12 +50,12 @@ class UsersEditarController < ApplicationController
         end
         end
         else
-            redirect_to registrar_path, alert: 'Primero debe estar registrado'
+            redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
         end 
   end
 
   def sing_up
-    redirect_to registrar_path, alert: 'Acceso denegado'
+    redirect_to registrar_path, alert: 'aceso denegado'
   end 
 
   private
