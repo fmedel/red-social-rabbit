@@ -69,10 +69,10 @@ class WelcomeController < ApplicationController
         when  'administradores'
             @dato= User.where("tipo_id =3")
         else
-          redirect_to inicio_path, alert: 'aceso denegado'
+          redirect_to inicio_path, alert: 'acceso denegado'
       end   
     else
-      redirect_to registrar_path , alert: 'tiene que estar regitrado primero'
+      redirect_to registrar_path , alert: 'Primero debe estar registrado'
     end 
   end
   private 
@@ -80,10 +80,10 @@ class WelcomeController < ApplicationController
     if  user_signed_in?
       if @current_user.tipo_id == 3 
         else
-          redirect_to inicio_path , alert: 'aceso denegado'
+          redirect_to inicio_path , alert: 'acceso denegado'
         end 
       else
-         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+         redirect_to registrar_path, alert: 'Primero debe estar registrado'
       end 
   end 
 end

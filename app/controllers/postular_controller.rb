@@ -3,7 +3,7 @@ class PostularController < ApplicationController
     if  user_signed_in?
       
     else 
-      redirect_to registrar_path , notice: "tiene que estar regitrado primero "
+      redirect_to registrar_path , notice: "Primero debe estar registrado "
     end 
   end
  
@@ -29,13 +29,13 @@ class PostularController < ApplicationController
       respond_to do |format|
       if @postular.save
         @idea.update(visita: @visita)
-        format.html { redirect_to inicio_path, notice: "la postulacion fue echa "}
+        format.html { redirect_to inicio_path, notice: "la postulacion fue hecha "}
       else
         format.html { render :new }
       end
     end
     else
-      redirect_to registrar_path , alert: "tiene que estar registraod primero"
+      redirect_to registrar_path , alert: "Primero debe estar registrado"
     end 
   end
 

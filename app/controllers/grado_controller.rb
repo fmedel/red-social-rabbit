@@ -12,7 +12,7 @@ def index
     if  user_signed_in?
        @grado= Grado.find(params[:id])
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
    def update
@@ -20,11 +20,11 @@ def index
      if  user_signed_in?
       respond_to do |format|
         if @grado.update(grado_params)
-          format.html { redirect_to grado_path, notice: 'la grado fue actualizada .' }
+          format.html { redirect_to grado_path, notice: 'la grado fue actualizado' }
         end
       end
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
   def show
@@ -47,7 +47,7 @@ def index
       @grado = Grado.new(grado_params)
       respond_to do |format|
       if @grado.save
-        format.html { redirect_to grado_path, notice: 'grado  guardado ccorrectamente ' } 
+        format.html { redirect_to grado_path, notice: 'el grado fue guardado correctamente ' } 
       else
         format.html { render :new }
       end
@@ -63,7 +63,7 @@ def destroy
       if @user.empty?
         respond_to do |format|
           @tipo.destroy
-          format.html { redirect_to inicio_path, notice: 'el grado fue eliminada' }
+          format.html { redirect_to inicio_path, notice: 'el grado fue eliminado' }
           #format.json { head :no_content }
         end
       else
@@ -71,10 +71,10 @@ def destroy
           user.update(grado_id: 1)
         end
           @tipo.destroy
-          redirect_to inicio_path,  notice: 'el grado fue eliminada'
+          redirect_to inicio_path,  notice: 'el grado fue eliminado'
       end
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
 end
 
@@ -83,10 +83,10 @@ end
       if  user_signed_in?
         if @current_user.tipo_id == 3
         else
-          redirect_to inicio_path , alert: 'aceso denegado'
+          redirect_to inicio_path , alert: 'acceso denegado'
         end 
       else
-         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+         redirect_to registrar_path, alert: 'Primero debe estar registrado'
       end 
     end 
     # Never trust parameters from the scary internet, only allow the white list through.

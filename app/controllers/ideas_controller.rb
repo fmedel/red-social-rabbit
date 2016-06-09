@@ -10,7 +10,7 @@ class IdeasController < ApplicationController
         format.json {render json: @ideas}
       end
     else 
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end
   end
 
@@ -32,7 +32,7 @@ class IdeasController < ApplicationController
           redirect_to registrar_path
       end
     else 
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end
   end 
   # GET /ideas/1
@@ -41,7 +41,7 @@ def dar_de_baja
     if  user_signed_in?
       @idea = Idea.find(params['idea'])
       if @idea.update(estado_id: '4')
-          redirect_to inicio_path , notice: 'La eliminacion de la idea fue echa'
+          redirect_to inicio_path , notice: 'La eliminacion de la idea fue realizada'
       end
     end
  end
@@ -50,7 +50,7 @@ def dar_de_baja
     if  user_signed_in?
      @idea = Idea.find(params[:id])
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
 
@@ -59,7 +59,7 @@ def dar_de_baja
     if  user_signed_in?
       @idea = Idea.new
     else
-     redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+     redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
 
@@ -67,7 +67,7 @@ def dar_de_baja
   def edit
     if  user_signed_in?
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
 
@@ -85,12 +85,12 @@ def dar_de_baja
           format.html { redirect_to ver_idea_path(@idea), notice: 'La idea fue creada correctamente'}
           format.json { render :show, status: :created, location: @idea }
         else
-          format.html { render :new , alert: 'Ocurio un errors en  crear la idea '}
+          format.html { render :new , alert: 'Ocurrio un error al momento de crear la idea'}
           format.json { render json: @idea.errors, status: :unprocessable_entity }
         end
       end
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
 
@@ -108,7 +108,7 @@ def dar_de_baja
         end
       end
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
 
@@ -122,7 +122,7 @@ def dar_de_baja
         #format.json { head :no_content }
       end
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
 
@@ -139,7 +139,7 @@ def dar_de_baja
           redirect_to inicio_path, alert: 'pagina no encontrada'
         end 
       else
-       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+       redirect_to registrar_path, alert: 'Primero debe estar registrado'
       end 
     end
 

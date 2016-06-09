@@ -4,7 +4,7 @@ class ApelarController < ApplicationController
    if  user_signed_in?
       @apelar = Apelar.where(estado_id: '2')
     else 
-       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+       redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end 
   
@@ -22,7 +22,7 @@ class ApelarController < ApplicationController
         if @denuncia.update(estado_id: '4')
           @apelar=Apelar.find( params['id_apelar'])
           if @apelar.update(estado_id: '4')
-            redirect_to inicio_path , notice: 'La apelacion de la idea fue rechasada'
+            redirect_to inicio_path , notice: 'La apelacion de la idea fue rechazada'
           end
         end
       end
@@ -37,7 +37,7 @@ class ApelarController < ApplicationController
         if @denuncia.update(estado_id: '1')
           @apelar=Apelar.find( params['id_apelar'])
           if @apelar.update(estado_id: '1')
-            redirect_to inicio_path , notice: 'La apelacion fue aceptada '
+            redirect_to inicio_path , notice: 'Primero debe estar registrado '
           end
         end
       end
@@ -49,7 +49,7 @@ class ApelarController < ApplicationController
       @id_idea = params['denunciar']
       @apelar = Apelar.new
     else
-       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+       redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
 
@@ -65,7 +65,7 @@ class ApelarController < ApplicationController
         if @denuncia.update(estado_id: @estado)
            @idea = Idea.find(@denuncia.idea_id)
             if @idea.update(estado_id: @estado)
-            format.html { redirect_to inicio_path ,  notice: 'La apelacion fue echa'}
+            format.html { redirect_to inicio_path ,  notice: 'La apelacion fue realizada'}
           end
         end
         #format.json { render :show, status: :created, location: @idea }
@@ -75,7 +75,7 @@ class ApelarController < ApplicationController
       end
     end
     else
-       redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+       redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
   private
@@ -83,10 +83,10 @@ class ApelarController < ApplicationController
       if  user_signed_in?
         if @current_user.tipo_id == 2 or @current_user.tipo_id == 3
         else
-          redirect_to inicio_path , alert: 'aceso denegado'
+          redirect_to inicio_path , alert: 'acceso denegado'
         end 
       else
-         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+         redirect_to registrar_path, alert: 'Primero debe estar registrado'
       end 
     end 
     # Never trust parameters from the scary internet, only allow the white list through.
