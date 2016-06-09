@@ -39,7 +39,7 @@
           <% end %>
       <%end%>
          <div class="form-group">
-            <%= f.input  :email_persona,label: 'Email de la perdona', required: true,placeholder: 'email de la Persona' %>
+            <%= f.input  :email_persona,label: 'Email de la persona', required: true,placeholder: 'email de la Persona' %>
             <%= f.input  :apellidos_persona,label: 'Apellido de la persona', required: true,placeholder: 'apellidos de la Persona' %>
             <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la Persona' %>
             <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la Persona' %>
@@ -69,7 +69,7 @@
           </div>
     <%end%> 
   <% else %>
-  <% redirect_to registrar_path, alert: 'aceso denegado'%>
+  <% redirect_to registrar_path, alert: 'Acceso denegado'%>
 <% end %>
 
  
