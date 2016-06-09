@@ -4,14 +4,14 @@
   <div class="denuncias">
   <hr>
      <p>
-     	<h1>datos del  denunciado user </h1>
+     	<h1>Datos del user denunciado </h1>
         <strong>
           <h6> nombre commpleto: <%= @denuncia.razon%></h6>
           <h6>email: <%= @denuncia.idea.user.email %></h6>
         </strong>
       </p>
       <p>
-     	<h1>datos del  denunciante user </h1>
+     	<h1>Datos del user denunciante </h1>
         <strong>
           <h6> nombre commpleto: <%= @denuncia.user.nombre_completo %></h6>
           <h6>email: <%= @denuncia.user.email %></h6>
@@ -24,13 +24,13 @@
         </strong>
       </p>
       <p>
-     	<h1>estado de la idea  denunciada </h1>
+     	<h1>Estado de la idea  denunciada </h1>
         <strong>
           <h6><%= @denuncia.idea.estado.descripcion %></h6>
         </strong>
       </p>
       <p>
-      <h1>datos de la empresa  </h1>
+      <h1>Datos de la empresa  </h1>
         <strong>
           <h6><%= @denuncia.user.grado.descripcion %></h6>
         </strong>
@@ -38,7 +38,7 @@
       <p>
         <%= link_to " dar de baja la denuncia", dar_de_baja_path(@denuncia.idea_id , @denuncia.id)%>
         |
-        <%= link_to " rechasar la denuncia", rechasar_path(@denuncia.idea_id , @denuncia.id)%>
+        <%= link_to " rechazar la denuncia", rechasar_path(@denuncia.idea_id , @denuncia.id)%>
           
       </p>
   </div>

@@ -12,7 +12,7 @@ def index
     if  user_signed_in?
        @estado= Estado.find(params[:id])
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
    def update
@@ -20,11 +20,11 @@ def index
      if  user_signed_in?
       respond_to do |format|
         if @estado.update(estado_params)
-          format.html { redirect_to estado_path, notice: 'la estado fue actualizada .' }
+          format.html { redirect_to estado_path, notice: 'El estado fue actualizado' }
         end
       end
     else
-      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
   def show
@@ -47,7 +47,7 @@ def index
       @estado = Estado.new(estado_params)
       respond_to do |format|
       if @estado.save
-        format.html { redirect_to estado_path, notice: 'estado  guardado ccorrectamente ' } 
+        format.html { redirect_to estado_path, notice: 'El estado fue guardado correctamente ' } 
       else
         format.html { render :new }
       end
@@ -62,10 +62,10 @@ def index
       if  user_signed_in?
         if @current_user.tipo_id == 3
         else
-          redirect_to inicio_path , alert: 'aceso denegado'
+          redirect_to inicio_path , alert: 'Acceso denegado'
         end 
       else
-         redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+         redirect_to registrar_path, alert: 'Primero debe estar registrado'
       end 
     end 
     # Never trust parameters from the scary internet, only allow the white list through.
