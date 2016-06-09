@@ -1,4 +1,4 @@
-
+ 
 <div class="page-header">
   <h1>Todas las ideas disponibles</h1>
 </div>
@@ -17,6 +17,7 @@
 
 
 <% @ideas.each do |idea| %>
+<hr>
   <div class="ideas">
      <h4>
         <strong>
@@ -36,6 +37,9 @@
        <span class="admin">
          (<%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
           | <%= link_to 'dar de baja idea',dar_de_baja_idea_path(idea.id)%>)
+          <div class="postulacion">
+             <h6> postulando-> <%= idea.visita %></h6>
+          </div>
         </span> 
       <%else%>
         <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
@@ -48,6 +52,7 @@
         </span>
       </div>
   </div>
+<hr>
 <% end %>
 <br>
 
