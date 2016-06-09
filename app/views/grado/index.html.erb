@@ -9,7 +9,9 @@
         <strong>
           <%=grado.id%>:<%= grado.descripcion %>
         </strong>
-        <%= link_to 'editar', editar_grados_path(grado.id) %>
+        (<%= link_to 'editar', editar_grados_path(grado.id) %>
+         | 
+         <%= link_to 'Destroy', eliminar_grado_path(grado.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>)
       </h4>
       <br>
   </div>

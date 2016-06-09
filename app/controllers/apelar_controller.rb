@@ -78,11 +78,14 @@ class ApelarController < ApplicationController
        redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 
   end
-
   private
    def apelar_filtro
       if  user_signed_in?
+<<<<<<< HEAD
         if @current_user.tipo_id == 3 or @current_user.tipo_id == 2
+=======
+        if @current_user.tipo_id == 2 or @current_user.tipo_id == 3
+>>>>>>> 498d60839e3f3a2ea0e90e2717688dd30899c62b
         else
           redirect_to inicio_path , alert: 'Acceso denegado'
         end 

@@ -47,26 +47,26 @@
         <div class="form-actions">
         <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
         </div>
-    <%end%>                     
+     <%end%>                     
   <% when "rubros" %>
   <% when "clave" %>
-  <%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
-      <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-          <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-      <%end%>
-         <div class="form-group">
-            <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
-            <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        <%end%>
+           <div class="form-group">
+              <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
+              <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
+            </div>
+          <div class="form-actions">
+          <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
           </div>
-        <div class="form-actions">
-        <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
-        </div>
     <%end%> 
   <% else %>
   <% redirect_to registrar_path, alert: 'Acceso denegado'%>

@@ -37,8 +37,14 @@ class IdeasController < ApplicationController
   end 
   # GET /ideas/1
   # GET /ideas/1.json
-  def show_duenio
-  end
+def dar_de_baja
+    if  user_signed_in?
+      @idea = Idea.find(params['idea'])
+      if @idea.update(estado_id: '4')
+          redirect_to inicio_path , notice: 'La eliminacion de la idea fue echa'
+      end
+    end
+ end
 
   def show
     if  user_signed_in?

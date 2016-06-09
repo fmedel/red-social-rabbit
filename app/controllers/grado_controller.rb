@@ -56,6 +56,27 @@ def index
       redirect_to registrar_path
     end 
   end
+def destroy
+    if  user_signed_in?
+      @tipo=Grado.find(params['id'])
+      @user= User.where("grado_id =?", @tipo)
+      if @user.empty?
+        respond_to do |format|
+          @tipo.destroy
+          format.html { redirect_to inicio_path, notice: 'el grado fue eliminada' }
+          #format.json { head :no_content }
+        end
+      else
+        @user.each do |user|
+          user.update(grado_id: 1)
+        end
+          @tipo.destroy
+          redirect_to inicio_path,  notice: 'el grado fue eliminada'
+      end
+    else
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+    end 
+end
 
   private
    def grado_filtro

@@ -60,6 +60,28 @@ def index
     end 
   end
 
+def destroy
+    if  user_signed_in?
+      @tipo=Tipo.find(params['id'])
+      @user= User.where("tipo_id =?", @tipo)
+      if @user.empty?
+        respond_to do |format|
+          @tipo.destroy
+          format.html { redirect_to inicio_path, notice: 'el tipo fue eliminada' }
+          #format.json { head :no_content }
+        end
+      else
+        @user.each do |user|
+          user.update(tipo_id: 1)
+        end
+          @tipo.destroy
+          redirect_to inicio_path,  notice: 'el tipo fue eliminada'
+      end
+    else
+      redirect_to registrar_path, alert: 'Tiene que estar registrado primero'
+    end 
+end
+
   private
    def tipo_filtro
       if  user_signed_in?

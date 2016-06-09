@@ -1,15 +1,23 @@
 <h1>bienvenido <%=@current_user.tipo.descripcion %> : <%= @current_user.nombre_completo %> </h1>
 <% case @current_user.tipo_id %>
 <% when 2 %>
-	<p>Es hora de  trabajar  hay debuncias <%= @denuncia %> activas </p>
-	<p>Es hora de  trabajar  hay apelacion <%= @apelacion %> activas </p>
+	<p>
+		Es hora de  trabajar  hay denuncias <%= @denuncia %> activas 
+		(
+		<%= link_to 'ver denuncia',denunciar_index_path %>
+		)
+	</p>
+	<p>
+		Es hora de  trabajar  hay apelacion <%= @apelacion %> activas 
+		(
+		<%= link_to 'ver apelacion',apelar_index_path %>
+		)
+	</p>
 <% when 3 %>
 	<p>
 		Hay un total de  usuarios <%=@user %>activo
 		(
-		<%= link_to 'crear nuevo usuario',"#" %>
-		|
-		<%= link_to 'ver usuarios',"#" %>
+		<%= link_to 'ver usuarios',datos_path(ver_tipos: "usuarios") %>
 		)
 	</p> 
 	<p>
@@ -19,19 +27,19 @@
 		)
 	</p> 
 	<p>
-		Hay un total de  moderadores <%=@moderadores %> activo
+		Hay un total de  moderadores <%=@moderador %> activo
 		(
-		<%= link_to 'crear nuevo moderadores',"#" %>
+		<%= link_to 'crear nuevo moderadores', new_moderador_path(tipo: "moderadores") %>
 		|
-		<%= link_to 'ver moderadores',"#" %>
+		<%= link_to 'ver moderadores',datos_path(ver_tipos: "moderadores") %>
 		)
 	</p> 
 	<p>
-		Hay un total de  administradores <%=@administradores%> activa
+		Hay un total de  administradores <%=@administrador%> activa
 		(
-		<%= link_to 'crear nuevo administradores',"#" %>
+		<%= link_to 'crear nuevo administradores',new_moderador_path(tipo: "administradores")%>
 		|
-		<%= link_to 'ver administradores',"#" %>
+		<%= link_to 'ver administradores',datos_path(ver_tipos: "administradores") %>
 		)
 	</p>
 	<p>

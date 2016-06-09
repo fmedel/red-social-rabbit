@@ -56,6 +56,10 @@
 			  </div>
 			<br>
 			<%= link_to "Editar",editar_perfil_path(tipo: "clave"), class:"btn btn-info  btn-block active"  %>
+	<% when "moderador" %>
+		<%= render 'formulario' %>
+	<% when "aministrador" %>
+		<%= render 'formulario' %>
 	<% else %>
 	<h1>Error</h1>
 <% end %>
