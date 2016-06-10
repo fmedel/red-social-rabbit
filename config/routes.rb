@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 ###############################################################################################################
                 #barra de busqueda 
     get 'search/create'
+    get 'search/apelar'
 ###############################################################################################################
                 #todo lo relacionado con postular  controler postualar 
     get 'postular(.:format)/:idea', to: 'postular#new', as: :postular

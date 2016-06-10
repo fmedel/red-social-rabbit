@@ -1,1 +1,1 @@
-$("#resultados").html("<%= j render @users %>")
+$("#busqueda").html("<%= j render @users %>")
