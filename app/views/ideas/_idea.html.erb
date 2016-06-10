@@ -1,8 +1,8 @@
 <div>
 	<strong><%= idea.titulo %></strong>
 	<%= idea.user.nombre_empresa %>
-	-
-
-
-<%= link_to "Ver denuncia", ver_denunciar_path(idea.id), style: "color:blue;text-decoration:underline" %>
+	-(
+	<%=idea.id%>
+)
+<%= link_to "Ver denuncia", "#", style: "color:blue;text-decoration:underline" %>
 </div>
