@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
    validates  :grado_id, presence: true, numericality: true 
 
    #validates  :termino_de_uso, acceptance: { accept: 'yes'}
+     ##################################
      def  nombre_completo 
           nombres_persona+ " "+ apellidos_persona
       end

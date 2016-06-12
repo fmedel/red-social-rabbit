@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+get "archivos/subir_archivos"
+post "archivos/subir_archivos"
+get "archivos/listar_archivos"
+post "archivos/borrar_archivos"
+get "archivos/guardar_comentarios"
+post "archivos/guardar_comentarios"
+
 ################################################################################################################3
               #todo lo relacionado con los tipo controler tipo 
               #todo ok hasta el eliminar esta listo
