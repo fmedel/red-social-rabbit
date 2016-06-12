@@ -2,16 +2,24 @@
 <% case @current_user.tipo_id %>
 <% when 2 %>
 	<p>
+		<%if @denuncia != 0%>
 		Es hora de  trabajar  hay denuncias <%= @denuncia %> activas 
 		(
 		<%= link_to 'ver denuncia',denunciar_index_path %>
 		)
+		<%else%>
+		Hay  <strong><%= @denuncia %> </strong> denuncia activas
+		<%end %>
 	</p>
 	<p>
-		Es hora de  trabajar  hay apelacion <%= @apelacion %> activas 
+		<%if @apelacion != 0%>
+		Es hora de  trabajar  hay apelacion <%= @apelacion %> activas  
 		(
 		<%= link_to 'ver apelacion',apelar_index_path %>
 		)
+		<%else%>
+		Hay  <strong><%= @apelacion %> </strong> apelacion activas
+		<%end %>
 	</p>
 <% when 3 %>
 	<p>
@@ -19,6 +27,7 @@
 		(
 		<%= link_to 'ver usuarios',datos_path(ver_tipos: "usuarios") %>
 		)
+		
 	</p> 
 	<p>
 		Hay un total de  ideas <%=@ideas%> activa

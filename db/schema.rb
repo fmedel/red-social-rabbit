@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606044344) do
+ActiveRecord::Schema.define(version: 20160611230717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20160606044344) do
 
   add_index "apelars", ["denuncia_id"], name: "index_apelars_on_denuncia_id", using: :btree
   add_index "apelars", ["estado_id"], name: "index_apelars_on_estado_id", using: :btree
+
+  create_table "aquiridos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "idea_id"
+  end
+
+  add_index "aquiridos", ["idea_id"], name: "index_aquiridos_on_idea_id", using: :btree
+  add_index "aquiridos", ["user_id"], name: "index_aquiridos_on_user_id", using: :btree
 
   create_table "denuncia", force: :cascade do |t|
     t.text     "razon"
@@ -115,6 +125,8 @@ ActiveRecord::Schema.define(version: 20160606044344) do
   add_index "users", ["tipo_id"], name: "index_users_on_tipo_id", using: :btree
 
   add_foreign_key "apelars", "estados"
+  add_foreign_key "aquiridos", "ideas"
+  add_foreign_key "aquiridos", "users"
   add_foreign_key "denuncia", "estados"
   add_foreign_key "denuncia", "ideas"
   add_foreign_key "denuncia", "users"

@@ -38,7 +38,22 @@ class PostularController < ApplicationController
       redirect_to registrar_path , alert: "Primero debe estar registrado"
     end 
   end
-
+  def aceptar_postulacion
+    if  user_signed_in?
+      @id_idea = params['idea']
+      @id_user = params['user']
+      @aceptar = Aquirido.new(user_id: @id_user, idea_id: @id_idea) 
+      if @aceptar.save
+        @idea =Idea.find(@id_idea)
+        @idea.update(estado_id: 6)
+        redirect_to inicio_path, notice: "la acceptacion de la postulacion fue hecha "
+      else
+        edirect_to inicio_path , alert: "Errpr al registrar la acetacion de la postulacion"
+      end
+    else
+        redirect_to registrar_path , alert: "Primero debe estar registrado"
+    end 
+  end 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def postular_params

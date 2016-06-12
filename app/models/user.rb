@@ -9,9 +9,10 @@ class User < ActiveRecord::Base
 
   has_many :ideas #tiene muchos 
   has_many :denuncia
-  #has_one :estado
+  has_many :aquirido
   belongs_to :grado
   belongs_to :tipo
+  belongs_to :postular
 
    validates  :nombre_empresa, presence: true , length: { minimum: 3 } , uniqueness: true
    validates  :email, presence: true , length: { minimum: 3} 

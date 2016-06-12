@@ -56,6 +56,7 @@ Rails.application.routes.draw do
                 #todo lo relacionado con postular  controler postualar 
     get 'postular(.:format)/:idea', to: 'postular#new', as: :postular
     post 'postular(.:format)/:idea', to: 'postular#create' , as: :guardar_postulacion
+    get 'aceptar_postulacion(.:format)/:idea/:user', to: 'postular#aceptar_postulacion' , as: :aceptar_postulacion
 ###############################################################################################################
                 #todo lo relacionado con user  controler user 
     get 'users/:tipo/editar(.:format)', to: 'users_editar#edit' , as: :editar_perfil  

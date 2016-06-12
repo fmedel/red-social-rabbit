@@ -2,7 +2,7 @@ class DenunciarController < ApplicationController
    before_action :denuncia_filtro, only: [:index, :show, :dar_de_baja, :rechasar]
   def index
    if  user_signed_in?
-      @denuncia = Denuncia.where(estado_id: '3')
+      @denuncia = Denuncia.where("estado_id= 3 and created_at  < ( now() -interval '7 day' )")
     else 
        redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end 

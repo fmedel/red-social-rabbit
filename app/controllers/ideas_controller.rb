@@ -21,13 +21,16 @@ class IdeasController < ApplicationController
         when 'activa'   
             @ideas = Idea.where("user_id = ? and estado_id = 1 ",@current_user)
         when 'revision'
-            @ideas = Idea.where("user_id = ? and estado_id = 5 ",@current_user)
-        when 'denunciada'
-            @ideas = Idea.select('"denuncia".*,"ideas".id as "id ideas","ideas".titulo , "ideas".contenido, "ideas".visita, "ideas".created_at as "created_at idea", "ideas".updated_at as "updated_at ideas", "ideas".user_id').joins("FULL OUTER JOIN denuncia  ON  ideas.id= denuncia.idea_id").where("ideas.user_id = ? and ideas.estado_id = 3 ",@current_user)
+           @Postular = Postular.select('"postulars".*,"ideas".id as "id_ideas","ideas".titulo,"ideas".estado_id').joins("FULL OUTER JOIN ideas  ON  ideas.id= postulars.idea_id").where("ideas.user_id = ? and ideas.estado_id = 1 ",@current_user)        
+           @titulo_idea
+         when 'denunciada'
+            @ideas = Idea.select('"denuncia".*,"ideas".id as "id ideas","ideas".titulo , "ideas".contenido, "ideas".visita, "ideas".created_at as "created_at_idea", "ideas".updated_at as "updated_at ideas", "ideas".user_id').joins("FULL OUTER JOIN denuncia  ON  ideas.id= denuncia.idea_id").where("ideas.user_id = ? and ideas.estado_id = 3 ",@current_user)
         when 'eliminada'
             @ideas = Idea.where("user_id = ? and estado_id = 4 ",@current_user)
         when 'apelacion'
             @ideas = Idea.where("user_id = ? and estado_id = 2 ",@current_user)
+        when 'mi_idea_lista'
+            @ideas =Idea.where("user_id = ? and estado_id = 6 ", @current_user)
         else
           redirect_to registrar_path
       end

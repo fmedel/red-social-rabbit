@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 			when 1 
 			       redirect_to index_path   
 			when 2
-				@denuncia = Denuncia.where('estado_id= 3').count
+				@denuncia = Denuncia.where("estado_id= 3 and created_at  < ( now() -interval '7 day' )").count
 				@apelacion = Apelar.where('estado_id= 2' ).count
 				@user = User.where('tipo_id= 1').count
 				@ideas = Idea.where('estado_id= 1').count

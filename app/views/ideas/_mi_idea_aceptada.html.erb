@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Todas mis ideas  <%= params['tipo'] %> </h1>
+  </div>
+  <% @ideas.each do |idea| %>
+    <div class="ideas">
+       <h4>
+          <strong>
+            <%= idea.user.nombre_completo %>
+          </strong>
+        </h4>
+        <br>
+        <strong>
+          <%= idea.titulo %>
+        </strong>
+        <p>
+          <h6>
+          <%= idea.contenido %>
+          </h6>
+        </p>
+        <p>
+          <strong>Estado:</strong>
+          <%=idea.id%>
+          <%= idea.estado.descripcion%> : 
+            <%@aquiridos=Aquirido.where("idea_id = ?",idea.id )%>
+          <% @aquiridos.each do |aquiridos| %>
+           <%= link_to aquiridos.user.nombre_completo , perfil_path(aquiridos.user_id)%>
+            
+          <%end %>
+        </p>
+    </div>
+
+  <% end %>
+  <br>
