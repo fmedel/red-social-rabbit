@@ -1,13 +1,15 @@
 class ArchivosController < ApplicationController
  Ruta_archivo_comentarios = "public/comentarios/comentarios.txt";
- Ruta_directorio_archivos = "public/archivos/";
+ Ruta_directorio_archivos = "public/archivos/"; 
+
+ 
  def subir_archivos
     @formato_erroneo = false;
     if request.post?
        #Archivo subido por el usuario.
        archivo = params[:archivo];
        #Nombre original del archivo.
-       nombre = archivo.original_filename;
+       nombre = "archivo_"+"id_"+archivo.original_filename;
        #Directorio donde se va a guardar.
        directorio = Ruta_directorio_archivos;
        #Extensión del archivo.
@@ -31,6 +33,7 @@ class ArchivosController < ApplicationController
        end
     end
  end
+
  def listar_archivos
     #Guardamos la lista de archivos de la carpeta "archivos".
     @archivos = Dir.entries(Ruta_directorio_archivos);
@@ -59,6 +62,7 @@ class ArchivosController < ApplicationController
        @comentarios = "";
     end
  end
+ 
  def borrar_archivos
     #Recuperamos el nombre del archivo.
     archivo_a_borrar = params[:archivo_a_borrar];
@@ -80,6 +84,7 @@ class ArchivosController < ApplicationController
     end
     redirect_to :controller => "archivos", :action => "listar_archivos", :eliminar_archivo => eliminar_archivo;
  end
+
  def guardar_comentarios
     #Si llega por post intentará guardar los comentarios que ha ingresado el usuario.
     if request.post?
