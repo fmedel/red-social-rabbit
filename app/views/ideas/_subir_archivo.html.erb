@@ -1,0 +1,7 @@
+<h2> Subir archivo </h2>
+<%= form_tag({:controller => "archivos", :action => "subir_archivos" , id: params['id']}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag "archivo", :required => "required" %>
+   <%= submit_tag "Subir archivo" %> 
+<% end %>
+
+

@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
 ##############################################################
-get "archivos/subir_archivos"
-post "archivos/subir_archivos"
+get "subir_archivos", to: 'archivos#subir_archivos', as: :subir_archivos
+post "subir_archivos" , to: 'archivos#subir_archivos', as: :subir_archivos_ok
 get "archivos/listar_archivos"
 post "archivos/borrar_archivos"
 get "archivos/guardar_comentarios"
 post "archivos/guardar_comentarios"
 get "users/subir_foto_de_perfil" , to:'users_editar#subir_foto_de_perfil' , as: :subir_foto_de_perfil
-post "users/subir_foto_de_perfil" , to:'users_editar#subir_foto_de_perfil'
+post "users/subir_foto_de_perfil" , to:'users_editar#subir_foto_de_perfil' , as: :subir_foto_de_perfil_ok
 
 ################################################################################################################3
               #todo lo relacionado con los tipo controler tipo 
