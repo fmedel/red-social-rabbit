@@ -1,47 +1,46 @@
 <div class="page-header">
   <h1>Todas las <%=params['ver_tipos']%> disponibles</h1>
 </div>
-<% @dato.each do |dato| %>
-  <div class="dato">
-     <h4> 
-        Nombre completo:
-        <strong>
-          <%= dato.nombre_completo %>
-        </strong>
-      </h4>
-      <br>
-      Email: 
-      <strong>
-        <%= dato.email %>
-      </strong>
-      <p>
-        
-        <h6>
-        Rut de la persona: 
-         <strong>
-        <%= dato.rut_persona %>
-        </strong>
-        </h6>
-      </p>
-      <%if params["ver_tipos"]=="usuarios"%>
-      <p>
-        
-        <h6>
-        Nombre de la empresa: 
-        <strong>
-        <%= dato.nombre_empresa %>
-        </strong>
-        <br>
-        <br>
-          Rut de la empresa: 
+<div class="resultados_datos">
+  <% @dato.each do |dato| %>
+    <div class="dato">
+      <hr>
+       <h4> 
+          Nombre completo:
           <strong>
-          <%= dato.rut_empresa %>
+            <%= dato.nombre_completo %>
           </strong>
-        </h6>
-      </p>
-      <%end%>
-  </div>
-  <hr>
-<% end %>
-<br>
-
+        </h4>
+        <br>
+        Email: 
+        <strong>
+          <%= dato.email %>
+        </strong>
+        <p>
+          <h6>
+            Rut de la persona: 
+             <strong>
+            <%= dato.rut_persona %>
+            </strong>
+          </h6>
+        </p>
+        <%if params["ver_tipos"]=="usuarios"%>
+          <p>  
+            <h6>
+              Nombre de la empresa: 
+              <strong>
+              <%= dato.nombre_empresa %>
+              </strong>
+              <br>
+              <br>
+                Rut de la empresa: 
+                <strong>
+                <%= dato.rut_empresa %>
+                </strong>
+            </h6>
+          </p>
+        <%end%>
+      <hr>
+    </div>
+  <% end %>
+</div>

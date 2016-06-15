@@ -3,17 +3,19 @@ class UsersEditarController < ApplicationController
   #before_filter :authenticate_user! 
    Ruta_directorio_archivos_fotos = "public/fotos/"; 
   def subir_foto_de_perfil
-    @formato_erroneo = false;
+  if  user_signed_in?
+    @formato_erroneo = false; 
     if request.post?
        #Archivo subido por el usuario.
        archivo = params[:archivo];
        #Nombre original del archivo.
-       nombre = "archivo_fotos_"+(current_user.id).to_s+"_"+archivo.original_filename;
+       nombre_original = "archivo_fotos_"+(current_user.id).to_s+"_"+archivo.original_filename;
        #Directorio donde se va a guardar.
        directorio = Ruta_directorio_archivos_fotos;
        #Extensión del archivo.
-       extension = nombre.slice(nombre.rindex("."), nombre.length).downcase;
+       extension = nombre_original.slice(nombre_original.rindex("."), nombre_original.length).downcase;
        #Verifica que el archivo tenga una extensión correcta.
+       nombre = "VT1YUIG2BE9SW"+(@current_user.tipo_id).to_s+"N2O9P3RJMD"+extension;
        if extension == ".jpg"
           #Ruta del archivo.
           path = File.join(directorio, nombre);
@@ -26,11 +28,15 @@ class UsersEditarController < ApplicationController
              subir_archivo = "error";
           end
           #Redirige al controlador "archivos", a la acción "lista_archivos" y con la variable de tipo GET "subir_archivos" con el valor "ok" si se subió el archivo y "error" si no se pudo.
-          redirect_to inicio_path
+          redirect_to inicio_path , notice: 'La imagen fue subida correctamente '
        else
-          @formato_erroneo = true;
+          redirect_to inicio_path, alert:'El formato del archivo ingresado es incorrecto. Usted sólo puede subir archivos .jpg'
+          #@formato_erroneo = true;
        end
     end
+  else
+    redirect_to registrar_path, alert: 'Primero debe estar registrado'
+  end
  end
 
 ##############################################################################################################################

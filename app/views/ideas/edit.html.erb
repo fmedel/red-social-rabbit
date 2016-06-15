@@ -1,10 +1,9 @@
 <h1>editar Idea</h1>
- 
 <%= render 'formulario' %>
 <hr>
 <div class="subir_archivo">
 	<%= render 'subir_archivo'%>
 </div>
 <br>
- <%= link_to 'Destroy', eliminar_path, method: :delete, data: { confirm: '¿Estas seguro?' } %>
+<%= link_to 'Destroy', eliminar_path, method: :delete, data: { confirm: '¿Estas seguro?' } %>
 <%= link_to 'Back', inicio_path %>

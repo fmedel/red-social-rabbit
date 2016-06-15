@@ -1,18 +1,23 @@
-<h2> Archivo </h2>
-<%@d=0%>
-   <% @archivos.each do |a| %>
-   <% if a == "." or a == ".." then next end; %>
-                  <% @b=a.split("i") 
-                     @c=@b[1].split(".")
-                  %> 
-         <%if (@c[0]).to_s==(@datos).to_s%>
-         <%@d=@d+1%>
-         <strong> <%=a%>
-         </strong> | 
-         <a target="_blank" href="/archivos/<%= a %>"> Ver archivo </a> | 
-         <%= link_to "Borrar archivo", {:controller => "archivos", :action => "borrar_archivos", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?"} %>
-         <%end%>
-   <% end %>
-<%if @d ==0 %>
-   <p>no tiene archivo </p>
-<%end%>
+<div class="archivos">
+   <h2> Archivo </h2>
+   <%@d=0%>
+      <% @archivos.each do |a| %>
+      <% if a == "." or a == ".." then next end; %>
+                     <% @b=a.split("i") 
+                        @c=@b[1].split(".")
+                     %> 
+            <%if (@c[0]).to_s==(@datos).to_s%>
+            <%@d=@d+1%>
+            (
+            <strong> <%=a%> </strong> 
+            | 
+            <a target="_blank" href="/archivos/<%= a %>"> Ver archivo </a> 
+            | 
+            <%= link_to "Borrar archivo", {:controller => "archivos", :action => "borrar_archivos", :archivo_a_borrar => a}, {:method => "post", :confirm => "Seguro?"} %>
+            )
+            <%end%>
+      <% end %>
+   <%if @d ==0 %>
+      <p>no tiene archivo </p>
+   <%end%>
+</div>

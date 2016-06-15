@@ -1,47 +1,48 @@
 <div class="page-header">
   <h1>Todas las denuncias  disponibles</h1>
 </div>
-  <div class="denuncias">
-  <hr>
-     <p>
-     	<h1>datos del  user denunciado </h1>
-        <strong>
-          <h6> nombre commpleto: <%= @denuncia.idea.user.nombre_completo%></h6>
-          <h6>email: <%= @denuncia.idea.user.email %></h6>
-        </strong>
-      </p>
-      <p>
-     	<h1>datos del  user denunciante </h1>
-        <strong>
-          <h6> nombre commpleto: <%= @denuncia.user.nombre_completo %></h6>
-          <h6>email: <%= @denuncia.user.email %></h6>
-        </strong>
-      </p>
-      <p>
-     	<h1>Razon de la denuncia </h1>
-        <strong>
-          <h6><%= @denuncia.razon %></h6>
-        </strong>
-      </p>
-      <p>
-     	<h1>estado de la idea  denunciada </h1>
-        <strong>
-          <h6><%= @denuncia.idea.estado.descripcion %></h6>
-        </strong>
-      </p>
-      <p>
-      <h1>datos de la empresa  </h1>
-        <strong>
-          <h6><%= @denuncia.user.grado.descripcion %></h6>
-        </strong>
-      </p> 
-      <p>
-        <%= link_to " dar de baja la denuncia", dar_de_baja_path(@denuncia.idea_id , @denuncia.id)%>
-        |
-        <%= link_to " rechazar la denuncia", rechasar_path(@denuncia.idea_id , @denuncia.id)%>
-          
-      </p>
-  </div>
-  <hr>
-<hr>
 
+<div class="denuncias">
+  <hr>
+  <p>
+    <h1>datos del  user denunciado </h1>
+    <strong>
+      <h6> nombre commpleto: <%= @denuncia.idea.user.nombre_completo%></h6>
+      <h6>email: <%= @denuncia.idea.user.email %></h6>
+    </strong>
+  </p>
+  <p>
+    <h1>datos del  user denunciante </h1>
+    <strong>
+      <h6> nombre commpleto: <%= @denuncia.user.nombre_completo %></h6>
+      <h6>email: <%= @denuncia.user.email %></h6>
+    </strong>
+  </p>
+  <p>
+    <h1>Razon de la denuncia </h1>
+    <strong>
+      <h6><%= @denuncia.razon %></h6>
+    </strong>
+  </p>
+  <p>
+    <h1>estado de la idea  denunciada </h1>
+    <strong>
+      <h6><%= @denuncia.idea.estado.descripcion %></h6>
+    </strong>
+  </p>
+  <p>
+    <h1>datos de la empresa  </h1>
+    <strong>
+      <h6><%= @denuncia.user.grado.descripcion %></h6>
+    </strong>
+  </p>
+  <div class="link_denuncia">
+    <p>
+      (
+      <%= link_to " dar de baja la denuncia", dar_de_baja_path(@denuncia.idea_id , @denuncia.id)%>
+      |
+      <%= link_to " rechazar la denuncia", rechasar_path(@denuncia.idea_id , @denuncia.id)%>
+      )    
+    </p>
+  </div>
+</div>

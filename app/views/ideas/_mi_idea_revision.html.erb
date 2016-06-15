@@ -1,8 +1,11 @@
 <div class="page-header">
   <h1>Todas mis ideas  <%= params['tipo'] %> </h1>
-  </div>
-  <div class="resultados">
-    <% @Postular.each do |postulacion| %>
+</div>
+
+<div class="resultados_postulacion">
+  <% @Postular.each do |postulacion| %>
+    <div class="postulacion">
+    <hr>
       <%if !postulacion.id.nil?%>
         <% if @titulo_idea != postulacion.titulo %>
           <hr>
@@ -11,12 +14,12 @@
             <%= postulacion.titulo  %>
           </p>
         <%else%>
-        <br>
-        <p>
+          <br>
+          <p>
            -------------------------------------------
-        </p>
-        <br>    
-      <%end%>
+          </p>
+          <br>    
+        <%end%>
       <p>
         oferta :
         <%= postulacion.oferta %>
@@ -24,12 +27,17 @@
         de :
         <%= link_to postulacion.user.nombre_completo , perfil_path(postulacion.user_id)%>
       </p>
-      <%= link_to "postulacion hace  "+ time_ago_in_words(postulacion.created_at)%>
-      |
-      <%= link_to "aceptar oferta", aceptar_postulacion_path(postulacion.id_ideas, postulacion.user_id)%>
-      <% @titulo_idea = postulacion.titulo %> 
+      <div class="link">
+        (
+        <%= link_to "postulacion hace  "+ time_ago_in_words(postulacion.created_at)%>
+        |
+        <%= link_to "aceptar oferta", aceptar_postulacion_path(postulacion.id_ideas, postulacion.user_id)%>
+        )
+        <% @titulo_idea = postulacion.titulo %> 
+      </div>
       <%else%> 
       <%end%>
-    <% end %>
-    <br>
-  </div>
+    <hr>
+    </div> 
+  <% end %> 
+</div>

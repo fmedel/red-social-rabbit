@@ -1,23 +1,22 @@
-<%= simple_form_for(@estado, url: estado_guardar_ok_path(), html: {class: "form-inline"}) do |f| %>
-  <% if @estado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@estado.errors.count, "error") %> prohibited this estado from being saved:</h2>
-
-      <ul>
-      <% @estado.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="formulario">
+  <%= simple_form_for(@estado, url: estado_guardar_ok_path(), html: {class: "form-inline"}) do |f| %>
+    <% if @estado.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@estado.errors.count, "error") %> prohibited this estado from being saved:</h2>
+        <ul>
+        <% @estado.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group has-success has-feedback">
+    <div class="field">
+      <%= f.input_field :descripcion ,placeholder: 'descripcion del estado '%>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit  ,'Guardar ', url: '?hola'%>
+    </div>
     </div>
   <% end %>
-  <div class="form-group has-success has-feedback">
-  <div class="field">
-    <%= f.input_field :descripcion ,placeholder: 'descripcion del estado '%>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit  ,'Guardar ', url: '?hola'%>
-   
-  </div>
-  </div>
-<% end %>
- 
+</div>

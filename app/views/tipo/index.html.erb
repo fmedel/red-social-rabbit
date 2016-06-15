@@ -3,18 +3,24 @@
   <h1>Todas los tipos disponible </h1>
 </div>
 
+<div class="resultados_tipo">
 <% @tipo.each do |tipo| %>
   <div class="tipo">
-     <h4>
-        <strong>
-          <%=tipo.id%>:<%= tipo.descripcion %>
-        </strong>
-        (<%= link_to 'editar', editar_tipo_path(tipo.id) %> | <%= link_to 'Destroy', eliminar_tipo_path(tipo.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>)
-      </h4>
-      <br>
+    <hr>
+    <h4>
+      <strong>
+        <%=tipo.id%>:<%= tipo.descripcion %>
+      </strong>
+        (
+        <%= link_to 'editar', editar_tipo_path(tipo.id) %> 
+        | 
+        <%= link_to 'Destroy', eliminar_tipo_path(tipo.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>
+        )
+    </h4>
+    <hr>
   </div>
 <% end %>
+</div>
 <br>
-<hr>
 <%= link_to 'crear nuevo estado', tipo_guardar_path %>
 

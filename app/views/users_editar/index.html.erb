@@ -2,31 +2,31 @@
 <div class="page-header">
   <h1>Datos  de la empresa</h1>
 </div>
-  <div class="users">
-      <strong>
-        <%= @user.nombre_empresa %>
-      </strong>
-      <p>
-       <%=@user.email%>
-       <br>
-       <%=@user.password%>
-       <br>
-       <%=@user.rut_empresa %>
-       <br>
-       <%=@user.email_persona %>
-       <br>
-       <%=@user.apellidos_persona %>
-       <br>
-       <%=@user.nombres_persona%>
-       <br>
-       <%=@user.rut_persona %>
-       <br>
-       <% @grados.each do |grado| %>
-          <%if @user.grado_id==grado.id %>
-            <%=grado.descripcion%>
-          <%end%> 
-       <%end%>
-      </p>
-      <hr>
-  </div>
-<br>
+<div class="users">
+  <hr>
+  <strong>
+    <%= @user.nombre_empresa %>
+  </strong>
+  <p>
+    <%=@user.email%>
+    <br>
+    <%=@user.password%>
+    <br>
+    <%=@user.rut_empresa %>
+    <br>
+    <%=@user.email_persona %>
+    <br>
+    <%=@user.apellidos_persona %>
+    <br>
+    <%=@user.nombres_persona%>
+    <br>
+    <%=@user.rut_persona %>
+    <br>
+    <% @grados.each do |grado| %>
+      <%if @user.grado_id==grado.id %>
+        <%=grado.descripcion%>
+      <%end%> 
+    <%end%>
+    </p>
+    <hr>
+</div>

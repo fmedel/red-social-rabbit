@@ -1,10 +1,25 @@
 <h2> Subir foto de perfil </h2>
-<%= form_tag({:controller => "users_editar", :action => "subir_foto_de_perfil"}, :method => "post", :multipart => true) do %>
-   <%= file_field_tag "archivo", :required => "required" %>
-   <%= submit_tag "Subir archivo" %> 
-<% end %>
-<% if @formato_erroneo %>
-  <div>
-     <p> El formato ingresado es incorrecto. Usted sólo puede subir archivos .jpg</p>
-  </div>
-<% end %>
+<div class="formularios">
+	<%= form_tag({:controller => "users_editar", :action => "subir_foto_de_perfil"}, :method => "post", :multipart => true) do %>
+	   <%= file_field_tag "archivo", :required => "required" %>
+	   <%= submit_tag "Subir archivo" %> 
+	<% end %>
+</div>
+<div class="foto_perfil">
+	<p>
+		<% 
+			@buscar=false
+			Dir.foreach("public/fotos/") {|x| if x =="VT1YUIG2BE9SW#{current_user.id}N2O9P3RJMD.jpg" 
+				@buscar= true 
+				break 
+			end 
+			}
+		%>
+
+		<% if @buscar %>
+			<%= image_tag("/fotos/VT1YUIG2BE9SW#{current_user.id}N2O9P3RJMD.jpg", size: "60x60") %>
+		<%else%>
+			<%= image_tag("/fotos/sin_foto.jpg" , size: "100")%>
+		<%end%>
+	</p> 
+</div>

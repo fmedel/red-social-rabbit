@@ -1,22 +1,25 @@
-
 <div class="page-header">
   <h1>Todas los estados disponible </h1>
 </div>
 
-<% @estado.each do |estado| %>
-  <div class="estado">
-     <h4>
-        <strong>
-          <%=estado.id%>:<%= estado.descripcion %>
-        </strong>
-        (<%= link_to 'editar', editar_estado_path(estado.id) %>
-        | 
-         <%= link_to 'Destroy', eliminar_estado_path(estado.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>)
+<div class="resultados_estado">
+  <% @estado.each do |estado| %>
+    <div class="estado">
+       <h4>
+          <strong>
+            <%=estado.id%>:<%= estado.descripcion %>
+          </strong>
+          (
+          <%= link_to 'editar', editar_estado_path(estado.id) %>
+          | 
+          <%= link_to 'Destroy', eliminar_estado_path(estado.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>
+          )
       </h4>
       <br>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+  <hr>
+</div>
 <br>
-<hr>
 <%= link_to 'crear nuevo estado',estado_guardar_path %>
 

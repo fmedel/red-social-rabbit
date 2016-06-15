@@ -2,21 +2,23 @@
 <div class="page-header">
   <h1>Todas los grados disponible </h1>
 </div>
-
-<% @grado.each do |grado| %>
-  <div class="grado">
-     <h4>
-        <strong>
-          <%=grado.id%>:<%= grado.descripcion %>
-        </strong>
-        (<%= link_to 'editar', editar_grados_path(grado.id) %>
-         | 
-         <%= link_to 'Destroy', eliminar_grado_path(grado.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>)
-      </h4>
-      <br>
-  </div>
-<% end %>
-<br>
-<hr>
+<div class="resultados_grado">
+  <% @grado.each do |grado| %>
+    <hr>
+    <div class="grado">
+       <h4>
+          <strong>
+            <%=grado.id%>:<%= grado.descripcion %>
+          </strong>
+          (
+          <%= link_to 'editar', editar_grados_path(grado.id) %>
+          | 
+          <%= link_to 'Destroy', eliminar_grado_path(grado.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>
+          )
+        </h4>
+    </div>
+    <hr>
+  <% end %>
+</div>
 <%= link_to 'crear nuevo estado', grados_guardar_path %>
 

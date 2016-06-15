@@ -1,75 +1,69 @@
-<% case params['tipo']%>
-  <% when "empresa" %>
-
-    <%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
-      <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-          <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-      <%end%>
-        <div class="form-group">
-        <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabit@XXXX.xxx'%>           
-        <%= f.input  :nombre_empresa,label: 'Nombre de la empresa', required: true,placeholder: 'nombre de la Empresa' %>
-        <%= f.input  :rut_empresa,label: 'Rut de la empresa', required: true,placeholder: 'rut de la Empresa' %>
-        </div>
-        <div class="form-group">       
-        </div>
-        <div class="form-group">
-        <% @grado=Grado.all %>
-        <%= f.input :grado_id,:collection => @grado,:label_method => :descripcion,:value_method => :id,:label => "tipo de empresa" ,:include_blank => false %> 
-        </div
-        <div class="form-actions">
-        <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
-        </div>
-    <%end%>
-
-  <% when"encargado" %> 
+<div class="formulario">
+  <% case params['tipo']%>
+    <% when "empresa" %>
       <%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
-      <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-          <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-      <%end%>
-         <div class="form-group">
-            <%= f.input  :email_persona,label: 'Email de la perdona', required: true,placeholder: 'email de la Persona' %>
-            <%= f.input  :apellidos_persona,label: 'Apellidos de la persona', required: true,placeholder: 'apellidos de la Persona' %>
-            <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la Persona' %>
-            <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la Persona' %>
-          </div>
-        <div class="form-actions">
-        <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
-        </div>
-     <%end%>                     
-  <% when "rubros" %>
-  <% when "clave" %>
-    <%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
         <% if @user.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        <%end%>
+          <div class="form-group">
+          <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabit@XXXX.xxx'%>           
+          <%= f.input  :nombre_empresa,label: 'Nombre de la empresa', required: true,placeholder: 'nombre de la Empresa' %>
+          <%= f.input  :rut_empresa,label: 'Rut de la empresa', required: true,placeholder: 'rut de la Empresa' %>
+          </div>
+          <div class="form-group">       
+          </div>
+          <div class="form-group">
+          <% @grado=Grado.all %>
+          <%= f.input :grado_id,:collection => @grado,:label_method => :descripcion,:value_method => :id,:label => "tipo de empresa" ,:include_blank => false %> 
+          </div
+          <div class="form-actions">
+          <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
+          </div>
+      <%end%>
 
-            <ul>
+    <% when"encargado" %> 
+        <%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
             <% @user.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
         <%end%>
            <div class="form-group">
-              <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
-              <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
+              <%= f.input  :email_persona,label: 'Email de la perdona', required: true,placeholder: 'email de la Persona' %>
+              <%= f.input  :apellidos_persona,label: 'Apellidos de la persona', required: true,placeholder: 'apellidos de la Persona' %>
+              <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'nombres de la Persona' %>
+              <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'rut de la Persona' %>
             </div>
           <div class="form-actions">
           <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
           </div>
-    <%end%> 
-  <% else %>
-  <% redirect_to registrar_path, alert: 'acceso denegado'%>
-<% end %>
-
+       <%end%>                     
+    <% when "rubros" %>
+    <% when "clave" %>
+      <%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+          <%end%>
+             <div class="form-group">
+                <%= f.input :password,label: 'Password', required: true ,placeholder: 'Password'%>
+                <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'password_confirmation' %>
+              </div>
+            <div class="form-actions">
+            <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" %>
+            </div>
+      <%end%> 
+    <% else %>
+    <% redirect_to registrar_path, alert: 'acceso denegado'%>
+  <% end %>
+</div>
  

@@ -24,7 +24,7 @@ class WelcomeController < ApplicationController
 				
 		end
 	else
-		redirect_to registrar_path,  alert: 'Primero debe estar registrado'
+		redirect_to registrar_path
 	end
   end
 

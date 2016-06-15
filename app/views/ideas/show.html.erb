@@ -1,35 +1,35 @@
- 
-       
-<p>
-  <strong>nombre </strong> 
-  <%= @idea.user.nombre_completo %>
-</p>
-<p>
-  <strong>Titulo:</strong>
-  <%= @idea.titulo %>
-</p>
-
-<p>
-  <strong>Contenido:</strong>
-  <%= @idea.contenido %>
-</p>
-
-<p>
-  <strong>Cuantas personas estan postulando:</strong>
-  <%= @idea.visita %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @idea.estado.descripcion%>
-</p>
-
-<p>
-</p>
- <% if @idea.user_id != @current_user.id  %>
-    <%= link_to 'postular', postular_path(@idea.id) %>
- <%else %>
-    <%= link_to 'Edit', editar_idea_path(@idea) %> 
- <%end %>
-<br>
-<%= link_to 'Inicio', inicio_path %>
+<div class="idea_ver">
+  <p>
+    <strong>nombre </strong> 
+    <%= @idea.user.nombre_completo %>
+  </p>
+  <p>
+    <strong>Titulo:</strong>
+    <%= @idea.titulo %>
+  </p>
+  <p>
+    <strong>Contenido:</strong>
+    <%= @idea.contenido %>
+  </p>
+  <p>
+    <strong>Cuantas personas estan postulando:</strong>
+    <%= @idea.visita %>
+  </p>
+  <p>
+    <strong>Estado:</strong>
+    <%= @idea.estado.descripcion%>
+  </p>
+  <p>
+  </p>
+  <div class="link">
+     (
+     <% if @idea.user_id != @current_user.id  %>
+        <%= link_to 'postular', postular_path(@idea.id) %>
+     <%else %>
+        <%= link_to 'Edit', editar_idea_path(@idea) %> 
+     <%end %>
+     )
+  </div>
+  <br>
+  <%= link_to 'Inicio', inicio_path %>
+</div>

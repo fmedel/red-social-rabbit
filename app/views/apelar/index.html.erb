@@ -2,39 +2,39 @@
   <h1>Todas las apelaciones  disponibles</h1>
 </div>
 
-<div id="resultados">
-  
+<div id="resultados"> 
 </div>
 
-<%= form_tag "/search/apelar", method: :get, remote: true, id: "search-form" do%>
-  <%= text_field_tag :keyword, nil, placeholder: "Buscar apelacion" %>
-  <%= content_tag :button, type: :submit do %>
-    Buscar
+<div class="formulario_busqueda_apelacion">
+  <%= form_tag "/search/apelar", method: :get, remote: true, id: "search-form" do%>
+    <%= text_field_tag :keyword, nil, placeholder: "Buscar apelacion" %>
+    <%= content_tag :button, type: :submit do %>
+      Buscar
+    <%end%>
   <%end%>
-<%end%>
+</div>
 
-
-
-<% @apelar.each do |apelar| %>
-  <div class="apelars">
-  <hr>
+<div class="resultado_apelar">
+  <% @apelar.each do |apelar| %>
+    <div class="apelars">
+      <hr>
       <p>
-      <h1><%= apelar.denuncia.idea.titulo%></h1>
-     	<h3>Razon de la apelacion </h3>
+        <h1><%= apelar.denuncia.idea.titulo%></h1>
+        <h3>Razon de la apelacion</h3>
         <strong>
           <h6><%= apelar.razon %></h6>
         </strong>
       </p>
       <p>
-     	<h3>Razon de la denuncia </h3>
+       	<h3>Razon de la denuncia </h3>
         <strong>
-          <h6><%= apelar.denuncia.razon%></h6>
+            <h6><%= apelar.denuncia.razon%></h6>
         </strong>
       </p>
       <div class="navegacion">
         <%= link_to " apelacion  fue hecha hace "+ time_ago_in_words(apelar.created_at), ver_apelelacion_path(apelar.id)  %>
       </div>
-  </div>
-  <hr>
-<% end %>
-<hr>
+      <hr>
+    </div>
+  <% end %>
+</div>

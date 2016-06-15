@@ -7,52 +7,51 @@
   
 </div>
 
-<%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do%>
-  <%= text_field_tag :keyword, nil, placeholder: "Buscar empresa" %>
-  <%= content_tag :button, type: :submit do %>
-    Buscar
+<div class="formulario_de_busqueda_empresa">
+  <%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do%>
+    <%= text_field_tag :keyword, nil, placeholder: "Buscar empresa" %>
+    <%= content_tag :button, type: :submit do %>
+      Buscar
+    <%end%>
   <%end%>
-<%end%>
+</div>
 
-
-
-<% @ideas.each do |idea| %>
-<hr>
-  <div class="ideas">
-     <h4>
-        <strong>
-          <%= idea.user.nombre_completo %>
-        </strong>
-      </h4>
-      <br>
-      <strong>
-        <%= idea.titulo %>
-      </strong>
-      <p>
-        <h6>
-        <%= idea.contenido %>
-        </h6>
-      </p>
-      <%if @current_user.tipo_id == 2 or @current_user.tipo_id == 3%>
-       <span class="admin">
-         (<%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
-          | <%= link_to 'dar de baja idea',dar_de_baja_idea_path(idea.id)%>)
-          <div class="postulacion">
-             <h6> postulando-> <%= idea.visita %></h6>
+<div class="ideas_container">
+  <% @ideas.each do |idea| %>
+    <hr>
+      <div class="ideas">
+        <p>
+          <h4>
+            <strong><%= idea.user.nombre_completo %></strong>
+          </h4>
+          <br>
+          <strong><%= idea.titulo %></strong>
+          <h6><%= idea.contenido %></h6>
+          <div class="link_idea">
+            <%if @current_user.tipo_id == 2 or @current_user.tipo_id == 3%>
+              <span class="admin">
+                (
+                <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
+                | 
+                <%= link_to 'dar de baja idea',dar_de_baja_idea_path(idea.id)%>)
+                <div class="postulacion">
+                   <h6> postulando-> <%= idea.visita %></h6>
+                </div>
+              </span> 
+            <%else%>
+              (
+              <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
+              <span class="admin">
+                |
+                <%= link_to 'postular', postular_path(idea.id) %> 
+                |
+                <%= link_to 'denunciar', denunciar_path(idea.id) %> 
+              </span>
+              )
+            <%end%>
           </div>
-        </span> 
-      <%else%>
-        <%= link_to "Hace "+ time_ago_in_words(idea.created_at), ver_idea_path(idea) %>
-          <span class="admin">
-          |
-          <%= link_to 'postular', postular_path(idea.id) %> 
-          |
-          <%= link_to 'denunciar', denunciar_path(idea.id) %> 
-      <%end%>
-        </span>
+        </p>
       </div>
-  </div>
-<hr>
-<% end %>
-<br>
-
+    <hr>
+  <% end %>
+</div>

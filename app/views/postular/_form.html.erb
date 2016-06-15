@@ -1,22 +1,22 @@
-<%= simple_form_for(@postular, url: guardar_postulacion_path(), html: {class: "form-inline"}) do |f| %>
-  <% if @postular.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@postular.errors.count, "error") %> prohibited this postular from being saved:</h2>
-
-      <ul>
-      <% @postular.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="formulario">
+  <%= simple_form_for(@postular, url: guardar_postulacion_path(), html: {class: "form-inline"}) do |f| %>
+    <% if @postular.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@postular.errors.count, "error") %> prohibited this postular from being saved:</h2>
+        <ul>
+        <% @postular.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group has-success has-feedback">
+      <div class="field">
+        <%= f.input_field :oferta ,placeholder: 'que se ofrece por la idea '%>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit  ,'Guardar ', url: '?hola'%>
+      </div>
     </div>
   <% end %>
-  <div class="form-group has-success has-feedback">
-  <div class="field">
-    <%= f.input_field :oferta ,placeholder: 'que se ofrece por la idea '%>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit  ,'Guardar ', url: '?hola'%>
-   
-  </div>
-  </div>
-<% end %>
+</div>

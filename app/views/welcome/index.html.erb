@@ -1,79 +1,80 @@
 <h1>bienvenido <%=@current_user.tipo.descripcion %> : <%= @current_user.nombre_completo %> </h1>
-<% case @current_user.tipo_id %>
-<% when 2 %>
-	<p>
-		<%if @denuncia != 0%>
-		Es hora de  trabajar  hay denuncias <%= @denuncia %> activas 
-		(
-		<%= link_to 'ver denuncia',denunciar_index_path %>
-		)
-		<%else%>
-		Hay  <strong><%= @denuncia %> </strong> denuncia activas
-		<%end %>
-	</p>
-	<p>
-		<%if @apelacion != 0%>
-		Es hora de  trabajar  hay apelacion <%= @apelacion %> activas  
-		(
-		<%= link_to 'ver apelacion',apelar_index_path %>
-		)
-		<%else%>
-		Hay  <strong><%= @apelacion %> </strong> apelacion activas
-		<%end %>
-	</p>
-<% when 3 %>
-	<p>
-		Hay un total de  usuarios <%=@user %>activo
-		(
-		<%= link_to 'ver usuarios',datos_path(ver_tipos: "usuarios") %>
-		)
-		
-	</p> 
-	<p>
-		Hay un total de  ideas <%=@ideas%> activa
-		(
-		<%= link_to 'ver idea',index_path %>
-		)
-	</p> 
-	<p>
-		Hay un total de  moderadores <%=@moderador %> activo
-		(
-		<%= link_to 'crear nuevo moderadores', new_moderador_path(tipo: "moderadores") %>
-		|
-		<%= link_to 'ver moderadores',datos_path(ver_tipos: "moderadores") %>
-		)
-	</p> 
-	<p>
-		Hay un total de  administradores <%=@administrador%> activa
-		(
-		<%= link_to 'crear nuevo administradores',new_moderador_path(tipo: "administradores")%>
-		|
-		<%= link_to 'ver administradores',datos_path(ver_tipos: "administradores") %>
-		)
-	</p>
-	<p>
-		Hay un total de  estado <%=@estado %> activo
-		(
-		<%= link_to 'crear nuevo estado',estado_guardar_path%>
-		|
-		<%= link_to 'ver estado',estado_path %>
-		)
-	</p>
-	<p>
-		Hay un total de  tipo <%=@tipo%> activa 
-		(
-		<%= link_to 'crear nuevo tipo',tipo_guardar_path %>
-		|
-		<%= link_to 'ver tipo',tipo_path %>
-		)
-	</p>	
-	<p>
-		Hay un total de  grado <%=@grado %> activo
-		(
-		<%= link_to 'crear nuevo grado',grados_guardar_path%>
-		|
-		<%= link_to 'ver grado', grado_path %>
-		)
-	</p> 
-<%end %>
-
+<div class="link">
+	<% case @current_user.tipo_id %>
+	<% when 2 %>
+		<p>
+			<%if @denuncia != 0%>
+				Es hora de  trabajar  hay denuncias <%= @denuncia %> activas 
+				(
+				<%= link_to 'ver denuncia',denunciar_index_path %>
+				)
+			<%else%>
+				Hay  <strong><%= @denuncia %> </strong> denuncia activas
+			<%end %>
+		</p>
+		<p>
+			<%if @apelacion != 0%>
+				Es hora de  trabajar  hay apelacion <%= @apelacion %> activas  
+				(
+				<%= link_to 'ver apelacion',apelar_index_path %>
+				)
+			<%else%>
+				Hay  <strong><%= @apelacion %> </strong> apelacion activas
+			<%end %>
+		</p>
+	<% when 3 %>
+		<p>
+			Hay un total de  usuarios <%=@user %>activo
+			(
+			<%= link_to 'ver usuarios',datos_path(ver_tipos: "usuarios") %>
+			)
+			
+		</p> 
+		<p>
+			Hay un total de  ideas <%=@ideas%> activa
+			(
+			<%= link_to 'ver idea',index_path %>
+			)
+		</p> 
+		<p>
+			Hay un total de  moderadores <%=@moderador %> activo
+			(
+			<%= link_to 'crear nuevo moderadores', new_moderador_path(tipo: "moderadores") %>
+			|
+			<%= link_to 'ver moderadores',datos_path(ver_tipos: "moderadores") %>
+			)
+		</p> 
+		<p>
+			Hay un total de  administradores <%=@administrador%> activa
+			(
+			<%= link_to 'crear nuevo administradores',new_moderador_path(tipo: "administradores")%>
+			|
+			<%= link_to 'ver administradores',datos_path(ver_tipos: "administradores") %>
+			)
+		</p>
+		<p>
+			Hay un total de  estado <%=@estado %> activo
+			(
+			<%= link_to 'crear nuevo estado',estado_guardar_path%>
+			|
+			<%= link_to 'ver estado',estado_path %>
+			)
+		</p>
+		<p>
+			Hay un total de  tipo <%=@tipo%> activa 
+			(
+			<%= link_to 'crear nuevo tipo',tipo_guardar_path %>
+			|
+			<%= link_to 'ver tipo',tipo_path %>
+			)
+		</p>	
+		<p>
+			Hay un total de  grado <%=@grado %> activo
+			(
+			<%= link_to 'crear nuevo grado',grados_guardar_path%>
+			|
+			<%= link_to 'ver grado', grado_path %>
+			)
+		</p> 
+	<%end %>
+</div>

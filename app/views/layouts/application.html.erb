@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,8 +7,17 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <%=render 'layouts/navegacion' %>
-  <%= render 'layouts/mensajes'%>
-  <%= yield %>
+  <div class="navegacion">
+    <%=render 'layouts/navegacion' %>
+  </div>
+  <div class="mensaje">
+    <%= render 'layouts/mensajes'%>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <div class="pie_de_pagina"> 
+
+  </div>
   </body>
 </html>

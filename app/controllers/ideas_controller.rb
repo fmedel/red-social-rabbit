@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   ##before_filter :authenticate_user! , only: [ :new ,:create ]
   before_action :set_idea, only: [:show_duenio, :edit, :update, :destroy]
+  
   Ruta_directorio_archivos = "public/archivos/"; 
 
   def index
@@ -114,19 +115,19 @@ def dar_de_baja
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
    def update
-     if  user_signed_in?
-      respond_to do |format|
-        if @idea.update(idea_params)
-          format.html { redirect_to ver_idea_path(@idea), notice: 'la idea fue actualizada .' }
-          format.json { render :show, status: :ok, location: @idea }
-        else
-          format.html { render :edit }
-          format.json { render json: @idea.errors, status: :unprocessable_entity }
+      if  user_signed_in?
+        respond_to do |format|
+          if @idea.update(idea_params)
+            format.html { redirect_to ver_idea_path(@idea), notice: 'la idea fue actualizada .' }
+            format.json { render :show, status: :ok, location: @idea }
+          else
+            format.html { render :edit }
+            format.json { render json: @idea.errors, status: :unprocessable_entity }
+          end
         end
-      end
-    else
-      redirect_to registrar_path, alert: 'Primero debe estar registrado'
-    end 
+      else
+        redirect_to registrar_path, alert: 'Primero debe estar registrado'
+      end 
   end
 
   # DELETE /ideas/1
