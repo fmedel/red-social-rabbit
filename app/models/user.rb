@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   belongs_to :tipo
   belongs_to :postular
   has_many :mensaje
+  has_many :rubro
 
    validates  :nombre_empresa, presence: true , length: { minimum: 3 } , uniqueness: true
    validates  :email, presence: true , length: { minimum: 3} 

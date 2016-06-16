@@ -1,0 +1,19 @@
+<%@contador=11%>
+<%= simple_form_for(@user, url: ver_perfil_path(current_user.id), html: {class: "form-inline"}) do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        <%end%>
+          <div class="form-group">
+          <% @grado=Trubro.where("id not in (?,?,?,?,?,?,?,?,?,?)",@array[0],@array[1],@array[2] ,@array[3],@array[4],@array[5],@array[6],@array[7],@array[8],@array[9])%>
+          <%= f.input :rubro,:collection => @grado,:label_method => :descripcion,:value_method => :id,:label => "tipo de Rubro" ,:include_blank => false %> 
+          </div
+          <div class="form-actions">
+          <%= f.button :submit, "Agregar", class:"btn btn-success  btn-block active" %>
+          </div>
+<%end%>
+<br>
+ <%= link_to "Inicio",tipo_perfil_path( tipo: "rubros" ), class:"btn btn-info  btn-block active"  %>

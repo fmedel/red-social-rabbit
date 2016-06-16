@@ -3,40 +3,40 @@ class UsersEditarController < ApplicationController
   #before_filter :authenticate_user! 
    Ruta_directorio_archivos_fotos = "public/fotos/"; 
   def subir_foto_de_perfil
-  if  user_signed_in?
-    @formato_erroneo = false; 
-    if request.post?
-       #Archivo subido por el usuario.
-       archivo = params[:archivo];
-       #Nombre original del archivo.
-       nombre_original = "archivo_fotos_"+(current_user.id).to_s+"_"+archivo.original_filename;
-       #Directorio donde se va a guardar.
-       directorio = Ruta_directorio_archivos_fotos;
-       #Extensión del archivo.
-       extension = nombre_original.slice(nombre_original.rindex("."), nombre_original.length).downcase;
-       #Verifica que el archivo tenga una extensión correcta.
-       nombre = "VT1YUIG2BE9SW"+(@current_user.tipo_id).to_s+"N2O9P3RJMD"+extension;
-       if extension == ".jpg"
-          #Ruta del archivo.
-          path = File.join(directorio, nombre);
-          #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
-          resultado = File.open(path, "wb") { |f| f.write(archivo.read) };
-          #Verifica si el archivo se subió correctamente.
-          if resultado
-             subir_archivo = "ok";
-          else
-             subir_archivo = "error";
-          end
-          #Redirige al controlador "archivos", a la acción "lista_archivos" y con la variable de tipo GET "subir_archivos" con el valor "ok" si se subió el archivo y "error" si no se pudo.
-          redirect_to inicio_path , notice: 'La imagen fue subida correctamente '
-       else
-          redirect_to inicio_path, alert:'El formato del archivo ingresado es incorrecto. Usted sólo puede subir archivos .jpg'
-          #@formato_erroneo = true;
-       end
+    if  user_signed_in?
+      @formato_erroneo = false; 
+      if request.post?
+         #Archivo subido por el usuario.
+         archivo = params[:archivo];
+         #Nombre original del archivo.
+         nombre_original = "archivo_fotos_"+(current_user.id).to_s+"_"+archivo.original_filename;
+         #Directorio donde se va a guardar.
+         directorio = Ruta_directorio_archivos_fotos;
+         #Extensión del archivo.
+         extension = nombre_original.slice(nombre_original.rindex("."), nombre_original.length).downcase;
+         #Verifica que el archivo tenga una extensión correcta.
+         nombre = "VT1YUIG2BE9SW"+(@current_user.tipo_id).to_s+"N2O9P3RJMD"+extension;
+         if extension == ".jpg"
+            #Ruta del archivo.
+            path = File.join(directorio, nombre);
+            #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
+            resultado = File.open(path, "wb") { |f| f.write(archivo.read) };
+            #Verifica si el archivo se subió correctamente.
+            if resultado
+               subir_archivo = "ok";
+            else
+               subir_archivo = "error";
+            end
+            #Redirige al controlador "archivos", a la acción "lista_archivos" y con la variable de tipo GET "subir_archivos" con el valor "ok" si se subió el archivo y "error" si no se pudo.
+            redirect_to inicio_path , notice: 'La imagen fue subida correctamente '
+         else
+            redirect_to inicio_path, alert:'El formato del archivo ingresado es incorrecto. Usted sólo puede subir archivos .jpg'
+            #@formato_erroneo = true;
+         end
+      end
+    else
+      redirect_to registrar_path, alert: 'Primero debe estar registrado'
     end
-  else
-    redirect_to registrar_path, alert: 'Primero debe estar registrado'
-  end
  end
 
 ##############################################################################################################################
@@ -45,6 +45,10 @@ class UsersEditarController < ApplicationController
       if  user_signed_in?
         @user = User.find(current_user.id)
         @grados= Grado.all
+        if params["tipo"]=="rubros"
+          @rubros=Rubro.where("user_id= ?", @current_user.id)
+        else 
+        end
       else 
            redirect_to registrar_path, alert: 'Primero debe estar registrado'
       end 
