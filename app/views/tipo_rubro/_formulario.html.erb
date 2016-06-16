@@ -1,0 +1,22 @@
+<div class="formulario"> 
+  <%= simple_form_for(@tipo, url: ver_tipo_rubro_path(@tipo), html: {class: "form-inline"}) do |f| %>
+    <% if @tipo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@tipo.errors.count, "error") %> prohibited this tipo from being saved:</h2>
+        <ul>
+        <% @tipo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group has-success has-feedback">
+      <div class="field">
+        <%= f.input_field :descripcion ,placeholder: 'nombre'%>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit  ,'Guardar '%>
+      </div>
+    </div>
+  <% end %>
+</div>

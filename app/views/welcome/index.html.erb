@@ -61,7 +61,7 @@
 			)
 		</p>
 		<p>
-			Hay un total de  tipo <%=@tipo%> activa 
+			Hay un total de  tipo  usuarios <%=@tipo%> activa 
 			(
 			<%= link_to 'crear nuevo tipo',tipo_guardar_path %>
 			|
@@ -74,6 +74,14 @@
 			<%= link_to 'crear nuevo grado',grados_guardar_path%>
 			|
 			<%= link_to 'ver grado', grado_path %>
+			)
+		</p> 
+		<p>
+			Hay un total de  tipos rubros <%=@tipo_rubros %> activo
+			(
+			<%= link_to 'crear nuevo tipo rubros',tipo_rubro_guardar_path%>
+			|
+			<%= link_to 'ver tipo rubros', tipo_rubro_path %>
 			)
 		</p> 
 	<%end %>

@@ -20,6 +20,7 @@ class WelcomeController < ApplicationController
 				@tipo = Tipo.count
 				@grado =Grado.count
 				@estado=Estado.count
+        @tipo_rubros=Trubro.count
 			else
 				
 		end

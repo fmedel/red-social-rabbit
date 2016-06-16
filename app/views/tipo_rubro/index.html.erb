@@ -1,0 +1,26 @@
+  
+<div class="page-header">
+  <h1>Todas los tipo rubros disponible </h1>
+</div>
+
+<div class="resultados_tipo_rubro">
+<% @tipo_rubro.each do |tipo_rubro| %>
+  <div class="tipo_rubro">
+    <hr>
+    <h4>
+      <strong>
+        <%=tipo_rubro.id%>:<%= tipo_rubro.descripcion %>
+      </strong>
+        (
+        <%= link_to 'editar', editar_tipo_rubro_path(tipo_rubro.id) %> 
+        | 
+        <%= link_to 'Destroy', eliminar_tipo_rubro_path(tipo_rubro.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>
+        )
+    </h4>
+    <hr>
+  </div>
+<% end %>
+</div>
+<br>
+<%= link_to 'crear nuevo estado', tipo_rubro_guardar_path %>
+

@@ -1,4 +1,5 @@
 =README
+crear public/archivos
 especificaciones:
 
 * Ruby version 2.2.3

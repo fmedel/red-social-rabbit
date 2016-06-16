@@ -1,4 +1,7 @@
 
+Trubro.create(descripcion: "biotecnologia")
+Trubro.create(descripcion: "computacion")
+Trubro.create(descripcion: "informatica")
 #################################################################################################################################
 Tipo.create(descripcion: 'normal')
 Tipo.create(descripcion: 'moderador')

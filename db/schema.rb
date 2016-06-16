@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616031241) do
+ActiveRecord::Schema.define(version: 20160616220009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,23 @@ ActiveRecord::Schema.define(version: 20160616031241) do
   add_index "postulars", ["idea_id"], name: "index_postulars_on_idea_id", using: :btree
   add_index "postulars", ["user_id"], name: "index_postulars_on_user_id", using: :btree
 
+  create_table "rubros", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "trubro_id"
+  end
+
+  add_index "rubros", ["trubro_id"], name: "index_rubros_on_trubro_id", using: :btree
+  add_index "rubros", ["user_id"], name: "index_rubros_on_user_id", using: :btree
+
   create_table "tipos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "trubros", force: :cascade do |t|
     t.string   "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -148,6 +164,8 @@ ActiveRecord::Schema.define(version: 20160616031241) do
   add_foreign_key "mensajes", "users"
   add_foreign_key "postulars", "ideas"
   add_foreign_key "postulars", "users"
+  add_foreign_key "rubros", "trubros"
+  add_foreign_key "rubros", "users"
   add_foreign_key "users", "grados"
   add_foreign_key "users", "tipos"
 end

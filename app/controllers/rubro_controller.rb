@@ -1,0 +1,2 @@
+class RubroController < ApplicationController
+end

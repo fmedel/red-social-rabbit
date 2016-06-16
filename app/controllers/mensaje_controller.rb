@@ -49,13 +49,17 @@ private
    def mensaje_filtro
       if  user_signed_in?
       	@aquirido =Aquirido.where("idea_id=?",params["idea"])
-      	@aquirido.each do |aquirido|
-      		if ((aquirido.user_id==@current_user.id )or (aquirido.idea.user_id==@current_user.id))
-      			
-	      	else
-	      		redirect_to inicio_path, alert: 'Acceso denegado'
-	      	end
-      	end
+        if @aquirido.blank?
+            redirect_to inicio_path, alert: 'Acceso denegado'
+        else
+          @aquirido.each do |aquirido|
+          if ((aquirido.user_id==@current_user.id )or (aquirido.idea.user_id==@current_user.id))
+            
+          else
+            redirect_to inicio_path, alert: 'Acceso denegado'
+          end
+        end
+        end
       else
          redirect_to registrar_path, alert: 'Primero debe estar registrado'
       end 

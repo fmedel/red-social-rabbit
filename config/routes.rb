@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+    get 'tipo_rubro(.:format)', to: 'tipo_rubro#index', as: :tipo_rubro
+    get 'tipo_rubro_guardar(.:format)', to: 'tipo_rubro#new' , as: :tipo_rubro_guardar
+    post 'tipo_rubro_guardar(.:format)', to: 'tipo_rubro#create' , as: :tipo_rubro_guardar_ok
+    get 'tipo_rubro/:id/editar(.:format)', to: 'tipo_rubro#edit' , as: :editar_tipo_rubro  
+    patch 'ver_tipo_rubro/:id(.:format)', to: 'tipo_rubro#update' 
+    put 'ver_tipo_rubro/:id(.:format)', to: 'tipo_rubro#update'
+    get 'ver_tipo_rubro/:id(.:format)', to: 'tipo_rubro#show' , as: :ver_tipo_rubro 
+    delete 'ver_tipo_rubro/:id(.:format)', to: 'tipo_rubro#destroy' , as: :eliminar_tipo_rubro
+##############################################################
               #todo lo relacionado con los mensaje controler mensaje 
     get 'mensaje/:idea(.:format)', to: 'mensaje#index', as: :mensaje
     get 'mensaje_guardar/:idea(.:format)', to: 'mensaje#new' , as: :mensaje_guardar
