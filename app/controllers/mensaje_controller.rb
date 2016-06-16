@@ -20,16 +20,19 @@ end
 
 def create
     if  user_signed_in?
-      @user_id=Idea.find(params["idea"])
+      @aquirido=Aquirido.where("idea_id=?",params["idea"])
       @datos=params[:mensaje][:mensaje]
-      if @current_user.id==@user_id.id
-      	@visto_duenio=true
-      	@visto_destinatario=false
-      else
-      	@visto_duenio=false
-      	@visto_destinatario=true
+      @aquirido.each do |aquirido|
+        @user_id=aquirido.user_id
+        if @current_user.id==aquirido.user_id
+        	@visto_duenio=false
+          @visto_destinatario=true
+        else
+          @visto_duenio=true
+          @visto_destinatario=false
+        end
       end
-      @mensaje2 = Mensaje.new(user_id: @user_id.id , idea_id: params["idea"] , mensaje: @datos ,visto_duenio: @visto_duenio, visto_destinatario: @visto_destinatario )
+      @mensaje2 = Mensaje.new(user_id: @user_id, idea_id: params["idea"] , mensaje: @datos ,visto_duenio: @visto_duenio, visto_destinatario: @visto_destinatario )
       respond_to do |format|
       if @mensaje2.save
         format.html { redirect_to mensaje_path(params["idea"]), notice: 'el mensaje fue enviado correctamente' } 

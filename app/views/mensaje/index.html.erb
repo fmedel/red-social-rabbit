@@ -2,22 +2,33 @@
   <h1>Todos los mensajes disponible </h1>
 </div>
 <div class="resultados_mensaje">
+
   <% @mensaje.each do |mensajes| %>
-  <%if mensajes.user_id==@current_user.id%>
-    <%if mensajes.visto_destinatario%>
-      <%@mensajess="mensaje_visto"%>
+    <%if mensajes.user_id==@current_user.id%>
+      <%if mensajes.visto_destinatario%>
+          <%@mensajess="mensaje_visto"%>
+          <%@nombre= @current_user.nombre_completo%>
+      <%else%>
+          <%@mensajess="mensaje_no_visto"%>
+          <%@nombre= mensajes.idea.user.nombre_completo%>
+      <%end%>
     <%else%>
-      <%@mensajess="mensaje_no_visto"%>
-    <%end%>
-  <%else%>
-    <%if mensajes.visto_duenio%>
-      <%@mensajess="mensaje_visto"%>
-    <%else%>
-      <%@mensajess="mensaje_no_visto"%>
-    <%end%>
+      <%if mensajes.visto_duenio%>
+          <%@mensajess="mensaje_visto"%>
+          <%@nombre= @current_user.nombre_completo%>
+      <%else%>
+          <%@mensajess="mensaje_no_visto"%>
+          <%@nombre= mensajes.user.nombre_completo%>
+      <%end%>
   <%end%>
+
     <div class=<%=@mensajess%>> 
       <hr>
+      <div class="nombre_persona">
+        <h6>
+          <%=@nombre%>
+        </h6>
+      </div>
       <h4>
         <strong>
           <%=mensajes.mensaje%>
