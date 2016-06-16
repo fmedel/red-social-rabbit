@@ -19,9 +19,7 @@ class IdeasController < ApplicationController
 
   def mi_ideas
     if  user_signed_in?
-      case params['tipo']
-        when 'activa'
-            @archivos=Array.new()
+      @archivos=Array.new()
             #@archivos = Dir.entries(Ruta_directorio_archivos);
             Dir.foreach(Ruta_directorio_archivos) {|x|
             y= (x).to_s.split('E2R9U3HN9W')
@@ -33,7 +31,8 @@ class IdeasController < ApplicationController
               end
             end
             }
-           
+      case params['tipo']
+        when 'activa'
             @ideas = Idea.where("user_id = ? and estado_id = 1 ",@current_user)
         when 'revision'
            @Postular = Postular.select('"postulars".*,"ideas".id as "id_ideas","ideas".titulo,"ideas".estado_id').joins("FULL OUTER JOIN ideas  ON  ideas.id= postulars.idea_id").where("ideas.user_id = ? and ideas.estado_id = 1 ",@current_user)        

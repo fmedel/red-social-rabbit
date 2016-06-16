@@ -23,9 +23,6 @@
         <strong>Estado:</strong>
         <%= idea.estado.descripcion%>
       </p>
-      <div class="mensaje">
-        <%= link_to "mensaje", mensaje_path(idea.id)%>
-      </div>
       <% if  params['tipo']== 'denunciada'%> 
         <%= link_to 'apelar',  apelar_path(idea.id)%> 
       <%else%>

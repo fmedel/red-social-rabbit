@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>Todas mis ideas  <%= params['tipo'] %> </h1>
 </div>
-
+ 
 <div class="resultados_idea">
   <% @ideas.each do |idea| %>
     <div class="ideas">
@@ -22,12 +22,20 @@
       </p>
       <p>
         <strong>Estado:</strong>
-        <%=idea.id%>
         <%= idea.estado.descripcion%> : 
         <%@aquiridos=Aquirido.where("idea_id = ?",idea.id )%>
         <% @aquiridos.each do |aquiridos| %>
           <%= link_to aquiridos.user.nombre_completo , perfil_path(aquiridos.user_id)%>  
         <%end %>
+        <div class="mensaje">
+          <%= link_to "mensaje", mensaje_path(idea.id)%>
+        </div>
+        <div class="archivo">
+          <hr>
+          <% @datos=idea.id%> 
+          <%= render "listar_archivos"%>
+          <hr>
+        </div>
       </p>
     <hr>
     </div>
