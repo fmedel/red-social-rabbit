@@ -3,6 +3,6 @@ class Idea < ActiveRecord::Base
 	belongs_to :user# modelo a que pertenece
 	belongs_to :estado
 	has_many :denuncia #tiene muchos 
-	
+	has_many :aquirido
 end
  

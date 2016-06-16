@@ -1,0 +1,20 @@
+<div class="formulario">
+  <%= simple_form_for(@mensaje2, url: mensaje_guardar_ok_path(idea: params["idea"]), html: {class: "form-inline"}) do |f| %>
+    <% if @mensaje2.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@mensaje2.errors.count, "error") %> prohibited this mensaje from being saved:</h2>
+        <ul>
+        <% @mensaje2.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group has-success has-feedback">
+      <div class="field">
+        <%= f.input_field :mensaje ,placeholder: ''%>
+        <%= f.button :submit  ,'enviar'%>
+      </div>
+    </div>
+  <% end %>
+</div>

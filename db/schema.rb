@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611230717) do
+ActiveRecord::Schema.define(version: 20160616031241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,19 @@ ActiveRecord::Schema.define(version: 20160611230717) do
   add_index "ideas", ["estado_id"], name: "index_ideas_on_estado_id", using: :btree
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
 
+  create_table "mensajes", force: :cascade do |t|
+    t.text     "mensaje"
+    t.boolean  "visto_duenio"
+    t.boolean  "visto_destinatario"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.integer  "idea_id"
+  end
+
+  add_index "mensajes", ["idea_id"], name: "index_mensajes_on_idea_id", using: :btree
+  add_index "mensajes", ["user_id"], name: "index_mensajes_on_user_id", using: :btree
+
   create_table "postulars", force: :cascade do |t|
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -131,6 +144,8 @@ ActiveRecord::Schema.define(version: 20160611230717) do
   add_foreign_key "denuncia", "ideas"
   add_foreign_key "denuncia", "users"
   add_foreign_key "ideas", "estados"
+  add_foreign_key "mensajes", "ideas"
+  add_foreign_key "mensajes", "users"
   add_foreign_key "postulars", "ideas"
   add_foreign_key "postulars", "users"
   add_foreign_key "users", "grados"
