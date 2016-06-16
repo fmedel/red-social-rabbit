@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Todas mis aquiridos</h1>
+</div>
+ 
+<div class="resultados_aquiridos">
+  <% @aquiridos.each do |aquiridos| %>
+    <div class="aquiridos">
+      <hr>
+      <h4>
+        <strong>
+          <%= aquiridos.idea.user.nombre_completo %>
+        </strong>
+      </h4>
+      <br>
+      <strong>
+        <%= aquiridos.idea.titulo %>
+      </strong>
+      <p>
+        <h6>
+          <%= aquiridos.idea.contenido %>
+        </h6>
+      </p>
+      <p>
+        <div class="mensaje">
+          <%= link_to "mensaje", mensaje_path(aquiridos.idea.id)%>
+        </div>
+        <div class="archivo">
+          <hr>
+          <% @datos=aquiridos.id%> 
+          <%= render "listar_archivos"%>
+          <hr>
+        </div>
+      </p>
+    <hr>
+    </div>
+  <% end %>
+</div>

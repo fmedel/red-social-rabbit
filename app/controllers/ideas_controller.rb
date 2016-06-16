@@ -45,6 +45,8 @@ class IdeasController < ApplicationController
             @ideas = Idea.where("user_id = ? and estado_id = 2 ",@current_user)
         when 'mi_idea_lista'
             @ideas =Idea.where("user_id = ? and estado_id = 6 ", @current_user)
+        when 'adquiridas'
+            @aquiridos=Aquirido.where("user_id= ?", @current_user)
         else
           redirect_to registrar_path
       end
