@@ -92,7 +92,9 @@ Rails.application.routes.draw do
     get 'users/:tipo(.:format)',to: 'users_editar#tipo' , as: :tipo_perfil
     get 'perfil/:perfil(.:format)',to: 'users_editar#index' , as: :perfil
     get 'perfil(.:format)', to: 'welcome#index'
-
+    get 'rubro',to: 'rubro#new', as: :create_rubro
+    post 'rubro',to: 'rubro#create', as: :create_rubro_ok
+    delete 'rubro/:id(.:format)', to: 'rubro#destroy' , as: :eliminar_rubro
 ##############################################################################################################
   devise_for :users 
   devise_scope :user do 

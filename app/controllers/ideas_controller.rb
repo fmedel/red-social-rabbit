@@ -4,6 +4,7 @@ class IdeasController < ApplicationController
   
   Ruta_directorio_archivos = "public/archivos/"; 
 
+ 
   def index
     if  user_signed_in?
       @ideas = Idea.where("user_id != ? and estado_id = 1 ",@current_user)

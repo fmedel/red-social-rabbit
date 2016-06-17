@@ -53,7 +53,7 @@
 			  		.-
 			  		<%=rubros.trubro.descripcion%>
 			  		-->( 
-			  		<%= link_to "cambiar",editar_perfil_path(tipo: "rubros" )%>
+			  		<%= link_to 'Destroy', eliminar_rubro_path(rubros.id), method: :delete, data: { confirm: '¿Estas seguro?' } %>
 			  		)
 			  		<%@array<< rubros.trubro%>
 			  		<%@contador=@contador+1%>

@@ -1,6 +1,7 @@
  
 class UsersEditarController < ApplicationController
   #before_filter :authenticate_user! 
+###########################################################################################################3
    Ruta_directorio_archivos_fotos = "public/fotos/"; 
   def subir_foto_de_perfil
     if  user_signed_in?
@@ -47,6 +48,7 @@ class UsersEditarController < ApplicationController
         @grados= Grado.all
         if params["tipo"]=="rubros"
           @rubros=Rubro.where("user_id= ?", @current_user.id)
+          @Rubro = Rubro.new
         else 
         end
       else 
