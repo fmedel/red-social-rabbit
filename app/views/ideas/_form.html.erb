@@ -12,10 +12,10 @@
     <% end %>
     <div class="form-group has-success has-feedback">
       <div class="field">
-        <%= f.input_field :titulo ,placeholder: 'nombre'%>
+        <%= f.input_field :titulo ,placeholder: 'Titulo de la idea'%>
       </div>
       <div class="field">
-        <%= f.input_field :contenido ,placeholder: 'Descripcion '%>
+        <%= f.input_field :contenido , :size=>"50x10", placeholder: 'Descripcion detallada de la idea ...'%>
       </div>
       <div class="form-actions">
         <%= f.button :submit  ,'Guardar ', url: '?hola'%>

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Todas mis ideas  <%= params['tipo'] %> </h1>
+  <h1>Todas mis ideas  <%= params['tipo'] %></h1>
 </div>
 <div class="resultados_idea">
   <% @ideas.each do |idea| %>
@@ -7,7 +7,7 @@
       <hr>
       <h4>
         <strong>
-          <%= idea.user.nombre_completo %>
+          <%= "Idea denunciada al usuario " + idea.user.nombre_completo %>
         </strong>
       </h4>
       <br>

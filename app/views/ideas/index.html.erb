@@ -22,11 +22,11 @@
       <div class="ideas">
         <p>
           <h4>
-            <strong><%= idea.user.nombre_completo %></strong>
+            <strong><%= "Publicada por el usuario: " + idea.user.nombre_completo %></strong>
           </h4>
           <br>
           <strong><%= idea.titulo %></strong>
-          <h6><%= idea.contenido %></h6>
+          <h5><%= idea.contenido %></h5>
           <div class="link_idea">
             <%if @current_user.tipo_id == 2 or @current_user.tipo_id == 3%>
               <span class="admin">

@@ -1,50 +1,50 @@
 
 <div class="page-header">
   <h1>
-    detalle de la apelacion
+    Detalles de la apelación
   </h1>
 </div>
 
 <div class="denuncias">
   <hr>
   <p>
-    <h1>
-      Datos del  apelacion  
-    </h1>
+    <h2>
+      <u>Datos del  apelación</u>  
+    </h2>
     <strong>
-      <h6> Razon de la apelacion: <%= @apelar.razon%></h6>   
+      <h3><u> Razón de la apelacion: </u><%= @apelar.razon%></h3>   
     </strong>
   </p>
   <p>
-    <h1>datos del user denunciado </h1>
+    <h3> <u>Datos del user denunciado</u> </h3>
     <strong>
-      <h6> nombre commpleto: <%= @apelar.denuncia.razon%></h6>
-      <h6>email: <%= @apelar.denuncia.idea.user.email %></h6>
+      <h5> nombre commpleto: <%= @apelar.denuncia.razon%></h5>
+      <h5>email: <%= @apelar.denuncia.idea.user.email %></h5>
     </strong>
   </p>
   <p>
-    <h1>datos del user denunciante </h1>
+    <h3> <u>Datos del user denunciante</u> </h3>
     <strong>
       <h6> nombre commpleto: <%= @apelar.denuncia.user.nombre_completo %></h6>
       <h6>email: <%= @apelar.denuncia.user.email %></h6>
     </strong>
   </p>
   <p>
-    <h1>Razon de la denuncia </h1>
+    <h3> <u>Razon de la denuncia</u> </h3>
     <strong>
-      <h6><%= @apelar.denuncia.razon %></h6>
+      <h5><%= @apelar.denuncia.razon %></h5>
     </strong>
   </p>
   <p>
-    <h1>estado de la idea  denunciada </h1>
+    <h3> <u>Estado de la idea  denunciada</u> </h3>
     <strong>
-      <h6><%= @apelar.denuncia.idea.estado.descripcion %></h6>
+      <h5><%= @apelar.denuncia.idea.estado.descripcion %></h5>
     </strong>
   </p>
   <p>
-    <h1>datos de la empresa  </h1>
+    <h3> <u>Datos de la empresa</u> </h3>
     <strong>
-      <h6><%= @apelar.denuncia.user.grado.descripcion %></h6>
+      <h5><%= @apelar.denuncia.user.grado.descripcion %></h5>
     </strong>
   </p> 
   <div class="link_apelacion">

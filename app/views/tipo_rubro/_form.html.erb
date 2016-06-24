@@ -12,7 +12,7 @@
     <% end %>
     <div class="form-group has-success has-feedback">
       <div class="field">
-        <%= f.input_field :descripcion ,placeholder: 'aqui va la descripcion que quiere dar '%>
+        <%= f.input_field :descripcion , :size=>"50x10", placeholder: 'Aqui va la descripcion que se quiere dar '%>
       </div>
       <div class="form-actions">
         <%= f.button :submit  ,'Guardar ', url: '?hola'%>

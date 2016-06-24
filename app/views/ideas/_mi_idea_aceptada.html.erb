@@ -1,14 +1,13 @@
 <div class="page-header">
   <h1>Todas mis ideas  <%= params['tipo'] %> </h1>
 </div>
- 
 <div class="resultados_idea">
   <% @ideas.each do |idea| %>
     <div class="ideas">
       <hr>
       <h4>
         <strong>
-          <%= idea.user.nombre_completo %>
+          <%= "Creador de la idea :" + idea.user.nombre_completo %>
         </strong>
       </h4>
       <br>
@@ -22,13 +21,13 @@
       </p>
       <p>
         <strong>Estado:</strong>
-        <%= idea.estado.descripcion%> : 
+        <%= idea.estado.descripcion%> por el usuario
         <%@aquiridos=Aquirido.where("idea_id = ?",idea.id )%>
         <% @aquiridos.each do |aquiridos| %>
           <%= link_to aquiridos.user.nombre_completo , perfil_path(aquiridos.user_id)%>  
         <%end %>
         <div class="mensaje">
-          <%= link_to "mensaje", mensaje_path(idea.id)%>
+          <%= link_to "Mensajeria con el usuario", mensaje_path(idea.id)%>
         </div>
         <div class="archivo">
           <hr>

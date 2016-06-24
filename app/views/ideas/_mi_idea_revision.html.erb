@@ -10,7 +10,7 @@
         <% if @titulo_idea != postulacion.titulo %>
           <hr>
           <p> 
-            titulo de la idea :
+            Titulo de la idea :
             <%= postulacion.titulo  %>
           </p>
         <%else%>
@@ -21,10 +21,10 @@
           <br>    
         <%end%>
       <p>
-        oferta :
+        Oferta ofrecida por la idea:
         <%= postulacion.oferta %>
       <br>
-        de :
+        Oferta ofrecida por :
         <%= link_to postulacion.user.nombre_completo , perfil_path(postulacion.user_id)%>
       </p>
       <div class="link">
