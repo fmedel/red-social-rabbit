@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+###################################################3333333    
+    get 'privacy',to: 'legal#privacy', as: :privacy
+    get 'terms',to: 'legal#terms',  as: :terms
+################################################################################################3
 
     get 'tipo_rubro(.:format)', to: 'tipo_rubro#index', as: :tipo_rubro
     get 'tipo_rubro_guardar(.:format)', to: 'tipo_rubro#new' , as: :tipo_rubro_guardar

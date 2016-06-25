@@ -12,7 +12,7 @@
             <%= f.input :password, autocomplete: "off", label: "Contraseña"  %>
           <% if devise_mapping.rememberable? -%>
             <div>
-              <%= f.input :remember_me,  inline_label: 'Recordar usuario y contraseña' ,as: :boolean %>
+              <%= f.input_field :remember_me,  inline_label: 'Recordar usuario y contraseña' ,as: :boolean %>
             </div>
           <% end -%>
           <div class="actions">

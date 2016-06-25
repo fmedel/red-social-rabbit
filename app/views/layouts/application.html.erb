@@ -7,17 +7,54 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <div class="navegacion">
-    <%=render 'layouts/navegacion' %>
-  </div>
-  <div class="mensaje">
-    <%= render 'layouts/mensajes'%>
-  </div>
-  <div class="container">
-    <%= yield %>
-  </div>
-  <div class="pie_de_pagina"> 
+    <div class="container">
+      <div class="row">
+        <div class="navegacion">
+          <div class="col-md-12"> 
+             <%=render 'layouts/navegacion' %>
+          </div>
+        </div>
 
+        <div class="mensaje">
+          <div class="col-md-12"> 
+            <%= render 'layouts/mensajes'%>
+          </div>
+        </div>
+       <%  if  user_signed_in? %>
+       <div class="barra_de_informacio">
+          <div class="col-md-2"> 
+           
+          </div>
+        </div>
+
+        <div class="principal">
+          <div class="col-md-8"> 
+            <%= yield %>
+          </div>
+        </div>
+
+        <div class="barra_de_publicidad">
+          <div class="col-md-2"> 
+           
+          </div>
+        </div>
+      <%else%>
+      <div class="principal">
+          <div class="col-md-12"> 
+            <%= yield %>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    <div class="row">
+     <div class="pie_de_pagina"> 
+        <div class="col-md-12">
+            
+            <%=render "layouts/pie"%>
+        </div>
+      </div>
+    </div>
   </div>
+
   </body>
 </html>
