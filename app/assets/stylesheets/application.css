@@ -13,4 +13,7 @@
  *= require_tree .
  *= require_self
  */
-body { padding-top: 70px; }
+body { 
+	padding-top: 70px;
+	background: #E8E8F4;
+}

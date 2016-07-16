@@ -1,29 +1,35 @@
 
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-7">
-    <div class="col-md-2"></div>
-    <div class="col-md-7">
-      <div class="span4">
-        <%= simple_form_for(resource, as: resource_name, url: login_error_path, html: {class:"well"}) do |f| %>
-        <fieldset>
-          <legend>Iniciar Sesión</legend>   
-            <%= f.input :email, autofocus: true , label: "Email de la empresa" %>
-            <%= f.input :password, autocomplete: "off", label: "Contraseña"  %>
-          <% if devise_mapping.rememberable? -%>
-            <div>
-              <%= f.input_field :remember_me,  inline_label: 'Recordar usuario y contraseña' ,as: :boolean %>
-            </div>
-          <% end -%>
-          <div class="actions">
-          <br>
-            <%= f.button :submit ,"Iniciar Sesión" %>
-          </div>
-        </fieldset>
-        <% end %>
-      <%= render "users/shared/links" %>
-      </div>
-      <div class="col-md-2"></div>
+<%= render 'style' %>
+ <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" arial-hidden="true">
+          x
+      </button>
+      Error en el usuario o clave
     </div>
-  <div class="col-md-2"></div>
+<%if params["ok"]%>
+  <div class="container">
+  <div class="col-md-10">
+    <div id= "formulario" class="formulario_login"> 
+      <%= render 'form'%>
+    </div>
+  </div>
 </div>
+<%else%>
+<div class="container">
+  <div class="col-md-6">
+    <div class="inicio_video">
+      <h1>¿Que es Red Rabbit Network?</h1>
+      <div class="embed-container">
+        <iframe width="540" height="315" src="//www.youtube.com/embed/5btxwkHGr_A" frameborder="0" allowfullscreen></iframe>  
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id= "formulario" class="formulario_login"> 
+      <%= render 'login'%>
+    </div>
+  </div>
+</div>
+
+<%end%>
+

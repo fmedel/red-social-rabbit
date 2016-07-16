@@ -1,0 +1,33 @@
+<div id=datos>
+  <div class="container">
+    <div class="col-md-5">
+
+    <%= simple_form_for(resource, as: resource_name, url: login_error_path) do |f| %>
+    <%= f.error_notification %>
+              <h1>Iniciar Sesión</h1>   
+                <%= f.input :email, autofocus: true , label: "Email de la empresa" %>
+                <%= f.input :password, autocomplete: "off", label: "Contraseña"  %>
+              <% if devise_mapping.rememberable? -%>
+                <div>
+                  <%= f.input_field :remember_me,  inline_label: 'Recordar usuario y contraseña' ,as: :boolean %>
+                </div>
+              <% end -%>
+              <div class="actions">
+              <br>
+                <%= f.button :submit ,"Iniciar Sesión" , class: "botones"%>
+              </div>
+    <% end %>
+
+    </div>
+
+    <div class="col-md-1">
+            <div class="texto_vertical">
+              <h2>
+                <a href="/registrar?ok=#">
+                  R<br>E<br>G<br>I<br>S<br>T<br>A<br>R
+                </a>
+              </h2>
+            </div>
+    </div>
+  </div>
+</div>
