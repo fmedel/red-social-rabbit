@@ -1,20 +1,13 @@
-
+<%=render "layouts/mensajes"%>
 <%= render 'style' %>
-<%if params["ok"]%>
-	<div class="container">
-	<div class="col-md-10">
-		<div id= "formulario" class="formulario_login">	
-			<%= render 'form'%>
-		</div>
-	</div>
-</div>
-<%else%>
+<%= render 'jquery'%>
+
 <div class="container">
 	<div class="col-md-6">
 		<div class="inicio_video">
 			<h1>¿Que es Red Rabbit Network?</h1>
 			<div class="embed-container">
-				<iframe width="540" height="315" src="//www.youtube.com/embed/5btxwkHGr_A" frameborder="0" allowfullscreen></iframe>  
+				<iframe width="540" height="315" src="//www.youtube.com/embed/FWr-OeDJp4I" frameborder="0" allowfullscreen></iframe>  
 			</div>
 		</div>
 	</div>
@@ -24,6 +17,3 @@
 		</div>
 	</div>
 </div>
-
-<%end%>
-

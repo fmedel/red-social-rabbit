@@ -1,0 +1,43 @@
+<h1 id="new_user">Registrar Usuario</h1>
+<fieldset>
+          <div class="formulario">
+             <%= simple_form_for(@user, url: crear_user_ok_path()) do |f| %>
+                  <div class="form-horizontal">
+                    <div class="col-md-6">
+                    <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabbit@xxx.xxx',error_html: {  class: "no_esta"}  %>
+                    <%= f.input :password,label: 'Password', required: true ,placeholder: 'Contraseña' %>
+                    <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'Ingresar contraseña nuevamente'%>
+                    <%= f.input  :nombre_empresa,label: 'Nombre de la empresa', required: true,placeholder: 'Nombre de la empresa' %>
+                    <%= f.input  :rut_empresa,label: 'Rut de la empresa', required: true,placeholder: 'Rut de la empresa' %>
+                    </div>
+                    </div>
+                    <div class="form-horizontal">
+                      <div class="col-md-6">
+                      <%= f.input  :email_persona,label: 'Email de la persona', required: true,placeholder: 'Email de la persona' %>
+                      <%= f.input  :apellidos_persona,label: 'Apellidos de la persona', required: true,placeholder: 'Apellidos de la persona' %>
+                      <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'Nombres de la persona' %>
+                      <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'Rut de la persona' %>
+                      </div>
+                    </div>
+                    <div class="form-horizontal">
+                    <% @grado=Grado.all %>
+                    <%= f.input :grado_id,:collection => @grado,:label_method => :descripcion,:value_method => :id,:label => "tipo de empresa" ,:include_blank => false %> 
+                    </div>
+                  <div class="form-actions">
+                    <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" , id: "bEnviar" %>
+                  </div>
+                <% end %>
+          </div>
+</fieldset>
+<div class="foto_registro">
+<%=image_tag("conejito2.jpg",size:"250x250")%>
+</div>
+<div class="formatos_formulario_registro">
+  <span id="email_formulariol"> formato  <br> Email<br>xxx@xxx.xx </span>
+  <span id="password_formulariol">formato <br> Alfanumerico<br> 8 a 16 caracteres</span>
+  <span id="nombre_formulariol"> formato<br> solo letras <br> 3 a 16 caracteres</span>
+  <span id="rut_formulariol">formato<br> solo numero <br> 3 a 16 caracteres</span>
+</div>
+<style type="text/css">
+  span{color:red;}
+</style>

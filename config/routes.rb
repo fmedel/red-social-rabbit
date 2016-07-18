@@ -99,6 +99,8 @@ Rails.application.routes.draw do
     get 'rubro',to: 'rubro#new', as: :create_rubro
     post 'rubro',to: 'rubro#create', as: :create_rubro_ok
     delete 'rubro/:id(.:format)', to: 'rubro#destroy' , as: :eliminar_rubro
+    get 'registrar_user', to: 'users_editar#new', as: :crear_user
+    post 'registrar_user', to: 'users_editar#create', as: :crear_user_ok
 ##############################################################################################################
   devise_for :users 
   devise_scope :user do 

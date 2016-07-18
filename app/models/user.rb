@@ -16,16 +16,16 @@ class User < ActiveRecord::Base
   has_many :mensaje
   has_many :rubro
 
-   validates  :nombre_empresa, presence: true , length: { minimum: 3 } , uniqueness: true
-   validates  :email, presence: true , length: { minimum: 3} 
-   validates  :rut_empresa, presence: true , length: { minimum:3} , uniqueness: true , numericality: true
-   validates  :nombres_persona, presence: true , length: { minimum: 3}
-   validates  :apellidos_persona, presence: true, length: { minimum: 3}
-   validates  :rut_persona, presence: true , length: { minimum: 3 } , uniqueness: true , numericality: true
-   validates  :email_persona, presence: true , length: { minimum: 3}
-   #validates  :password, length: { minimum: 8} , confirmation: true
-   #validates  :password_confirmation , length: { minimum: 8}, presence: true
-   validates  :grado_id, presence: true, numericality: true 
+   validates  :nombre_empresa, presence:  { message: "No puede estar en blanco" } , length: { minimum: 3 } , uniqueness: {message: "no puedes registrar "} 
+   validates :email, presence: true , length: { minimum: 3} 
+   validates  :rut_empresa,length: { minimum: 3 ,  maximum: 9 , :too_long => "Es muy largo el rut", :too_short => "Es muy corto el rut"} , uniqueness: {message: "ya se encuentra segistrado "}  , numericality: true
+   validates  :nombres_persona, presence:  { message: "No puede estar en blanco" } , length: { minimum: 3}
+   validates  :apellidos_persona, presence:  { message: "No puede estar en blanco" }, length: { minimum: 3}
+   validates  :rut_persona,length: { minimum: 3 ,  maximum: 9 , :too_long => "Es muy largo el rut", :too_short => "Es muy corto el rut"} , uniqueness: {message: "ya se encuentra segistrado "}  , numericality: true
+   validates  :email_persona, presence:  { message: "No puede estar en blanco" } , length: { minimum: 3}
+   #validates  :password, length: { minimum: 8 ,  maximum: 24 , :too_long => "Es muy largo ", :too_short => "Es muy corto "} , confirmation: true, presence:  { message: "No puede estar en blanco" }
+   #validates  :password_confirmation , confirmation: true, presence:  { message: "No puede estar en blanco" }
+   validates  :grado_id, presence:  { message: "No puede estar en blanco" }, numericality: true 
 
    #validates  :termino_de_uso, acceptance: { accept: 'yes'}
      ##################################

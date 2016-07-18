@@ -102,6 +102,28 @@ class UsersEditarController < ApplicationController
   def sing_up
     redirect_to registrar_path, alert: 'acceso denegado'
   end 
+  def new
+      @user = User.new
+  end
+  def create
+      @user = User.new(
+        tipo_id: 1 ,
+        nombre_empresa: params['user']['nombre_empresa']  ,
+        rut_empresa: params['user']['rut_empresa'] ,
+        email_persona:  params['user']['email_persona'] ,
+        apellidos_persona:  params['user']['apellidos_persona'],
+        nombres_persona:params['user']['nombres_persona'] ,
+        rut_persona: params['user']['rut_persona'],
+        grado_id: params['user']['grado_id'],
+        email: params['user']['email'] ,
+        password:params['user']['password']
+      )
+      if @user.save
+          redirect_to inicio_path, notice: 'user guardado ccorrectamente ' 
+       else
+         render :new 
+      end
+  end
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.

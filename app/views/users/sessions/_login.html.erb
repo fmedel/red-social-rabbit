@@ -6,7 +6,21 @@
     <%= f.error_notification %>
               <h1>Iniciar Sesión</h1>   
                 <%= f.input :email, autofocus: true , label: "Email de la empresa" %>
-                <%= f.input :password, autocomplete: "off", label: "Contraseña"  %>
+                <div  id="error_email" class="errores">
+                  <span>Error en el formato</span>
+                </div>
+                <div id="formato_email">
+                  <span> formato  <br> Email<br>xxx@xxx.xx
+                  </span>
+                </div>
+                <%= f.input :password, label: "Contraseña"  %>
+                <div  id="error_password" class="errores">
+                  <span>Error en el formato</span>
+                </div>
+                <div id="formato_error">
+                  <span> formato  <br> 6 a 18 caracteres <br>Alfanumericos
+                  </span>
+                </div>
               <% if devise_mapping.rememberable? -%>
                 <div>
                   <%= f.input_field :remember_me,  inline_label: 'Recordar usuario y contraseña' ,as: :boolean %>
@@ -14,7 +28,7 @@
               <% end -%>
               <div class="actions">
               <br>
-                <%= f.button :submit ,"Iniciar Sesión" , class: "botones"%>
+                <%= f.button :submit ,"Iniciar Sesión" ,id: "bEnviar", class: "botones"%>
               </div>
     <% end %>
 
@@ -23,7 +37,7 @@
     <div class="col-md-1">
             <div class="texto_vertical">
               <h2>
-                <a href="/registrar?ok=#">
+                <a href="?ok=#">
                   R<br>E<br>G<br>I<br>S<br>T<br>A<br>R
                 </a>
               </h2>
@@ -31,3 +45,27 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $("#user_email").focus(function(){
+      $("#formato_email").css("display", "block").fadeOut(4000);
+    });
+    $("#user_password").focus(function(){
+      $("#formato_error").css("display", "block").fadeOut(4000);
+    });
+
+    $("#bEnviar").click(function(){
+      var email = $("#user_email").val();
+      var passw = $("#user_password").val();
+      var expre= /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/ ;
+      var expre2 =   /^[a-z0-9_-]{6,18}$/;
+      var formato = expre.test(email);
+      var formato2 = expre2.test(passw);
+      if(email=="" || (formato == false) ){$("#error_email").css("display" ,"block");}else{$("#error_email").css("display" ,"none");}
+      if(passw=="" || (formato2 == false)){$("#error_password").css("display","block");}else{$("#error_password").css("display","none")}
+      if(passw=="" || email=="" || (formato == false) || (formato2 == false)){return false;}
+    });
+  });
+
+</script>
