@@ -4,25 +4,43 @@
              <%= simple_form_for(@user, url: crear_user_ok_path()) do |f| %>
                   <div class="form-horizontal">
                     <div class="col-md-6">
-                    <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabbit@xxx.xxx',error_html: {  class: "no_esta"}  %>
-                    <%= f.input :password,label: 'Password', required: true ,placeholder: 'Contraseña' %>
-                    <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'Ingresar contraseña nuevamente'%>
-                    <%= f.input  :nombre_empresa,label: 'Nombre de la empresa', required: true,placeholder: 'Nombre de la empresa' %>
-                    <%= f.input  :rut_empresa,label: 'Rut de la empresa', required: true,placeholder: 'Rut de la empresa' %>
+                    <%= f.input :email,label: 'Email de la empresa', required: true, autofocus: true ,placeholder: 'RedRabbit@xxx.xxx',error_html: {  id: "isquierda" , class:"span_isquierda"}  %>
+                    <span id="span_isquierda_email" class="span_isquierda">Error en el formato</span>
+
+                    <%= f.input :password,label: 'Password', required: true ,placeholder: 'Contraseña',error_html: {  id: "isquierda" , class:"span_isquierda"} %>
+                    <span id="span_isquierda_passw"class="span_isquierda">Error en el formato</span>
+
+                    <%= f.input :password_confirmation,label: 'password confirmation', required: true,placeholder: 'Ingresar contraseña nuevamente',error_html: {  id: "isquierda" , class:"span_isquierda"}%>
+                    <span id ="span_isquierda_passw2"class="span_isquierda">Error en el formato</span>
+
+                    <%= f.input  :nombre_empresa,label: 'Nombre de la empresa', required: true,placeholder: 'Nombre de la empresa' ,error_html: {  id: "isquierda" , class:"span_isquierda"}%>
+                    <span  id="span_isquierda_nombreE" class="span_isquierda">Error en el formato</span>
+
+                    <%= f.input  :rut_empresa,label: 'Rut de la empresa', required: true,placeholder: 'Rut de la empresa' , error_html: {  id: "isquierda" , class:"span_isquierda"}%>
+                    <span id="span_isquierda_rutE" class="span_isquierda">Error en el formato</span>
+
                     </div>
-                    </div>
-                    <div class="form-horizontal">
+                  </div>
+                  <div class="form-horizontal">
                       <div class="col-md-6">
-                      <%= f.input  :email_persona,label: 'Email de la persona', required: true,placeholder: 'Email de la persona' %>
-                      <%= f.input  :apellidos_persona,label: 'Apellidos de la persona', required: true,placeholder: 'Apellidos de la persona' %>
-                      <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'Nombres de la persona' %>
-                      <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'Rut de la persona' %>
+                      <%= f.input  :email_persona,label: 'Email de la persona', required: true,placeholder: 'Email de la persona' ,error_html: {  id: "derecha" , class:"sapn_derecha"}%>
+                      <span id="span_derecha_email" class="sapn_derecha">Error en el formato</span>
+
+                      <%= f.input  :apellidos_persona,label: 'Apellidos de la persona', required: true,placeholder: 'Apellidos de la persona',error_html: {  id: "derecha" , class:"sapn_derecha"} %>
+                      <span id="span_derecha_nombreA" class="sapn_derecha">Error en el formato</span>
+
+                      <%= f.input  :nombres_persona, label: 'Nombre de la persona',required: true,placeholder: 'Nombres de la persona' ,error_html: {  id: "derecha" , class:"sapn_derecha"}%>
+                      <span  id="span_derecha_nombreP" class="sapn_derecha">Error en el formato</span>
+
+                      <%= f.input  :rut_persona,label: 'Rut de la persona ', required: true,placeholder: 'Rut de la persona' ,error_html: {  id: "derecha" , class:"sapn_derecha"}%>
+                      <span id="span_derecha_rutP" class="sapn_derecha" >Error en el formato</span>
                       </div>
-                    </div>
+                  </div>
                     <div class="form-horizontal">
                     <% @grado=Grado.all %>
                     <%= f.input :grado_id,:collection => @grado,:label_method => :descripcion,:value_method => :id,:label => "tipo de empresa" ,:include_blank => false %> 
                     </div>
+                    <br>
                   <div class="form-actions">
                     <%= f.button :submit, "Guardar", class:"btn btn-success  btn-block active" , id: "bEnviar" %>
                   </div>
@@ -37,6 +55,9 @@
   <span id="password_formulariol">formato <br> Alfanumerico<br> 8 a 16 caracteres</span>
   <span id="nombre_formulariol"> formato<br> solo letras <br> 3 a 16 caracteres</span>
   <span id="rut_formulariol">formato<br> solo numero <br> 3 a 16 caracteres</span>
+</div>
+<div class="alert alert-danger alert-dismissable" id="contr_repetir">
+      La contraseñas no coinciden
 </div>
 <style type="text/css">
   span{color:red;}

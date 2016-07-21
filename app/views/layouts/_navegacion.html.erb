@@ -1,108 +1,110 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <%  if  user_signed_in? %>
-        <%case current_user.tipo_id %>
-        <%when 1 %>
-          <%=link_to "RedRabbit", "/", class:"navbar-brand"  %>
-          <ul class="nav navbar-nav">
-              <li class="active">
-                <%= link_to 'Nueva idea', nueva_idea_path , class:"btn btn-success" %>
-              </li>
-              <li class="active">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle"
-                          data-toggle="dropdown">
-                    mi ideas <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li> 
-                      <%= link_to "activa ",mi_idea_path( tipo: "activa" ), class:"btn btn-info" %> 
-                    </li>
-                    <li>
-                      <%= link_to "denunciada  ",mi_idea_path( tipo: "denunciada" ), class:"btn btn-info" %> 
-                    </li>
-                    <li>
-                      <%= link_to "revision de las postulacion ", mi_idea_path( tipo: "revision" ) , class:"btn btn-info" %> 
-                    </li> 
-                     <li>
-                      <%= link_to "eliminada ", mi_idea_path( tipo: "eliminada" ), class:"btn btn-info" %> 
-                    </li>
-                    <li>
-                      <%= link_to "apelacion ", mi_idea_path( tipo: "apelacion" ), class:"btn btn-info" %> 
-                    </li>
-                    <hr>
-                    <li>
-                      <%= link_to "mi idea lista", mi_idea_path(tipo: "mi_idea_lista"), class: "btn btn-info" %>
-                    </li>
-                    <li>
-                      <%= link_to "adquiridas" , mi_idea_path(tipo: "adquiridas"), class: "btn btn-info"%>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-          </ul>
-          <ul class="nav navbar-nav pull-right"> 
-              <li class="active">          
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle"
-                          data-toggle="dropdown">
-                    Configuracion <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li> 
-                      <%= link_to "Datos de la empresa ",tipo_perfil_path( tipo: "empresa" ), class:"btn btn-info" %> 
-                    </li>
-                    <li>
-                      <%= link_to "Datos del encargado  ",tipo_perfil_path( tipo: "encargado" ), class:"btn btn-info" %> 
-                    </li>
-                    <li>
-                      <%= link_to "Rubros ", tipo_perfil_path( tipo: "rubros" ) , class:"btn btn-info" %> 
-                    </li>
-                     <li>
-                      <%= link_to "Cambio de clave ", editar_perfil_path( tipo: "clave" ), class:"btn btn-info" %> 
-                    </li>
-                    <li>
-                      <%= link_to "Cambiar foto de perfil" , subir_foto_de_perfil_path, class: "btn btn-info"%>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                      <%= link_to "Cerrar Sesión", destruiry_path,  class:"btn btn-danger"  %>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-          </ul>
-        <%when 2%>
-          <%=link_to "RedRabbit", '/', class:"navbar-brand"  %>
-           <ul class="nav navbar-nav">
-              <li class="active">
-              </li>
-          </ul>
-          <ul class="nav navbar-nav pull-right"> 
-              <li class="active">          
-                <%= link_to "Cerrar Sesión", destruiry_path,  class:"btn btn-danger"  %>
-              </li>
-          </ul>
-        <%when 3%>
-          <%=link_to "RedRabbit", inicio_path, class:"navbar-brand"  %>
-          <ul class="nav navbar-nav pull-right"> 
-              <li class="active">          
-                <%= link_to "Cerrar Sesión", destruiry_path,  class:"btn btn-danger"  %>
-              </li>
-          </ul>
-        <%else%>
-          <h1>Error</h1>
-        <%end%>
-      <% else %>
-        <div class="row">
-          <div class="col-md-10">
-           <ul > 
-              <li>
-               <%= link_to "Iniciar Sesión", login_path , class: "btn btn-success   btn-block active"%>
-            </li>
-          </ul>
-          </div>
-        </div>
-      <% end %>
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+   <%  if  user_signed_in? %>
+   <%case current_user.tipo_id %>
+   <%when 1 %>
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%=link_to "Red Rabbit Network", "/", class:"navbar-brand"  %>
     </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Nueva idea', nueva_idea_path %>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi idea<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "denunciada  ",mi_idea_path( tipo: "denunciada" )%></li>
+            <li> <%= link_to "activa ",mi_idea_path( tipo: "activa" )%> </li>
+            <li><%= link_to "revision de las postulacion ", mi_idea_path( tipo: "revision" )%> </li>
+            <li><%= link_to "eliminada ", mi_idea_path( tipo: "eliminada" )%></li>
+            <li><%= link_to "apelacion ", mi_idea_path( tipo: "apelacion" )%> </li>
+            <li class="divider"></li>
+            <li><%= link_to "mi idea lista", mi_idea_path(tipo: "mi_idea_lista")%></li>
+            <li><%= link_to "adquiridas" , mi_idea_path(tipo: "adquiridas")%></li>
+          </ul>
+        </li>
+        <li><%=link_to "Todas las ideas disponible", "/"%></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuraci&oacute;n<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li> <%= link_to "Datos de la empresa ",tipo_perfil_path( tipo: "empresa" ) %> </li>
+            <li><%= link_to "Datos del encargado  ",tipo_perfil_path( tipo: "encargado" ) %> </li>
+            <li><%= link_to "Rubros ", tipo_perfil_path( tipo: "rubros" )  %> </li>
+            <li><%= link_to "Cambio de clave ", editar_perfil_path( tipo: "clave" ) %> </li>
+            <li><%= link_to "Cambiar foto de perfil" , subir_foto_de_perfil_path%></li>
+            <li class="divider"></li>
+            <li><%= link_to "Cerrar Sesión", destruiry_path,  class:"btn btn-danger"  %></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  <%when 2%>
+  <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%=link_to "Red Rabbit Network", "/", class:"navbar-brand"  %>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to "Cerrar Sesión", destruiry_path,  class:"btn btn-danger"  %></li>
+      </ul>
+    </nav>
   </div>
+   
+  <%when 3%>
+  <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%=link_to "Red Rabbit Network", "/", class:"navbar-brand"  %>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to "Cerrar Sesión", destruiry_path,  class:"btn btn-danger"  %></li>
+      </ul>
+    </nav>
+  </div>
+
+  <%end%>
+  <%end%>
+  </div>
+</header>
+
+<style type="text/css">
+.navbar-inverse { background-color: #D10808}
+.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #D10000}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #CF0808}
+.dropdown-menu { background-color: #CF0808}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #4592D4}
+.navbar-inverse { background-image: none; }
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
+.navbar-inverse { border-color: #858585}
+.navbar-inverse .navbar-brand { color: #000000}
+.navbar-inverse .navbar-brand:hover { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFE252}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #FFFFFF}
+.dropdown-menu>li>a { color: #333333}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #FFE252}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #0F17FF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #0F17FF}
+</style>

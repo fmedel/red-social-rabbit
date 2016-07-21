@@ -1,7 +1,10 @@
 
 <script>
   $(document).ready(function(){
-    $('.no_esta').html("ya se encuentra segistrado");
+    $( "#isquierda" ).html("ya se encuentra segistrado")
+    $( "#isquierda" ).css("display","block")
+    $( "#derecha" ).html("ya se encuentra segistrado")
+    $( "#derecha" ).css("display","block")
     $("input").focus(function(){
       $(".formatos_formulario_registro").css("display", "block").fadeOut(3000);
     });
@@ -21,7 +24,7 @@
         $("#nombre_formulariol").css("display","block").fadeOut(2998);
       });
       $("#user_apellidos_persona").focus(function(){
-        $("#nombre_formulariol").css("display","block").fadeOut(2998);
+        $("#nombre_formulariolbackground").css("display","block").fadeOut(2998);
       });
       $("#user_nombres_persona").focus(function(){
         $("#nombre_formulariol").css("display","block").fadeOut(2998);
@@ -63,72 +66,88 @@
       if(email=="" || (formato == false) ){
         $("#error_email").css("display" ,"block");
         $("#user_email").css("background" ,"red");
+        $("#span_isquierda_email").css("display" ,"block");
       }else{
         $("#error_email").css("display" ,"none");
         $("#user_email").css("background" ,"green");
+        $("#span_isquierda_email").css("display" ,"none");
       }
       if(passw=="" || (formato2 == false)){
         $("#error_password").css("display","block");
-         $("#user_password").css("background" ,"red");
+        $("#user_password").css("background" ,"red");
+        $("#span_isquierda_passw").css("display" ,"block");
       }else{
         $("#error_password").css("display","none")
         $("#user_password").css("background" ,"green");
+        $("#span_isquierda_passw").css("display" ,"none");
       }
-      /******************************************************/
       if(email2=="" || (formato3 == false) ){
         $("#error_email").css("display" ,"block");
         $("#user_email_persona").css("background" ,"red");
+        $("#span_derecha_email").css("display" ,"block");
       }else{
         $("#error_email").css("display" ,"none");
         $("#user_email_persona").css("background" ,"green");
+        $("#span_derecha_email").css("display" ,"none");
       }
-
       if(passw2=="" || (formato4 == false)){
         $("#error_password").css("display","block");
-         $("#user_password_confirmation").css("background" ,"red");
+        $("#user_password_confirmation").css("background" ,"red");
+        $("#span_isquierda_passw2").css("display" ,"block");
       }else{
         $("#error_password").css("display","none")
         $("#user_password_confirmation").css("background" ,"green");
+        $("#span_isquierda_passw2").css("display" ,"none");
       }
       if(nombreE=="" || (formato5 == false)){
         $("#error_password").css("display","block");
-         $("#user_nombre_empresa").css("background" ,"red");
+        $("#user_nombre_empresa").css("background" ,"red");
+        $("#span_isquierda_nombreE").css("display" ,"block");
       }else{
         $("#error_password").css("display","none")
         $("#user_nombre_empresa").css("background" ,"green");
+        $("#span_isquierda_nombreE").css("display" ,"none");
       }
       if(nombreP=="" || (formato6 == false)){
         $("#error_password").css("display","block");
-         $("#user_nombres_persona").css("background" ,"red");
+        $("#user_nombres_persona").css("background" ,"red");
+        $("#span_derecha_nombreP").css("display","block");
       }else{
         $("#error_password").css("display","none")
         $("#user_nombres_persona").css("background" ,"green");
+        $("#span_derecha_nombreP").css("display","none");
       }
-      if(nombreA=="" || (formato7 == false)){
+      if(nombreA=="" || (formato7 == false)){ 
         $("#error_password").css("display","block");
-         $("#user_apellidos_persona").css("background" ,"red");
+        $("#user_apellidos_persona").css("background" ,"red");
+        $("#span_derecha_nombreA").css("display","block");
       }else{
         $("#error_password").css("display","none")
         $("#user_apellidos_persona").css("background" ,"green");
+        $("#span_derecha_nombreA").css("display","none");
       }
-       if(rutE=="" || (formato9 == false)){
+      if(rutE=="" || (formato9 == false)){
         $("#error_password").css("display","block");
-         $("#user_rut_empresa").css("background" ,"red");
+        $("#user_rut_empresa").css("background" ,"red");
+        $("#span_isquierda_rutE").css("display" ,"block");
       }else{
         $("#error_password").css("display","none")
         $("#user_rut_empresa").css("background" ,"green");
+         $("#span_isquierda_rutE").css("display" ,"none");
       }
-       if(rutP=="" || (formato8 == false)){
+      if(rutP=="" || (formato8 == false)){
         $("#error_password").css("display","block");
-         $("#user_rut_persona").css("background" ,"red");
+        $("#user_rut_persona").css("background" ,"red");
+        $("#span_derecha_rutP").css("display","block");
       }else{
         $("#error_password").css("display","none")
         $("#user_rut_persona").css("background" ,"green");
+        $("#span_derecha_rutP").css("display","none");
       }
-
+      if((passw!==passw2)){$( "#contr_repetir" ).css("display" ,"block");return false;}else{$( "#contr_repetir" ).css("display" ,"none");}
       if(passw=="" || email=="" || passw2=="" || email2=="" || nombreE=="" || nombreP=="" || nombreA=="" || rutE=="" || rutP==""){return false;}
-      if( (formato == false) || (formato2 == false) || (format3 == false) || (formato4 == false)|| (formato5 == false) || (formato6==false) || (formato7==false)|| (formato8==false)||(formato9==false)){return false;}
+      else if( (formato == false) || (formato2 == false) || (format3 == false) || (formato4 == false)|| (formato5 == false) || (formato6==false) || (formato7==false)|| (formato8==false)||(formato9==false) || (passw!==passw2) ){return false;}
+      
     });
   });
-
 </script>
