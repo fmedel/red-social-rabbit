@@ -19,8 +19,6 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  host: ec2-54-225-243-220.compute-1.amazonaws.com
-
   pool: 5
 
 development:
@@ -31,10 +29,9 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  username: vyqyajsichtsfr
-  port: 5432
+  username: fmedel
   # The password associated with the postgres role (username).
-  password: 9HxzMrs06Dt9MMUef68b3vtFxg 
+  password: polop12 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -82,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: d21lce4rrpmt7v
+  database: redes_production
   username: redes
   password: <%= ENV['REDES_DATABASE_PASSWORD'] %>
